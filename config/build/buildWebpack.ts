@@ -1,3 +1,4 @@
+import TerserPlugin from 'terser-webpack-plugin';
 import type { Configuration } from 'webpack';
 
 import buildDevServer from './buildDevServer';
@@ -6,8 +7,9 @@ import buildPlugins from './buildPlugins';
 import buildResolvers from './buildResolvers';
 import { BuildOptions } from './types/types';
 
-export function buildWebpack(options: BuildOptions): Configuration {
+function buildWebpack(options: BuildOptions): Configuration {
   const isDev = options.mode === 'development';
+  const isProd = options.mode === 'production';
 
   return {
     mode: options.mode ?? 'production',
@@ -26,6 +28,17 @@ export function buildWebpack(options: BuildOptions): Configuration {
     devServer: isDev && buildDevServer(options),
     optimization: {
       runtimeChunk: 'single',
+      minimize: true,
+      minimizer: [
+        isProd && new TerserPlugin({
+          terserOptions: {
+            compress: {
+              drop_console: true,
+            },
+            mangle: true,
+          },
+        }),
+      ],
     },
     performance: {
       hints: false,
@@ -34,3 +47,5 @@ export function buildWebpack(options: BuildOptions): Configuration {
     },
   };
 }
+
+export default buildWebpack;

@@ -4,7 +4,7 @@ import 'webpack-dev-server';
 import path from 'path';
 import webpack from 'webpack';
 
-import { buildWebpack } from './config/build/buildWebpack';
+import buildWebpack from './config/build/buildWebpack';
 import { BuildMode, BuildPath } from './config/build/types/types';
 
 interface EnvVariables {
