@@ -1,0 +1,68 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$green-color: #1b521f;
+$light-color: #f8f9fa;
+$white-color: #ffffff;
+$dark-color: #030304;
+
+// Шрифт
+$font-family-heading: 'Poppins', sans-serif;
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+
+// Адаптация под разные устройства
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+
+// Медиа запросы
+@mixin respond-to($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin container {
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (min-width: #{$breakpoint-xs}) {
+        max-width: 540px;
+    }
+
+    @media (min-width: #{$breakpoint-sm}) {
+        max-width: 720px;
+    }
+
+    @media (min-width: #{$breakpoint-md}) {
+        max-width: 960px;
+    }
+
+    @media (min-width: #{$breakpoint-lg}) {
+        max-width: 1140px;
+    }
+}
+
+@mixin type-adaptiv($type, $initial-size) {
+    #{$type}: $initial-size;
+
+    @media (min-width: #{$breakpoint-xs}) {
+        #{$type}: calc(#{$initial-size} / 1.6);
+    }
+
+    @media (min-width: #{$breakpoint-sm}) {
+        #{$type}: calc(#{$initial-size} / 1.4);
+    }
+
+    @media (min-width: #{$breakpoint-md}) {
+        #{$type}: calc(#{$initial-size} / 1.2);
+    }
+
+    @media (min-width: #{$breakpoint-lg}) {
+        #{$type}: #{$initial-size};
+    }
+}
