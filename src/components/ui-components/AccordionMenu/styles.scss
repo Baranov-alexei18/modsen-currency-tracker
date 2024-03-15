@@ -1,0 +1,56 @@
+@import "../../../assets/style/variables.scss";
+
+.container {
+  width: 100%;
+  @include type-adaptiv('font-size', 32px);
+
+
+  .menu {
+    list-style: none;
+    
+    padding: 10px;
+
+  }
+
+  .menuItem {
+    border-bottom: 1px solid white;
+    margin-bottom: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .submenu {
+    list-style: none;
+    margin: 10px 0 10px 0;
+    font-weight: normal;
+    padding: 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+    li {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    :hover {
+      color: $success-color;
+      transition: color 0.8s ease;
+
+    }
+  }
+
+  .menuItem.open .submenu {
+    max-height: 1000px;
+
+  }
+
+  .arrow {
+    float: right;
+    margin-right: 10px;
+  }
+
+  @media (min-width: #{$breakpoint-sm}) {
+    display: none;
+  }
+}

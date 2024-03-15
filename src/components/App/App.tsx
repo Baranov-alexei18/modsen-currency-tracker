@@ -1,9 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
+import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { Banner } from '../ui-components/Banner/Banner';
-import styles from './style.scss';
+import styles from './styles.scss';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <main className={styles.main}>
         <Banner />
         <Outlet />
+        <Footer />
       </main>
     </>
   );

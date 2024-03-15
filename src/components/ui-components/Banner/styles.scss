@@ -1,54 +1,92 @@
 @import "../../../assets/style/variables.scss";
 
 .banner {
-    height: 400px;
+    @include type-adaptiv('height', 400px);
     background: linear-gradient(45deg,
             $dark-color 0%,
             $green-color 50%,
             $green-color 40%,
             $dark-color 100%);
+    box-sizing: border-box;
     margin: 0px 10px;
 
     .banner_info {
+        width: 100%;
         display: flex;
         align-items: center;
+        box-sizing: content-box;
         justify-content: center;
-        @include type-adaptiv('width', 1000px);
         height: 100%;
         margin: 0 auto;
+
+        .banner_info_wrapper{
+            box-sizing: content-box;
+        }
+        
+        .title {
+            display: inline-flex;
+            flex-direction: column;
+            @include type-adaptiv('width', 700px);
+            background: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: end;
+            margin-right: 50px;
+
+            .title_modsen {
+                @include type-adaptiv('font-size', 76px);
+                font-weight: 600;
+                
+                @media (max-width: #{$breakpoint-sm}) {
+                    @include type-adaptiv('font-size', 60px);
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            .title_tracker {
+                @include type-adaptiv('font-size', 90px);
+                width: 100%;
+                font-weight: 600;
+                margin: 12px 0;
+                
+                @media (max-width: #{$breakpoint-sm}) {
+                    @include type-adaptiv('font-size', 60px);
+                    text-align: center;
+                }
+            }
+            @media (max-width: #{$breakpoint-sm}) {
+                margin: 0 auto;
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        .subtitle {
+            @include type-adaptiv('font-size', 25px);
+            @include type-adaptiv('width', 400px);
+            @include type-adaptiv('line-height', 2.5);
+            font-weight: 300;
+            margin-left: auto;
+            text-align: center;
+            word-wrap: break-word;
+
+            @media (max-width: #{$breakpoint-sm}) {
+                text-align: center;
+                margin: auto auto;
+            }
+        }
+
+        @media (max-width: #{$breakpoint-sm}) {
+            width: 100%;
+        }
     }
 
     .logo {
         @include type-adaptiv('width', 300px);
-    }
 
-    .title {
-        @include type-adaptiv('width', 700px);
-        background: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: end;
-        margin-right: 50px;
-
-        .title_modsen {
-            @include type-adaptiv('font-size', 76px);
-            font-weight: 600;
+        @media (max-width: #{$breakpoint-sm}) {
+            display: none;
         }
-
-        .title_tracker {
-            @include type-adaptiv('font-size', 90px);
-            font-weight: 600;
-            margin: 12px 0;
-        }
-    }
-
-    .subtitle {
-        @include type-adaptiv('font-size', 25px);
-        @include type-adaptiv('width', 400px);
-        font-weight: 300;
-        line-height: 47px;
-        margin-left: auto;
-        text-align: center;
-        word-wrap: break-word;
     }
 }
