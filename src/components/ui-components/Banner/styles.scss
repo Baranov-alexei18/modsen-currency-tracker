@@ -45,6 +45,7 @@
             @include type-adaptiv('font-size', $font-size-xs);
             @include type-adaptiv('width', 400px);
             @include type-adaptiv('line-height', 1.7);
+            color: $light-color;
             font-weight: 300;
             margin-left: auto;
             text-align: center;

@@ -8,8 +8,8 @@ export const TableFooter:React.FC<PropsMenu> = ({ menu }) => (
   <table className={classes.table}>
     <thead>
       <tr>
-        {menu.map(({ menu }) => (
-          <th className={classes.table_head} key={menu}>
+        {menu.map(({ menu, id }) => (
+          <th className={classes.table_head} key={id}>
             <strong>{menu}</strong>
           </th>
         ))}
@@ -17,8 +17,8 @@ export const TableFooter:React.FC<PropsMenu> = ({ menu }) => (
     </thead>
     <tbody>
       <tr>
-        {menu.map(({ submenu }) => (
-          <td className={classes.table_td}>
+        {menu.map(({ submenu, id }) => (
+          <td className={classes.table_td} key={id}>
             {submenu.map((subitem) => (
               <div className={classes.link_wrapper} key={subitem}>
                 <span className={classes.link_placeholder}>{subitem}</span>

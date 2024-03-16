@@ -5,6 +5,8 @@ export const description = 'Since then, the company has grown organically to.Sta
 export const labelTitleCurrency = 'Modsen Currency Tracker';
 export const copyright = 'Startsup © 2023-2024, All Rights Reserved';
 
+export const THEME_DARK = 'dark';
+
 export const menu = [
   {
     id: 1,

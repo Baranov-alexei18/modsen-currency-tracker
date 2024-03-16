@@ -7,45 +7,27 @@
   min-width: 60px;
   height: 34px;
 
-  .switch_label {
-    display: block;
+  .toogle_button {
+    background-color: inherit;
+    border: 1px solid $light-color;
+    border-radius: 90px;
+    width: 50px;
+    height: 30px;
+  }
 
-    input {
-      margin-left: 10px;
-    }
+  .thumb {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border: 1px solid $light-color;
+    border-radius: 90px;
+    transform: translate(0);
+    transition: left 0.2s ease;
+    top: 3px;
+    left: 4px;
+  }
 
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: $dark-color;
-      border: 1px solid $white-color;
-      -webkit-transition: .4s;
-      transition: .4s;
-      border-radius: 34px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 27px;
-      width: 27px;
-      left: 2px;
-      bottom: 2px;
-      background-color: $dark-color;
-      border: 1px solid $white-color;
-      -webkit-transition: .4s;
-      transition: .4s;
-      border-radius: 50%;
-    }
-
-    input:checked+.slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
+  .toogle_button.toogled .thumb {
+    left: calc(50px - 25px)
   }
 }
