@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import App from '@/components/App/App';
+import { App } from '@/components/App/App';
 
 const routerLinks = [
   {

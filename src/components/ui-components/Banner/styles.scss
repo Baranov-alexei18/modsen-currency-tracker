@@ -11,17 +11,12 @@
     margin: 0px 10px;
 
     .banner_info {
-        width: 100%;
+        box-sizing: content-box;
+        height: 100%;
         display: flex;
         align-items: center;
-        box-sizing: content-box;
         justify-content: center;
-        height: 100%;
         margin: 0 auto;
-
-        .banner_info_wrapper {
-            box-sizing: content-box;
-        }
 
         .title {
             display: inline-flex;
@@ -34,59 +29,62 @@
             margin-right: 50px;
 
             .title_modsen {
-                @include type-adaptiv('font-size', 76px);
+                @include type-adaptiv('font-size', $font-size-xxxl);
                 font-weight: 600;
-
-                @media (max-width: #{$breakpoint-sm}) {
-                    @include type-adaptiv('font-size', 60px);
-                    text-align: center;
-                    width: 100%;
-                }
             }
 
             .title_tracker {
-                @include type-adaptiv('font-size', 90px);
+                @include type-adaptiv('font-size', $font-size-xxxxl);
                 width: 100%;
                 font-weight: 600;
                 margin: 12px 0;
-
-                @media (max-width: #{$breakpoint-sm}) {
-                    @include type-adaptiv('font-size', 60px);
-                    text-align: center;
-                }
-            }
-
-            @media (max-width: #{$breakpoint-sm}) {
-                margin: 0 auto;
-                text-align: center;
-                width: 100%;
             }
         }
 
         .subtitle {
-            @include type-adaptiv('font-size', 25px);
+            @include type-adaptiv('font-size', $font-size-xs);
             @include type-adaptiv('width', 400px);
             @include type-adaptiv('line-height', 1.7);
             font-weight: 300;
             margin-left: auto;
             text-align: center;
             word-wrap: break-word;
+        }
 
-            @media (max-width: #{$breakpoint-sm}) {
+        .logo {
+            @include type-adaptiv('width', 300px);
+        }
+    }
+
+    @media (max-width: #{$breakpoint-sm}) {
+        margin: 0;
+        
+        .banner_info {
+            width: 100%;
+
+            .title {
+                margin: 0 auto;
                 text-align: center;
+                width: 100%;
+
+                .title_modsen {
+                    @include type-adaptiv('font-size', $font-size-xxl);
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .title_tracker {
+                    @include type-adaptiv('font-size', $font-size-xxl);
+                    text-align: center;
+                }
+            }
+
+            .subtitle {
                 margin: auto auto;
             }
         }
 
-        @media (max-width: #{$breakpoint-sm}) {
-            width: 100%;
-        }
-    }
-
-    .logo {
-        @include type-adaptiv('width', 300px);
-
-        @media (max-width: #{$breakpoint-sm}) {
+        .logo {
             display: none;
         }
     }

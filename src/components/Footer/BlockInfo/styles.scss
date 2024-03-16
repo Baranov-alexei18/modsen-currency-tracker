@@ -1,0 +1,44 @@
+@import "../../../assets/style/variables.scss";
+
+.block_info {
+  display: block;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+
+    img {
+      width: 40px;
+    }
+
+    span {
+      height: 100%;
+      font-size: 26px;
+      margin-left: 16px;
+      background: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media (max-width: 400px) {
+        font-size: $font-size-xxs;
+      }
+    }
+  }
+
+  .description {
+    @include type-adaptiv('width', 460px);
+    @include type-adaptiv('font-size', $font-size-xs);
+    word-wrap: break-word;
+  }
+
+  @media (max-width: #{$breakpoint-sm}) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .description {
+      display: none;
+    }
+  }
+}

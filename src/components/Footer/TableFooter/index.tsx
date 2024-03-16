@@ -1,32 +1,32 @@
 import React from 'react';
 
-import styles from './styles.scss';
+import { PropsMenu } from '@/types/type';
 
-export function TableFooter({ menu }) {
-  return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          {menu.map(({ menu }) => (
-            <th className={styles.table_head} key={menu}>
-              <strong>{menu}</strong>
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {menu.map((item, index) => (
-            <td className={styles.table_td} key={index}>
-              {item.submenu.map((subitem, subindex) => (
-                <div className={styles.link_wrapper} key={subindex}>
-                  <a href="#" className={styles.link_placeholder}>{subitem}</a>
-                </div>
-              ))}
-            </td>
-          ))}
-        </tr>
-      </tbody>
-    </table>
-  );
-}
+import classes from './styles.scss';
+
+export const TableFooter:React.FC<PropsMenu> = ({ menu }) => (
+  <table className={classes.table}>
+    <thead>
+      <tr>
+        {menu.map(({ menu }) => (
+          <th className={classes.table_head} key={menu}>
+            <strong>{menu}</strong>
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {menu.map(({ submenu }) => (
+          <td className={classes.table_td}>
+            {submenu.map((subitem) => (
+              <div className={classes.link_wrapper} key={subitem}>
+                <span className={classes.link_placeholder}>{subitem}</span>
+              </div>
+            ))}
+          </td>
+        ))}
+      </tr>
+    </tbody>
+  </table>
+);

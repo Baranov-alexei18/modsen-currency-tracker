@@ -5,11 +5,19 @@
     color: $light-color;
     transition: background-color 0.5s ease;
 
+    .switch{
+        border: 1px solid $white-color;
+    }
 }
 
 .theme_light {
     background-color: $light-color;
     color: $dark-color;
     transition: background-color 0.5s ease;
+
+
+    .switch{
+        border: 1px solid $dark-color;
+    }
 
 }

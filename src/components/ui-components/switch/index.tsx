@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import styles from './styles.scss';
 
-export function Switch() {
+export const Switch = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleTheme = () => {
@@ -18,4 +18,4 @@ export function Switch() {
       </label>
     </div>
   );
-}
+};

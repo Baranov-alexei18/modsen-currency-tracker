@@ -1,38 +1,37 @@
 import React, { useState } from 'react';
 
+import { PropsMenu } from '@/types/type';
+
 import { IconArrowDown } from '../Icons/IconArrowDown';
 import { IconArrowUp } from '../Icons/IconArrowUp';
 import styles from './styles.scss';
 
-interface Menu {
-  menu: string;
-  submenu: string[];
-}
-
-export function AccordionMenu({ menu }: Menu) {
+export const AccordionMenu: React.FC<PropsMenu> = ({ menu }) => {
   const [openIndex, setOpenIndex] = useState(null);
-  const theme = 'dark';
-
   const toggleMenu = (index: number) => {
     setOpenIndex((prevIndex: number) => (prevIndex === index ? null : index));
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.accordion_wrapper}>
       <ul className={styles.menu}>
-        {menu.map(({ menu, submenu }, index) => (
+        {menu.map(({ menu, submenu, id }) => (
           <li
-            key={index}
-            className={`${styles.menuItem} ${openIndex === index ? styles.open : ''
-            }`}
-            onClick={() => toggleMenu(index)}
+            role="menuitem"
+            key={id}
+            className={`${styles.menuItem} ${openIndex === id ? styles.open : ''}`}
+            onClick={() => toggleMenu(id)}
+            aria-hidden="true"
           >
-            <span>{menu}</span>
-            <span className={styles.arrow}>
-              {openIndex === index
-                ? <IconArrowUp color="white" width="24px" height="24px" />
-                : <IconArrowDown color="white" width="24px" height="24px" />}
-            </span>
+            <div>
+              <span>{menu}</span>
+              <span className={styles.arrow}>
+                {openIndex === id
+                  ? <IconArrowUp color="white" width="24px" height="24px" />
+                  : <IconArrowDown color="white" width="24px" height="24px" />}
+              </span>
+            </div>
+
             <ul className={styles.submenu}>
               {submenu.map((subitem: string) => (
                 <li key={subitem}>{subitem}</li>
@@ -43,4 +42,4 @@ export function AccordionMenu({ menu }: Menu) {
       </ul>
     </div>
   );
-}
+};
