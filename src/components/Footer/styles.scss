@@ -1,0 +1,121 @@
+@import "@/assets/style/variables.scss";
+
+.footer {
+    
+    .container {
+        @include container;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex: 1 0 auto;
+
+        @media (max-width: #{$breakpoint-sm}) {
+            display: block;
+
+        }
+    }
+
+    .footer_left {
+        display: block;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+
+            img {
+                width: 40px;
+            }
+
+            label {
+                height: 100%;
+                font-size: 26px;
+                margin-left: 16px;
+                background: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                @media (max-width: 400px) {
+                    font-size: 20px;
+                }
+            }
+
+        }
+
+        .description {
+            @include type-adaptiv('width', 460px);
+            @include type-adaptiv('font-size', 24px);
+            word-wrap: break-word;
+
+            @media (max-width: #{$breakpoint-sm}) {
+                display: none;
+            }
+        }
+
+        @media (max-width: #{$breakpoint-sm}) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .footer_right {
+        flex-grow: 1;
+        justify-self: end;
+        justify-content: flex-end;
+
+        @media (max-width: #{$breakpoint-sm}) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .footer_section {
+        margin-right: 20px;
+    }
+
+    .footer_section h3 {
+        margin-bottom: 10px;
+    }
+
+    .footer_section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer_section ul li {
+        margin-bottom: 5px;
+    }
+
+    .footer_section ul li a {
+        color: #333;
+        text-decoration: none;
+    }
+
+
+
+
+    .accordion {
+        cursor: pointer;
+
+        .open ul {
+            display: block;
+        }
+    }
+
+
+
+    .accordion ul {
+        display: none;
+    }
+
+    .copyright {
+        text-align: center;
+
+        p {
+            margin: 0;
+            padding: 16px 0;
+        }
+    }
+}

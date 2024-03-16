@@ -8,10 +8,10 @@ export function Banner() {
   return (
     <div className={styles.banner}>
       <div className={styles.banner_info}>
-        <div>
+        <div className={styles.banner_info_wrapper}>
           <div className={styles.title}>
             <span className={styles.title_modsen}>Modsen Currency</span>
-            <p className={styles.title_tracker}>Tracker</p>
+            <span className={styles.title_tracker}>Tracker</span>
 
           </div>
           <div className={styles.subtitle}>

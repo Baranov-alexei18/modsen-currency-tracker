@@ -5,6 +5,7 @@ $green-color: #1b521f;
 $light-color: #f8f9fa;
 $white-color: #ffffff;
 $dark-color: #030304;
+$linear-green-to-yellow-color: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
 
 // Шрифт
 $font-family-heading: 'Poppins', sans-serif;
@@ -14,6 +15,7 @@ $font-size-md: 18px;
 $font-size-lg: 20px;
 
 // Адаптация под разные устройства
+$breakpoint-min-width: 300px;
 $breakpoint-xs: 576px;
 $breakpoint-sm: 768px;
 $breakpoint-md: 992px;
@@ -50,6 +52,9 @@ $breakpoint-lg: 1200px;
 @mixin type-adaptiv($type, $initial-size) {
     #{$type}: $initial-size;
 
+    @media (min-width: #{$breakpoint-min-width}) {
+        #{$type}: calc(#{$initial-size} / 1.8);
+    }
     @media (min-width: #{$breakpoint-xs}) {
         #{$type}: calc(#{$initial-size} / 1.6);
     }
