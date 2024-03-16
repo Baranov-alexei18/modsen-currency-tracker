@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import logo from '@/assets/img/logo.svg';
+import themes from '@/assets/style/theme.scss';
 
 import { AccordionMenu } from '../ui-components/AccordionMenu';
 import classes from './styles.scss';
@@ -22,13 +23,14 @@ const menu = [
 ];
 
 export function Footer() {
+  const theme = 'dark';
   return (
-    <footer className={classes.footer}>
+    <footer className={`${classes.footer} ${theme === 'dark' ? themes.theme_dark : themes.theme_light}`}>
       <div className={classes.container}>
         <div className={classes.footer_left}>
           <div className={classes.logo}>
             <img src={logo} alt="Company Logo" className={classes.logo} />
-            <label>Modsen Currency Tracker</label>
+            <label role="info">Modsen Currency Tracker</label>
           </div>
           <div className={classes.description}>
             Since then, the company has grown organically to.

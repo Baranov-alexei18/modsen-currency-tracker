@@ -1,9 +1,7 @@
-@import "../../assets/style/variables.scss";
+@import "@/assets/style/variables.scss";
 
 .footer {
-    background-color: $dark-color;
-    color: $light-color;
-
+    
     .container {
         @include container;
         height: 100%;
@@ -36,7 +34,7 @@
                 background: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                
+
                 @media (max-width: 400px) {
                     font-size: 20px;
                 }
@@ -65,6 +63,7 @@
         flex-grow: 1;
         justify-self: end;
         justify-content: flex-end;
+
         @media (max-width: #{$breakpoint-sm}) {
             display: flex;
             align-items: center;

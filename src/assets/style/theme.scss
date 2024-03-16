@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+.theme_dark {
+    background-color: $dark-color;
+    color: $light-color;
+    transition: background-color 0.5s ease;
+
+}
+
+.theme_light {
+    background-color: $light-color;
+    color: $dark-color;
+    transition: background-color 0.5s ease;
+
+}
