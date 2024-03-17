@@ -1,10 +1,9 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface AppState {
-  theme: 'dark' | 'light';
-}
+import { ThemeState, ThemesType } from '@/types/type';
 
-const initialState: AppState = {
+const initialState: ThemeState = {
   theme: 'dark',
 };
 
@@ -12,7 +11,7 @@ const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setTheme(state, action: PayloadAction<'dark' | 'light'>) {
+    setTheme(state, action: PayloadAction<ThemesType>) {
       state.theme = action.payload;
     },
   },

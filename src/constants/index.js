@@ -6,6 +6,7 @@ export const labelTitleCurrency = 'Modsen Currency Tracker';
 export const copyright = 'Startsup © 2023-2024, All Rights Reserved';
 
 export const THEME_DARK = 'dark';
+export const THEME_LIGHT = 'light';
 
 export const menu = [
   {
@@ -22,5 +23,28 @@ export const menu = [
     id: 3,
     menu: 'Community',
     submenu: ['Ideas', 'Streams'],
+  },
+];
+
+export const routerLinks = [
+  {
+    id: 1,
+    path: '/',
+    name: 'Home',
+  },
+  {
+    id: 2,
+    path: '/timeline',
+    name: 'Timeline',
+  },
+  {
+    id: 3,
+    path: '/bank-card',
+    name: 'Bank card',
+  },
+  {
+    id: 4,
+    path: '/contact',
+    name: 'Contact',
   },
 ];

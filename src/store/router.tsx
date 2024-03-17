@@ -3,30 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { App } from '@/components/App/App';
 
-const routerLinks = [
-  {
-    id: 1,
-    path: '/',
-    name: 'Home',
-  },
-  {
-    id: 2,
-    path: '/timeline',
-    name: 'Timeline',
-  },
-  {
-    id: 3,
-    path: '/bank-card',
-    name: 'Bank card',
-  },
-  {
-    id: 4,
-    path: '/contact',
-    name: 'Contact',
-  },
-];
-
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
@@ -46,5 +23,3 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-export { router, routerLinks };
