@@ -36,8 +36,8 @@ export const Header = () => {
           <Switch theme={theme} />
         </div>
         <div className={classes.sidebar}>
-          <BurgerMenu height="40px" width="40px" color="white" onOpen={toggleSidebar} />
-          <SideBar open={isOpen} setCloseSideBar={closeSidebar} />
+          <BurgerMenu height="30px" width="30px" color="white" onOpen={toggleSidebar} />
+          <SideBar open={isOpen} setCloseSideBar={() => closeSidebar()} />
         </div>
       </div>
     </header>

@@ -1,39 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import themes from '@/assets/style/theme.scss';
+import { useOutsideClick } from '@/components/hooks/useOutsideClick';
 import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
+import { SideBarType } from '@/types/type';
 
 import { Navbar } from '../Navbar';
 import { Switch } from '../Switch';
 import styles from './styles.scss';
 
-interface SideBar {
-  open: boolean;
-  setCloseSideBar: () => void
-}
-
-function useOutsideClick(elementRef, handler, attached = true) {
-  useEffect(() => {
-    if (!attached) return;
-
-    const handleCloseSidebar = (event) => {
-      if (!elementRef.current) return;
-
-      if (!elementRef.current.contains(event.target)) {
-        handler();
-      }
-    };
-    document.addEventListener('click', handleCloseSidebar, true);
-
-    return () => {
-      document.removeEventListener('click', handleCloseSidebar, true);
-    };
-  }, [elementRef, handler, attached]);
-}
-
-export const SideBar: React.FC<SideBar> = ({ open, setCloseSideBar }) => {
+export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
   const theme = useSelector((state: RootState) => state.app.theme);
 
   const sidebarRef = useRef();
@@ -43,14 +20,13 @@ export const SideBar: React.FC<SideBar> = ({ open, setCloseSideBar }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`${styles.sidebar} ${open ? styles.open : ''} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}
-      aria-hidden
+      className={`${styles.sidebar} ${open ? styles.open : ''} ${theme === THEME_DARK ? styles.dark : styles.light}`}
     >
 
-      <div className={styles.header_sidebar} aria-hidden onClick={(event) => event.stopPropagation()}>
+      <div className={styles.header_sidebar}>
         <Switch theme={theme} />
       </div>
-      <Navbar />
+      <Navbar toggleCloseSidebar={setCloseSideBar} />
     </div>
   );
 };
