@@ -2,12 +2,6 @@
 
 .banner {
     @include type-adaptiv('height', 400px);
-    background: linear-gradient(45deg,
-            $dark-color 0%,
-            $green-color 50%,
-            $green-color 40%,
-            $dark-color 100%);
-    box-sizing: border-box;
     margin: 0px 10px;
 
     .banner_info {
@@ -59,7 +53,7 @@
 
     @media (max-width: #{$breakpoint-sm}) {
         margin: 0;
-        
+
         .banner_info {
             width: 100%;
 
@@ -89,4 +83,20 @@
             display: none;
         }
     }
+}
+
+.light {
+    background: linear-gradient(45deg,
+            $light-color 2%,
+            $green-color 40%,
+            $green-color 60%,
+            $light-color 99%);
+}
+
+.dark {
+    background: linear-gradient(45deg,
+            $dark-color 1%,
+            $green-color 50%,
+            $green-color 40%,
+            $dark-color 99%);
 }

@@ -1,22 +1,20 @@
 @import './variables.scss';
 
-.theme_dark {
-    background-color: $dark-color;
-    color: $light-color;
-    transition: background-color 0.5s ease;
+@mixin themes($backgroundColor, $color ) {
+    background-color:$backgroundColor;
+    color: $color;
 
-    .switch {
-        border: 1px solid $white-color;
+    svg {
+        fill: $color;
     }
 }
 
-.theme_light {
-    background-color: $light-color;
-    color: $dark-color;
+.theme_dark {
+    @include themes($dark-color, $light-color);
     transition: background-color 0.5s ease;
+}
 
-    .switch {
-        border: 1px solid $dark-color;
-    }
-
+.theme_light {
+    @include themes($light-color, $dark-color);
+    transition: background-color 0.5s ease;
 }

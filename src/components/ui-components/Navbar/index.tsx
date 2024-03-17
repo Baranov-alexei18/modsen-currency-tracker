@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { routerLinks } from '@/store/router';
+import { routerLinks } from '@/constants/index';
 
 import classes from './styles.scss';
 
-export const Navbar = () => (
+type toggleCloseSidebar = {
+  toggleCloseSidebar: () => void;
+}
+type ClodeSidebar = Partial<toggleCloseSidebar>
+
+export const Navbar = ({ toggleCloseSidebar }: ClodeSidebar) => (
   <>
     {routerLinks.map(({ path, name, id }) => (
-      <Link to={path} key={id} className={classes.route}>
+      <Link to={path} key={id} className={classes.route} onClick={toggleCloseSidebar}>
         {name}
       </Link>
     ))}
