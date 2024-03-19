@@ -23,6 +23,7 @@ rules: {
   "no-shadow": "off",
   "no-param-reassign": "off",
   "consistent-return": "off",
+  "no-unused-expressions": "off",
   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
   "react/no-unused-prop-types": 'off',
   "import/prefer-default-export": ["off", { "target": "any" }],

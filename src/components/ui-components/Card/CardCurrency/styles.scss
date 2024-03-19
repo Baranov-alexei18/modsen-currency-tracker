@@ -14,19 +14,20 @@
     .symbol {
         @include type-adaptiv("min-width", 80px);
         @include type-adaptiv("height", 80px);
+        box-sizing: content-box;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-right: 20px;
         border-radius: 8px;
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         color: $light-color;
+        overflow: hidden;
     }
 
     .info_currency {
         flex-grow: 1;
         width: 80%;
-
     }
 
     .name_currency {
@@ -43,6 +44,10 @@
 
     }
 
+    @media (max-width: #{$breakpoint-md}) {
+        width: 350px;
+    }
+
     @media (max-width: #{$breakpoint-sm}) {
         width: 100%;
         margin-bottom: 10px;
@@ -51,6 +56,11 @@
         .symbol {
             min-width: 60px;
             height: 60px;
+            font-size: $font-size-xxs;
+        }
+
+        .info_currency {
+            width: 70%;
         }
     }
 }

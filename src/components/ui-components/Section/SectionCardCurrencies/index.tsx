@@ -43,13 +43,14 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
           code
             ? (
               <CardCurrency
+                key={code}
                 symbol={symbol_native}
                 name={name}
                 value={getValueToDollars(symbol, code)}
                 onChoiceCurrency={() => openModal(code)}
               />
             )
-            : <CardCurrency symbol={symbol} name={name} value={value} />
+            : <CardCurrency key={name} symbol={symbol} name={name} value={value} />
         ))}
       </div>
       <ModalBase isOpen={isModal} onCloseModal={() => setIsModal(false)}>
