@@ -9,7 +9,7 @@ import { RootState } from '@/store/store';
 import styles from './styles.scss';
 
 export const Banner = () => {
-  const theme = useSelector((state: RootState) => state.app.theme);
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <div className={`${styles.banner} ${theme === THEME_DARK ? styles.dark : styles.light}`}>

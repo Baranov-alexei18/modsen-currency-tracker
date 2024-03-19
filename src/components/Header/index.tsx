@@ -15,7 +15,7 @@ import classes from './styles.scss';
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const theme = useSelector((state: RootState) => state.app.theme);
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);

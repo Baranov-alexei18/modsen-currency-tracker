@@ -11,7 +11,7 @@ import classes from './styles.scss';
 import { TableFooter } from './TableFooter';
 
 export const Footer = () => {
-  const theme = useSelector((state: RootState) => state.app.theme);
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <footer className={`${classes.footer} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
