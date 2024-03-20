@@ -5,7 +5,6 @@ import type { Configuration } from 'webpack';
 const rootDir = path.resolve(__dirname, '..', '..');
 
 const config: Configuration = {
-
   entry: path.resolve(rootDir, 'src', 'index.tsx'),
   output: {
     path: path.resolve(rootDir, 'dist'),

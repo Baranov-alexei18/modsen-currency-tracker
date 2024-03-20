@@ -1,15 +1,30 @@
-import Currencyapi from '@everapi/currencyapi-js';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CurrencyData, CurrencyLatestData, DataState } from '@/types/type';
 import { isDateForUpdate } from '@/utils/isDateForUpdate';
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
-  const client = new Currencyapi('cur_live_6JnfnRktAZbSHcvEryvDwI1WbVvoOvamLgw1lWEW');
-  const dataLatest = await client.latest();
-  const dataCurrencies = await client.currencies({ type: 'fiat' });
+  const urlLatest = 'https://api.currencyapi.com/v3/latest?apikey=cur_live_6JnfnRktAZbSHcvEryvDwI1WbVvoOvamLgw1lWEW';
+  const urlCurrencies = 'https://api.currencyapi.com/v3/currencies?apikey=cur_live_6JnfnRktAZbSHcvEryvDwI1WbVvoOvamLgw1lWEW';
 
-  return { currencies: dataCurrencies, currencyLatest: dataLatest };
+  try {
+    const currencies = await fetch(urlCurrencies);
+    if (!currencies.ok) {
+      throw new Error(`Ошибка HTTP: ${currencies.status}`);
+    }
+    const dataCurrencies = await currencies.json();
+
+    const currenciesLatest = await fetch(urlLatest);
+    if (!currenciesLatest.ok) {
+      throw new Error(`Ошибка HTTP: ${currenciesLatest.status}`);
+    }
+    const dataLatest = await currenciesLatest.json();
+
+
+    return { currencies: dataCurrencies, currencyLatest: dataLatest }
+  } catch (error) {
+    console.error('Ошибка при получении данных:', error);
+  }
 });
 
 const currencies = localStorage.getItem('currencies');
