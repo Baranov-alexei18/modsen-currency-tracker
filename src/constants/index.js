@@ -48,3 +48,16 @@ export const routerLinks = [
     name: 'Contact',
   },
 ];
+
+export const stocks = [
+  {
+    name: 'Bovespa Index',
+    symbol: 'BI',
+    value: '0.15%',
+  },
+  {
+    name: 'IFIX',
+    symbol: 'IFIX',
+    value: '0.15%',
+  },
+];

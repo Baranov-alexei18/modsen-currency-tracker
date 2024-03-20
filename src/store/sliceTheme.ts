@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ThemeState, ThemesType } from '@/types/type';
@@ -8,7 +7,7 @@ const initialState: ThemeState = {
 };
 
 const appSlice = createSlice({
-  name: 'app',
+  name: 'theme',
   initialState,
   reducers: {
     setTheme(state, action: PayloadAction<ThemesType>) {

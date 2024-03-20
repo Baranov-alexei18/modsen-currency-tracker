@@ -11,7 +11,7 @@ import { Switch } from '../Switch';
 import styles from './styles.scss';
 
 export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
-  const theme = useSelector((state: RootState) => state.app.theme);
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   const sidebarRef = useRef();
 

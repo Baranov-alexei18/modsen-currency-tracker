@@ -1,0 +1,28 @@
+@import "@/assets/style/variables.scss";
+
+.block_update {
+    @include type-adaptiv("font-size", $font-size-md);
+    @include type-adaptiv("margin-bottom", 40px);
+    @include type-adaptiv("margin-top", 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle_wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background-color: $green-color ;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .circle{
+        width: 16px;
+        height: 16px;
+        background-color: $success-color;
+        border-radius: 50%;
+    }
+}
+

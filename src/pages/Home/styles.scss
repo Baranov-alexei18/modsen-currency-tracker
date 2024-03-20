@@ -1,0 +1,9 @@
+@import "@/assets/style/variables.scss";
+
+.wrapper{
+    @include container;
+
+    @media (max-width: #{$breakpoint-sm}) {
+    padding: 0 10px;
+    }
+}
