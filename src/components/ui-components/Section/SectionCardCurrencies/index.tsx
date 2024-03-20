@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { CardCurrency } from '@/components/ui-components/Card/CardCurrency';
@@ -14,22 +14,27 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
 ) => {
   const [isModal, setIsModal] = useState(false);
   const [convertValue, setConvertValue] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
   const currenciesLatestAll = Object.values(currenciesLatest.data);
 
   const getValueToDollars = (symbol: string, _code: string): string => {
     const currency = currenciesLatestAll.find(({ code }) => code === _code);
-
     const valueCurrency = `${symbol} ${currency.value.toFixed(2)}`;
 
-    return valueCurrency;
+    const res = loading ? '' : valueCurrency;
+    return res;
   };
 
   const openModal = (code: string) => {
     setIsModal(true);
     setConvertValue(code);
   };
+
+  useEffect(() => {
+    currenciesLatest ? setLoading(false) : setLoading(true);
+  }, [currenciesLatest]);
 
   return (
     <div className={classes.section_wrapper}>
