@@ -7,7 +7,6 @@
     .section_name{
         @include type-adaptiv('font-size', $font-size-md);
         @include type-adaptiv('width', 520px);
-        border-bottom: 1px solid $grey-color;
         padding-bottom: 10px;
         margin-bottom: 40px;
     }
