@@ -26,8 +26,7 @@ type CurrencyType = {
 
 type CurrencyData = {
   data: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [currencyCode: string]: CurrencyType | any;
+    [currencyCode: string]: CurrencyType;
   }
 }
 type CurrencyLatestData = {

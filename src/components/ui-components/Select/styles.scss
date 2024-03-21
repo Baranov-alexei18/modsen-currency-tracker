@@ -1,6 +1,7 @@
 @import "@/assets/style/variables.scss";
 
 .select {
+    @include type-adaptiv('font-size', $font-size-xs);
     margin-bottom: 10px;
     padding: 8px;
     border: 1px solid $grey-color;

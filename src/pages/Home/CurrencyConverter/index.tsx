@@ -7,10 +7,10 @@ import { CurrencyDataState, CurrencyType } from '@/types/type';
 import classes from './styles.scss';
 
 export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurrency }) => {
-  const [convertCurrency, setConvertCurrency] = useState(baseCurrency);
+  const [convertCurrency, setConvertCurrency] = useState('USD');
   const [convertValue, setConvertValue] = useState('');
   const [result, setResult] = useState('');
-  const [valueTo, setValueTo] = useState('');
+  // const [valueTo, setValueTo] = useState('');
   const [error, setError] = useState(false);
 
   const currencies = useSelector((state: CurrencyDataState) => state.data.currencies);
@@ -23,16 +23,21 @@ export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurr
       setResult(convertValue);
     } else {
       const valueFrom = currenciesLatestAll.find(({ code }) => code === baseCurrency).value;
-      const result = parseFloat(convertValue) * (parseFloat(valueTo) / valueFrom);
+      const valueTo = currenciesLatestAll.find(({ code }) => code === convertCurrency).value;
+
+      const result = parseFloat(convertValue) * (valueTo / valueFrom);
 
       isNaN(result) ? setResult('') : setResult(result.toString());
     }
   };
 
+  useEffect(() => {
+    setResultConverter();
+  }, [convertCurrency, convertValue]);
+
   const handleAmountChange = (e) => {
     const { value } = e.target;
 
-    // eslint-disable-next-line no-restricted-globals
     if (!value.length) {
       setError(false);
       setConvertValue('');
@@ -50,13 +55,7 @@ export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurr
 
   const handleCurrencyChange = (currencyToConvert: CurrencyType) => {
     setConvertCurrency(currencyToConvert.code);
-    const value = currenciesLatestAll.find((item) => item.code === currencyToConvert.code)?.value;
-    setValueTo(value.toString());
   };
-
-  useEffect(() => {
-    setResultConverter();
-  }, [convertCurrency, convertValue]);
 
   return (
     <div className={classes.converter_wrapper}>
