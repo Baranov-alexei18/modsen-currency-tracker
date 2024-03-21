@@ -1,0 +1,101 @@
+@import "@/assets/style/variables.scss";
+
+.banner {
+    @include type-adaptiv('height', 400px);
+    margin: 0px 10px;
+
+    .banner_info {
+        box-sizing: content-box;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+
+        .title {
+            display: inline-flex;
+            flex-direction: column;
+            @include type-adaptiv('width', 700px);
+            background: $linear-green-to-yellow-color;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: end;
+            margin-right: 50px;
+
+            .title_modsen {
+                @include type-adaptiv('font-size', $font-size-xxxl);
+                font-weight: 600;
+            }
+
+            .title_tracker {
+                @include type-adaptiv('font-size', $font-size-xxxxl);
+                width: 100%;
+                font-weight: 600;
+                margin: 12px 0;
+            }
+        }
+
+        .subtitle {
+            @include type-adaptiv('font-size', $font-size-xs);
+            @include type-adaptiv('width', 400px);
+            @include type-adaptiv('line-height', 1.7);
+            font-weight: 300;
+            margin-left: auto;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        .logo {
+            @include type-adaptiv('width', 300px);
+        }
+    }
+
+    @media (max-width: #{$breakpoint-sm}) {
+        margin: 0;
+
+        .banner_info {
+            width: 100%;
+
+            .title {
+                margin: 0 auto;
+                text-align: center;
+                width: 100%;
+
+                .title_modsen {
+                    @include type-adaptiv('font-size', $font-size-xxl);
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .title_tracker {
+                    @include type-adaptiv('font-size', $font-size-xxl);
+                    text-align: center;
+                }
+            }
+
+            .subtitle {
+                margin: auto auto;
+            }
+        }
+
+        .logo {
+            display: none;
+        }
+    }
+}
+
+.light {
+    background: linear-gradient(45deg,
+            $light-color 5%,
+            $grey-color 40%,
+            $grey-color 60%,
+            $light-color 95%);
+}
+
+.dark {
+    background: linear-gradient(45deg,
+            $dark-color 1%,
+            $green-color 50%,
+            $green-color 40%,
+            $dark-color 99%);
+}

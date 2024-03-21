@@ -1,0 +1,76 @@
+@import '@/assets/style/variables.scss';
+
+.card {
+    @include type-adaptiv("width", 520px);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 40px;
+    border: 1px solid $dark-grey-color;
+    border-radius: 8px;
+    cursor: pointer;
+
+    .symbol {
+        @include type-adaptiv("min-width", 80px);
+        @include type-adaptiv("height", 80px);
+        box-sizing: content-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+        border-radius: 8px;
+        font-size: $font-size-xs;
+        color: $light-color;
+        overflow: hidden;
+    }
+
+    .info_currency {
+        flex-grow: 1;
+        width: 80%;
+    }
+
+    .name_currency {
+        @include type-adaptiv("font-size", $font-size-xl);
+        font-weight: 300;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .value_currency {
+        @include type-adaptiv("font-size", $font-size-sm);
+        margin-top: 10px;
+
+    }
+
+    @media (max-width: #{$breakpoint-md}) {
+        width: 350px;
+    }
+
+    @media (max-width: #{$breakpoint-sm}) {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 8px;
+
+        .symbol {
+            min-width: 60px;
+            height: 60px;
+            font-size: $font-size-xxs;
+        }
+
+        .info_currency {
+            width: 70%;
+        }
+    }
+}
+
+.light {
+    background-color: $grey-color;
+    color: $dark-secondary-color;
+}
+
+.dark {
+    background-color: $dark-secondary-color;
+    color: $grey-color
+}

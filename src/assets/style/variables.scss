@@ -1,0 +1,81 @@
+$white-color: #ffffff;
+$light-color: #f8f9fa;
+$grey-color: #D9D9D9;
+$dark-color: #030304;
+$dark-secondary-color: #202025;
+$dark-grey-color: #7a7a7a;
+$success-color: #28a745;
+$error-color: #be1818;
+$green-color: #1b521f;
+$linear-green-to-yellow-color: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
+
+// Шрифт
+$font-family-main: 'Poppins', sans-serif;
+$font-size-xxxs: 16px;
+$font-size-xxs: 20px;
+$font-size-xs: 24px;
+$font-size-sm: 28px;
+$font-size-md: 32px;
+$font-size-xl: 36px;
+$font-size-xxl: 60px;
+$font-size-xxxl: 76px;
+$font-size-xxxxl: 90px;
+
+
+// Адаптация под разные устройства
+$breakpoint-min-width: 300px;
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+
+// Медиа запросы
+@mixin respond-to($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin container {
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (min-width: #{$breakpoint-xs}) {
+        max-width: 540px;
+    }
+
+    @media (min-width: #{$breakpoint-sm}) {
+        max-width: 720px;
+    }
+
+    @media (min-width: #{$breakpoint-md}) {
+        max-width: 960px;
+    }
+
+    @media (min-width: #{$breakpoint-lg}) {
+        max-width: 1140px;
+    }
+}
+
+@mixin type-adaptiv($type, $initial-size) {
+    #{$type}: $initial-size;
+
+    @media (min-width: #{$breakpoint-min-width}) {
+        #{$type}: calc(#{$initial-size} / 1.8);
+    }
+    @media (min-width: #{$breakpoint-xs}) {
+        #{$type}: calc(#{$initial-size} / 1.6);
+    }
+
+    @media (min-width: #{$breakpoint-sm}) {
+        #{$type}: calc(#{$initial-size} / 1.4);
+    }
+
+    @media (min-width: #{$breakpoint-md}) {
+        #{$type}: calc(#{$initial-size} / 1.2);
+    }
+
+    @media (min-width: #{$breakpoint-lg}) {
+        #{$type}: #{$initial-size};
+    }
+}

@@ -1,0 +1,55 @@
+@import "@/assets/style/variables.scss";
+
+.footer {
+
+    .container {
+        @include container;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex: 1 0 auto;
+
+    }
+
+    .footer_right {
+        flex-grow: 1;
+        justify-self: end;
+        justify-content: flex-end;
+        padding-left: 50px;
+    }
+
+    .copyright {
+        @include type-adaptiv('font-size', $font-size-xxs);
+        text-align: center;
+        color: $grey-color;
+
+        p {
+            margin: 0;
+            padding: 16px 0;
+        }
+    }
+
+
+    @media (max-width: #{$breakpoint-sm}) {
+        .container {
+            display: block;
+        }
+
+        .footer_left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .description {
+                display: none;
+            }
+        }
+
+        .footer_right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 0;
+        }
+    }
+}

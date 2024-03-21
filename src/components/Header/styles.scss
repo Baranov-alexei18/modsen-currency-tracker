@@ -1,0 +1,47 @@
+@import "../../assets/style/variables.scss";
+
+.header {
+    height: 100px;
+
+    .container {
+        @include container;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            width: auto;
+            height: 40px;
+        }
+
+        .route_list {
+            width: 600px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .sidebar {
+            display: none;
+        }
+    }
+
+    @media (max-width: #{$breakpoint-sm}) {
+        height: 50px;
+        padding: 0 10px;
+
+        .container {
+            .switch_theme {
+                display: none;
+            }
+
+            .route_list {
+                display: none;
+            }
+
+            .sidebar {
+                display: block;
+            }
+        }
+    }
+}

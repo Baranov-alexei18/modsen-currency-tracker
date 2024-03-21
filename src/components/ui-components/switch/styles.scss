@@ -1,0 +1,41 @@
+@import "@/assets/style/variables.scss";
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  min-width: 60px;
+  height: 34px;
+
+  .toogle_button {
+    cursor: pointer;
+    background-color: inherit;
+    border-radius: 90px;
+    width: 50px;
+    height: 30px;
+  }
+
+  .thumb {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border-radius: 90px;
+    transform: translate(0);
+    transition: left 0.2s ease;
+    top: 3px;
+    left: 4px;
+  }
+
+  .toogle_button.toogled .thumb {
+    left: calc(23px);
+    border: 1px solid $dark-color;
+  }
+}
+
+.dark {
+  border: 1px solid $light-color;
+
+  .thumb {
+    border: inherit
+  }
+}

@@ -1,30 +1,23 @@
-/* eslint-disable no-undef */
 import 'webpack-dev-server';
 
-import path from 'path';
-import webpack from 'webpack';
+import { Configuration } from 'webpack';
 
-import { buildWebpack } from './config/build/buildWebpack';
-import { BuildMode, BuildPath } from './config/build/types/types';
+import devConfig from './config/build/webpack.config.dev';
+import prodConfig from './config/build/webpack.config.prod';
 
-interface EnvVariables {
-    mode: BuildMode;
-    port: number
+const env = process.env.NODE_ENV || 'development';
+
+// eslint-disable-next-line import/no-mutable-exports
+let configWebpack: Configuration;
+
+switch (env) {
+  case 'production':
+    configWebpack = prodConfig as Configuration;
+    break;
+  case 'development':
+  default:
+    configWebpack = devConfig as Configuration;
+    break;
 }
 
-export default (env: EnvVariables) => {
-  const paths: BuildPath = {
-    entry: path.resolve(__dirname, 'src', 'index.tsx'),
-    output: path.resolve(__dirname, 'dist'),
-    html: path.resolve(__dirname, 'public', 'index.html'),
-    src: path.resolve(__dirname, 'src'),
-  };
-
-  const config: webpack.Configuration = buildWebpack({
-    port: env.port ?? 9000,
-    mode: env.mode ?? 'development',
-    path: paths,
-  });
-
-  return config;
-};
+export default configWebpack;
