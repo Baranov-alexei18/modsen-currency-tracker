@@ -51,7 +51,7 @@ interface Icon {
     height: string;
     width: string;
     color: string;
-    onOpen: () => void
+    onOpen?: () => void
 }
 interface SideBarType {
   open: boolean;
