@@ -21,8 +21,7 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
     }
     const dataLatest = await currenciesLatest.json();
 
-
-    return { currencies: dataCurrencies, currencyLatest: dataLatest }
+    return { currencies: dataCurrencies, currencyLatest: dataLatest };
   } catch (error) {
     console.error('Ошибка при получении данных:', error);
   }
