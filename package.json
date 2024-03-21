@@ -56,6 +56,8 @@
         "webpack-dev-server": "^5.0.2"
     },
     "dependencies": {
+        "@canvasjs/charts": "^3.7.44",
+        "@canvasjs/react-charts": "^1.0.2",
         "@reduxjs/toolkit": "^2.2.1",
         "chart.js": "^4.4.2",
         "node-fetch": "2.6.1",
