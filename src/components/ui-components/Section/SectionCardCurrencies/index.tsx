@@ -13,9 +13,9 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
   { name, currencies },
 ) => {
   const [isModal, setIsModal] = useState(false);
-  const [convertValue, setConvertValue] = useState('');
   const [loading, setLoading] = useState(true);
-
+  const [convertValue, setConvertValue] = useState('');
+  
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
   const currenciesLatestAll = Object.values(currenciesLatest.data);
 
