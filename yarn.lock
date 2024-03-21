@@ -37,6 +37,16 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@canvasjs/charts@^3.7.44":
+  version "3.7.44"
+  resolved "https://registry.yarnpkg.com/@canvasjs/charts/-/charts-3.7.44.tgz#c0b569eb080c79c0c427fd5a50ef338740c7087f"
+  integrity sha512-5liY04mnBpsX4uJL5ecRf4n66/KFtKSw6tNcz02xGqEXvYPV7QhkTKAJBHVmM3AZGJLT1zy9YDDy5MrF7vT7/g==
+
+"@canvasjs/react-charts@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@canvasjs/react-charts/-/react-charts-1.0.2.tgz#56b1fa72018522240ce03106426f4ee57959112f"
+  integrity sha512-PZgJlDbGdMF4AN/KvrvGY9X50EByJMZ7MHfQB/U0aky9Onn9mt0CpsvwudBsBe+DofaV3SHR4SHn/Wfo/pubDw==
+
 "@commitlint/cli@^19.1.0":
   version "19.1.0"
   resolved "https://registry.npmjs.org/@commitlint/cli/-/cli-19.1.0.tgz"
@@ -1380,7 +1390,7 @@ chardet@^0.7.0:
 
 chart.js@^4.4.2:
   version "4.4.2"
-  resolved "https://registry.npmjs.org/chart.js/-/chart.js-4.4.2.tgz"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-4.4.2.tgz#95962fa6430828ed325a480cc2d5f2b4e385ac31"
   integrity sha512-6GD7iKwFpP5kbSD4MeRRRlTnQvxfQREy36uEtm1hzHzcOqwWx0YEHuspuoNlslu+nciLIB7fjjsHkUv/FzFcOg==
   dependencies:
     "@kurkle/color" "^0.3.0"

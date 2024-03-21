@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { ModalBase } from '@/components/ui-components/Modal/ModalBase';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
+import { CurrencyConverter } from '@/pages/Home/CurrencyConverter';
 import { CurrencyDataState, SectionCardCurrenciesProps } from '@/types/type';
 
-import { ModalBase } from '../../../components/ui-components/Modal/ModalBase';
-import { CurrencyConverter } from '../CurrencyConverter';
 import classes from './styles.scss';
 
 export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (

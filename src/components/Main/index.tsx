@@ -4,13 +4,13 @@ import { Outlet } from 'react-router-dom';
 
 import themes from '@/assets/style/theme.scss';
 import { Banner } from '@/components/ui-components/Banner/index';
+import { Loader } from '@/components/ui-components/Loader';
 import { THEME_DARK } from '@/constants';
 import { fetchData } from '@/store/sliceData';
 import { RootState, store } from '@/store/store';
 import { CurrencyDataState } from '@/types/type';
 import { isDateForUpdate } from '@/utils/isDateForUpdate';
 
-import { Loader } from '../ui-components/Loader';
 import classes from './styles.scss';
 
 export const Main = () => {

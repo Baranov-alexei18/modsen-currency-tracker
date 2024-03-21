@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
+import { IconArrowDown } from '@/components/ui-components/Icons/IconArrowDown';
+import { IconArrowUp } from '@/components/ui-components/Icons/IconArrowUp';
 import { PropsMenu } from '@/types/type';
 
-import { IconArrowDown } from '../Icons/IconArrowDown';
-import { IconArrowUp } from '../Icons/IconArrowUp';
 import styles from './styles.scss';
 
 export const AccordionMenu: React.FC<PropsMenu> = ({ menu }) => {
