@@ -1,0 +1,33 @@
+@import "@/assets/style/variables.scss";
+
+.converter_wrapper {
+  @include type-adaptiv('font-size', $font-size-xs);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+
+  .input {
+    font-size: inherit;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid $grey-color;
+    background-color: $light-color;
+    border-radius: 5px;
+  }
+  
+  .error_input{
+    border: 1px solid $error-color;
+    color: $error-color;
+  }
+  
+  .result {
+    font-size: inherit;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: $light-color;
+    border: 1px solid $grey-color;
+    border-radius: 5px;
+  }
+}

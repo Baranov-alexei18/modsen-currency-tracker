@@ -4,8 +4,9 @@ import { CurrencyData, CurrencyLatestData, DataState } from '@/types/type';
 import { isDateForUpdate } from '@/utils/isDateForUpdate';
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
-  const urlLatest = 'https://api.currencyapi.com/v3/latest?apikey=cur_live_6JnfnRktAZbSHcvEryvDwI1WbVvoOvamLgw1lWEW';
-  const urlCurrencies = 'https://api.currencyapi.com/v3/currencies?apikey=cur_live_6JnfnRktAZbSHcvEryvDwI1WbVvoOvamLgw1lWEW';
+  const apikey = process.env.REACT_APP_API_KEY_CURRENCIES;
+  const urlLatest = `https://api.currencyapi.com/v3/latest?apikey=${apikey}`;
+  const urlCurrencies = `https://api.currencyapi.com/v3/currencies?apikey=${apikey}`;
 
   try {
     const currencies = await fetch(urlCurrencies);
@@ -20,8 +21,7 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
     }
     const dataLatest = await currenciesLatest.json();
 
-
-    return { currencies: dataCurrencies, currencyLatest: dataLatest }
+    return { currencies: dataCurrencies, currencyLatest: dataLatest };
   } catch (error) {
     console.error('Ошибка при получении данных:', error);
   }

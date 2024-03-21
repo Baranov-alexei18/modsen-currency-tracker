@@ -4,7 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { App } from '@/components/App/App';
 import { Loader } from '@/components/ui-components/Loader';
 import { HomePage } from '@/pages/Home';
-import { TimeLinePage } from '@/pages/Timeline';
+import { PageNotFound } from '@/pages/PageNotFound';
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/timeline',
-        element: <Suspense fallback={<Loader />}><TimeLinePage /></Suspense>,
+        element: <Suspense fallback={<Loader />}><h1>Time line page</h1></Suspense>,
       },
       {
         path: '/bank-card',
@@ -26,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Suspense fallback={<Loader />}><h1>contact</h1></Suspense>,
+      },
+      {
+        path: '*',
+        element: <Suspense fallback={<Loader />}><PageNotFound /></Suspense>,
       },
     ],
   },

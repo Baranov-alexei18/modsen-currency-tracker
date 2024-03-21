@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import themes from '@/assets/style/theme.scss';
 import { Banner } from '@/components/ui-components/Banner/index';
 import { THEME_DARK } from '@/constants';
-import { fetchData, setCurrencies, setCurrencyLatest } from '@/store/sliceData';
+import { fetchData } from '@/store/sliceData';
 import { RootState, store } from '@/store/store';
 import { CurrencyDataState } from '@/types/type';
 import { isDateForUpdate } from '@/utils/isDateForUpdate';
@@ -23,18 +23,11 @@ export const Main = () => {
     const localStoreСurrencyLatest = localStorage.getItem('currencyLatest');
     const localStoreСurrencies = localStorage.getItem('currencies');
 
-    // if (localStoreСurrencies) {
-    //   store.dispatch(setCurrencies(JSON.parse(localStoreСurrencies)));
-    // }
-    // if (localStoreСurrencyLatest) {
-    //   store.dispatch(setCurrencyLatest(JSON.parse(localStoreСurrencyLatest)));
-    // }
-
     if (!localStoreСurrencies && !localStoreСurrencyLatest) {
       setLoading(false);
     }
 
-    if (!localStoreСurrencyLatest
+    if (!localStoreСurrencyLatest || !localStoreСurrencies
       || (localStoreСurrencyLatest
         && !isDateForUpdate(JSON.parse(localStoreСurrencyLatest).meta.last_updated_at))) {
       store.dispatch(fetchData()).then(() => setLoading(false));

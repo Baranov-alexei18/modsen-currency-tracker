@@ -2,39 +2,39 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { CardCurrency } from '@/components/ui-components/Card/CardCurrency';
+import { CardCurrency } from '@/pages/Home/CardCurrency';
 import { CurrencyDataState, SectionCardCurrenciesProps } from '@/types/type';
 
-import { CurrencyConverter } from '../../CurrencyConverter';
-import { ModalBase } from '../../Modal/ModalBase';
+import { ModalBase } from '../../../components/ui-components/Modal/ModalBase';
+import { CurrencyConverter } from '../CurrencyConverter';
 import classes from './styles.scss';
 
 export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
   { name, currencies },
 ) => {
   const [isModal, setIsModal] = useState(false);
-  const [convertValue, setConvertValue] = useState('');
   const [loading, setLoading] = useState(true);
+  const [convertValue, setConvertValue] = useState('');
 
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
   const currenciesLatestAll = Object.values(currenciesLatest.data);
+
+  const openModal = (code: string) => {
+    setIsModal(true);
+    setConvertValue(code);
+  };
+  useEffect(() => {
+    currenciesLatest ? setLoading(false) : setLoading(true);
+  }, [currenciesLatest]);
 
   const getValueToDollars = (symbol: string, _code: string): string => {
     const currency = currenciesLatestAll.find(({ code }) => code === _code);
     const valueCurrency = `${symbol} ${currency.value.toFixed(2)}`;
 
     const res = loading ? '' : valueCurrency;
+
     return res;
   };
-
-  const openModal = (code: string) => {
-    setIsModal(true);
-    setConvertValue(code);
-  };
-
-  useEffect(() => {
-    currenciesLatest ? setLoading(false) : setLoading(true);
-  }, [currenciesLatest]);
 
   return (
     <div className={classes.section_wrapper}>

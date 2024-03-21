@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Loader } from '@/components/ui-components/Loader';
-import { SectionCardCurrencies } from '@/components/ui-components/Section/SectionCardCurrencies';
 import { stocks } from '@/constants';
+import { SectionCardCurrencies } from '@/pages/Home/SectionCardCurrencies';
 import { CurrencyDataState } from '@/types/type';
 
 import classes from './styles.scss';
