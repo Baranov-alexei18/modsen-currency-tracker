@@ -9,7 +9,7 @@ import { THEME_DARK } from '@/constants';
 import { fetchData } from '@/store/sliceData';
 import { RootState, store } from '@/store/store';
 import { CurrencyDataState } from '@/types/type';
-import { isDateForUpdate } from '@/utils/isDateForUpdate';
+import { isDateForUpdate } from '@/utils/date';
 
 import classes from './styles.scss';
 

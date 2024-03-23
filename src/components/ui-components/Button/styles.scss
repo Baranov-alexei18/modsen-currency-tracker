@@ -1,0 +1,11 @@
+@import "@/assets/style/variables.scss";
+
+.button {
+    @include type-adaptiv('font-size', $font-size-xxs);
+    cursor: pointer;
+    width: 250px;
+    height: 60px;
+    background-color: $success-color;
+    color: inherit;
+    border-radius: 16px;
+}

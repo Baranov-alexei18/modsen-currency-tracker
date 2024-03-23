@@ -17,7 +17,7 @@ const generateRandomColor = (): string => {
 };
 
 export const CardCurrency: React.FC<CardCurrencyProp> = ({
-  symbol, name, value, onChoiceCurrency,
+  symbol, name, value, backgroundColorIcon, onChoiceCurrency,
 }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const backgroundColor = generateRandomColor();
@@ -28,7 +28,10 @@ export const CardCurrency: React.FC<CardCurrencyProp> = ({
       onClick={onChoiceCurrency}
       aria-hidden
     >
-      <div className={classes.symbol} style={{ backgroundColor }}>
+      <div
+        className={classes.symbol}
+        style={{ background: backgroundColorIcon ? `${backgroundColorIcon}` : `${backgroundColor}` }}
+      >
         {symbol}
       </div>
       <div className={classes.info_currency}>

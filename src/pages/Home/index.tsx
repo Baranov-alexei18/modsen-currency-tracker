@@ -4,16 +4,21 @@ import { useSelector } from 'react-redux';
 import { Loader } from '@/components/ui-components/Loader';
 import { stocks } from '@/constants';
 import { SectionCardCurrencies } from '@/pages/Home/SectionCardCurrencies';
-import { CurrencyDataState } from '@/types/type';
+import { CurrencyDataState, CurrencyType } from '@/types/type';
 
 import classes from './styles.scss';
 
+interface CurrencyTypeMapping extends CurrencyType{
+  name: string;
+  symbol: string;
+  value?: string;
+}
+
 export const HomePage = () => {
-  // const theme = useSelector((state: RootState) => state.app.theme);
   const [loading, setLoading] = useState(true);
   const currencies = useSelector((state: CurrencyDataState) => state.data.currencies);
 
-  const [currenciesAll, setCurrenciesAll] = useState<any>(currencies);
+  const [currenciesAll, setCurrenciesAll] = useState<Partial<CurrencyTypeMapping[]>>();
 
   useEffect(() => {
     if (currencies) {
