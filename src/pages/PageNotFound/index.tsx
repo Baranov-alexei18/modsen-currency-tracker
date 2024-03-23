@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Button } from '@/components/ui-components/Button';
+
 import classes from './styes.scss';
 
 export const PageNotFound = () => {
@@ -13,9 +15,9 @@ export const PageNotFound = () => {
   return (
     <div className={classes.wrapper}>
       <h1>Страница не найдена</h1>
-      <button type="button" onClick={handleReturnHome}>
+      <Button handleClick={handleReturnHome}>
         Вернуться на главную
-      </button>
+      </Button>
     </div>
   );
 };
