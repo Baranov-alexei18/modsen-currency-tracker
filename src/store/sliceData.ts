@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CurrencyData, CurrencyLatestData, DataState } from '@/types/type';
-import { isDateForUpdate } from '@/utils/isDateForUpdate';
+import { isDateForUpdate } from '@/utils/date';
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
   const apikey = process.env.REACT_APP_API_KEY_CURRENCIES;
@@ -23,7 +23,7 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
 
     return { currencies: dataCurrencies, currencyLatest: dataLatest };
   } catch (error) {
-    console.error('Ошибка при получении данных:', error);
+    throw new Error('Ошибка при получении данных:', error);
   }
 });
 

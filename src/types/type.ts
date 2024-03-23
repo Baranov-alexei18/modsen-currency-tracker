@@ -63,6 +63,7 @@ interface CardCurrencyProp{
   symbol: string;
   name: string;
   value?: string;
+  backgroundColorIcon?: string;
   onChoiceCurrency?: () => void
 }
 
@@ -85,15 +86,18 @@ interface SectionCardCurrenciesProps {
   name: string,
   currencies: Array<CurrencyType>
 }
+
+interface PropsNon{ }
+
 export {
   CardCurrencyProp,
-  CurrencyData,
-  CurrencyDataState,
+  CurrencyData, CurrencyDataState,
   CurrencyLatestData,
   CurrencyType,
   DataState,
   Icon, ModalProps,
-  PropsMenu, SectionCardCurrenciesProps,
+  PropsMenu, PropsNon,
+  SectionCardCurrenciesProps,
   SelectProps,
   SideBarType,
   ThemeState, ThemesType,
