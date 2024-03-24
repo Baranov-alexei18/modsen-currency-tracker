@@ -1,20 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
+import themes from '@/assets/style/theme.scss';
+import { ContextTheme } from '@/components/Main';
 import { Button } from '@/components/ui-components/Button';
 import { Toast } from '@/components/ui-components/Toast';
+import { THEME_DARK } from '@/constants';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
 import { ChartCurrency } from '@/pages/Timeline/ChartCurrency/index';
 import { getDataFromCoinApi } from '@/pages/Timeline/utils';
 import { observer } from '@/services/observer';
-import { RootState } from '@/store/store';
-import { PropsNon } from '@/types/type';
+import { store } from '@/store/store';
+import { CurrencyType, PropsNon } from '@/types/type';
 
 import classes from './styles.scss';
 
 interface TimeLinePageState {
   codeCurrency: string;
   isToast: boolean;
+  cryptoCurrency: CurrencyType[] | []
 }
 
 export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
@@ -22,13 +25,18 @@ export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
     super(props);
     this.state = {
       codeCurrency: 'BTC',
+      cryptoCurrency: [],
       isToast: false,
     };
   }
 
   componentDidMount() {
-    this.getDataForCharts();
+    // this.getDataForCharts();
     observer.subscribe(this);
+
+    const currencyAll = store.getState().data.currencies.data;
+    const cryptoCurrency = Object.values(currencyAll).filter((item) => item.type === 'crypto');
+    this.setState({ cryptoCurrency });
   }
 
   componentWillUnmount() {
@@ -59,33 +67,28 @@ export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
   };
 
   render() {
-    const {
-      codeCurrency, isToast,
-    } = this.state;
+    const { codeCurrency, cryptoCurrency, isToast } = this.state;
+    const theme = this.context;
 
     return (
-      <div className={classes.wrapper}>
+      <div className={`${classes.wrapper} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
         <div className={classes.block_currency}>
-          <select value={codeCurrency} onChange={this.handleSelectChange}>
-            <option value="BTC">BTC</option>
-            <option value="ETH">ETH</option>
-            <option value="BNB">BNB</option>
-            <option value="XRP">XRP</option>
-            <option value="SOL">SOL</option>
+          <select className={`${theme === THEME_DARK ? classes.dark : ' '}`} value={codeCurrency} onChange={this.handleSelectChange}>
+            {cryptoCurrency.map(({ code }) => (
+              <option key={code} value={code}>
+                {code}
+              </option>
+            ))}
           </select>
-
           <Button handleClick={this.createChart}>Create chart</Button>
         </div>
         <CardCurrency symbol="$" name="Tether" value="USDT" backgroundColorIcon="#2A4628" />
         <ChartCurrency />
         {isToast && <Toast text="Новый график построен" color="#28a745" />}
       </div>
+
     );
   }
 }
 
-const mapStateToProps = (state: RootState) => ({
-  theme: state.theme,
-});
-
-export default connect(mapStateToProps, {})(TimeLinePage);
+TimeLinePage.contextType = ContextTheme;

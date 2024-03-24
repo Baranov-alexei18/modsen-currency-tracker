@@ -1,17 +1,21 @@
 import CanvasJSReact from '@canvasjs/react-charts';
 import React, { Component } from 'react';
 
+import themes from '@/assets/style/theme.scss';
+import { ContextTheme } from '@/components/Main';
 import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal/ModalBase';
 import { Toast } from '@/components/ui-components/Toast';
+import { THEME_DARK } from '@/constants';
 import { observer } from '@/services/observer';
 import { PropsNon } from '@/types/type';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
+import { getOptionsForChart } from './options';
 
 const { CanvasJSChart } = CanvasJSReact;
 
-interface DataForCreateCharts{
+export interface DataForCreateCharts {
   price_close: number,
   price_high: number,
   price_low: number,
@@ -24,9 +28,9 @@ interface DataForCreateCharts{
   volume_traded: number,
 }
 
-type UpdateDataForChart = {data: DataForCreateCharts[]}
+type UpdateDataForChart = { data: DataForCreateCharts[] }
 
-interface ChartCurrencyState{
+interface ChartCurrencyState {
   dataCharts: Array<DataForCreateCharts>,
   dataDayCharts: {
     data?: number[];
@@ -74,7 +78,7 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
     const isoDateString = `${date.toISOString().split('T')[0]}T00:00:00.0000000Z`;
 
     this.setState((prevState) => {
-      const newData = prevState.dataCharts.map((obj:DataForCreateCharts) => {
+      const newData = prevState.dataCharts.map((obj: DataForCreateCharts) => {
         if (Date.parse(obj.time_period_start) === Date.parse(isoDateString)) {
           return {
             ...obj,
@@ -102,6 +106,7 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
     const {
       isModal, isToast, loading, dataDayCharts, dataCharts,
     } = this.state;
+    const theme = this.context;
 
     const dataPoints = dataCharts.map(({
       price_close, price_high, price_low, price_open, time_period_start,
@@ -110,54 +115,11 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
       y: [price_open, price_high, price_low, price_close],
     }));
 
-    const options = {
-      backgroundColor: 'inherit',
-      axisX: {
-        lineThickness: 0,
-        labelFormatter() {
-          return '';
-        },
-        crosshair: {
-          enabled: true,
-        },
-      },
-      axisY2: {
-        lineThickness: 0,
-        gridColor: 'inherit',
-        labelFormatter(e: { value: unknown; }) {
-          if (window.innerWidth < 768) {
-            return '';
-          }
-          return e.value;
-        },
-        labelTextAlign: 'left',
-        crosshair: {
-          enabled: true,
-          labelAlign: 'right',
-          color: 'orange',
-          labelColor: 'orange',
-          labelBackgroundColor: 'orange',
-          labelFontColor: 'black',
-        },
-      },
-      data: [{
-        type: 'candlestick',
-        cursor: 'pointer',
-        risingColor: 'green',
-        color: 'red',
-        indexLabelTextAlign: 'right',
-        dataPoints: dataPoints.map((dataPoint) => ({
-          x: dataPoint.x,
-          y: dataPoint.y,
-          color: dataPoint.y[0] < dataPoint.y[3] ? 'green' : 'red',
-        })),
-        click: this.handleClick,
-        axisYType: 'secondary',
-      }],
-    };
+    const colorChart = theme === THEME_DARK ? '#f8f9fa' : '#030304';
+    const options = getOptionsForChart(dataPoints, colorChart, this.handleClick);
 
     return (
-      <div>
+      <div className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
         {loading
           ? <Loader />
           : <CanvasJSChart options={options} />}
@@ -165,8 +127,10 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
         <ModalBase isOpen={isModal} onCloseModal={() => this.setState({ isModal: false })}>
           <ModalUpdateDay data={dataDayCharts} getDataForChange={this.changeChart} />
         </ModalBase>
-        {isToast && <Toast text="График изменен" color="#A66804" />}
+        {isToast && <Toast text="График изменен" color="orange" />}
       </div>
     );
   }
 }
+
+ChartCurrency.contextType = ContextTheme;
