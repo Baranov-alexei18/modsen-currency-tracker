@@ -11,3 +11,4 @@ declare module '*.scss' {
   }
 
   declare module '@canvasjs/react-charts'
+  declare module 'mapbox-gl'
