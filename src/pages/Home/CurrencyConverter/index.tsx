@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Select } from '@/components/ui-components/Select';
@@ -9,8 +9,6 @@ import classes from './styles.scss';
 export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurrency }) => {
   const [convertCurrency, setConvertCurrency] = useState('USD');
   const [convertValue, setConvertValue] = useState('');
-  const [result, setResult] = useState('');
-  // const [valueTo, setValueTo] = useState('');
   const [error, setError] = useState(false);
 
   const currencies = useSelector((state: CurrencyDataState) => state.data.currencies);
@@ -20,36 +18,32 @@ export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurr
 
   const setResultConverter = () => {
     if (convertCurrency === baseCurrency) {
-      setResult(convertValue);
-    } else {
-      const valueFrom = currenciesLatestAll.find(({ code }) => code === baseCurrency).value;
-      const valueTo = currenciesLatestAll.find(({ code }) => code === convertCurrency).value;
-
-      const result = parseFloat(convertValue) * (valueTo / valueFrom);
-
-      isNaN(result) ? setResult('') : setResult(result.toString());
+      return convertValue.toString();
     }
+
+    const valueFrom = currenciesLatestAll.find(({ code }) => code === baseCurrency).value;
+    const valueTo = currenciesLatestAll.find(({ code }) => code === convertCurrency).value;
+
+    const result = parseFloat(convertValue) * (valueTo / valueFrom);
+
+    if (!result) return '';
+
+    return result.toString();
   };
 
-  useEffect(() => {
-    setResultConverter();
-  }, [convertCurrency, convertValue]);
-
-  const handleAmountChange = (e) => {
+  const handleAmountChange = (e: { target: { value: string; }; }) => {
     const { value } = e.target;
-
-    if (!value.length) {
-      setError(false);
-      setConvertValue('');
-      setResult('');
-    }
 
     if (parseFloat(value) >= 0) {
       setError(false);
       setConvertValue(value);
-      setResultConverter();
     } else {
       setError(true);
+    }
+
+    if (!value.length) {
+      setError(false);
+      setConvertValue('');
     }
   };
 
@@ -68,7 +62,7 @@ export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurr
         onChange={handleAmountChange}
         placeholder="0"
       />
-      <input type="text" className={classes.result} value={result} placeholder="0" disabled />
+      <input type="text" className={classes.result} value={setResultConverter()} placeholder="0" disabled />
     </div>
   );
 };

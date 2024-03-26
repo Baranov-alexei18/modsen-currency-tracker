@@ -44,15 +44,29 @@ type DataState = {
   currencies: CurrencyData | null;
   currencyLatest: CurrencyLatestData | null;
 }
+
+type BanksDataType = {
+  name: string;
+  coordinates: number[];
+  currencies: string[];
+}
+
+type InputType<T> = {
+  target: {
+    value: T;
+  };
+}
+
 interface ThemeState {
     theme: ThemesType;
 }
 interface Icon {
     height: string;
     width: string;
-    color: string;
-    onOpen: () => void
+    color?: string;
+    handleClick?: () => void
 }
+
 interface SideBarType {
   open: boolean;
   setCloseSideBar: () => void
@@ -63,6 +77,7 @@ interface CardCurrencyProp{
   symbol: string;
   name: string;
   value?: string;
+  backgroundColorIcon?: string;
   onChoiceCurrency?: () => void
 }
 
@@ -85,16 +100,25 @@ interface SectionCardCurrenciesProps {
   name: string,
   currencies: Array<CurrencyType>
 }
+
+interface PropsNon{ }
+
 export {
+  BanksDataType,
   CardCurrencyProp,
   CurrencyData,
   CurrencyDataState,
   CurrencyLatestData,
   CurrencyType,
   DataState,
-  Icon, ModalProps,
-  PropsMenu, SectionCardCurrenciesProps,
+  Icon,
+  InputType,
+  ModalProps,
+  PropsMenu,
+  PropsNon,
+  SectionCardCurrenciesProps,
   SelectProps,
   SideBarType,
-  ThemeState, ThemesType,
+  ThemeState,
+  ThemesType,
 };

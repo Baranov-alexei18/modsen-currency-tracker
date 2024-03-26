@@ -4,9 +4,13 @@ export const bannerSubtitle = 'Quotes for the dollar and otherinternational curr
 export const description = 'Since then, the company has grown organically to.Starsup is the world\'s largest trading platform, with $12 billion worth of currency trading and 500,000 tickets sold daily to tens ofthousands of traders worldwide.';
 export const labelTitleCurrency = 'Modsen Currency Tracker';
 export const copyright = 'Startsup © 2023-2024, All Rights Reserved';
+export const bankCardSearchSection = 'Search currency in the bank';
 
 export const THEME_DARK = 'dark';
 export const THEME_LIGHT = 'light';
+
+export const GITHUB_LINK = 'https://github.com/Baranov-alexei18/modsen-currency-tracker/tree/alexei-baranov';
+export const MODSEN_LINK = 'https://www.modsen-software.com/';
 
 export const menu = [
   {
@@ -60,4 +64,12 @@ export const stocks = [
     symbol: 'IFIX',
     value: '0.15%',
   },
+];
+
+export const BANKS_DATA = [
+  { name: 'BelarusBank', coordinates: [27.653504, 53.895249], currencies: ['BTC', 'YEN', 'BYN', 'USD', 'POL'] },
+  { name: 'BankDabrabyt', coordinates: [27.623765, 53.875351], currencies: ['USD', 'YUAN', 'BYN', 'USD'] },
+  { name: 'PriorBank', coordinates: [27.647679, 53.891623], currencies: ['YUAN', 'ETH', 'BYN'] },
+  { name: 'BelGazPromBank', coordinates: [27.674889, 53.859294], currencies: ['CAD', 'EUR', 'BTC', 'YEN'] },
+  { name: 'AlphaBank', coordinates: [27.608922, 53.941846], currencies: ['USD', 'POL', 'BTC'] },
 ];

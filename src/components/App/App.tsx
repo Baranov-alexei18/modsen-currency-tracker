@@ -1,10 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { Footer } from '@/components/Footer/index';
-import { Header } from '@/components/Header/index';
-import { Main } from '@/components/Main/index';
 import { store } from '@/store/store';
+
+import { Footer } from '../Footer/index';
+import { Header } from '../Header/index';
+import { Main } from '../Main/index';
 
 export const App = () => (
   <Provider store={store}>

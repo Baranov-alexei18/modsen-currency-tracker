@@ -1,0 +1,32 @@
+@import "@/assets/style/variables.scss";
+
+.wrapper {
+    @include container;
+    @include type-adaptiv('font-size', $font-size-sm);
+    text-align: center;
+    padding-bottom: 50px;
+
+    .social_icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        a:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .copyright {
+        a {
+            outline: none;
+            text-decoration: none;
+            margin-left: 10px;
+            color: $success-color;
+
+            &:hover {
+                border-bottom: 1px solid;
+            }
+        }
+
+    }
+}

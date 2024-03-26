@@ -10,12 +10,9 @@ const prodConfig = merge<Configuration>(commonConfig, {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         use: [{
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-          },
+          loader: 'babel-loader',
         }],
         exclude: /node_modules/,
       },

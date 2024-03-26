@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useOutsideClick } from '@/components/hooks/useOutsideClick';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { Switch } from '@/components/ui-components/Switch';
 import { THEME_DARK } from '@/constants';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { RootState } from '@/store/store';
 import { SideBarType } from '@/types/type';
 
+import { IconSidebarClose } from '../ui-components/Icons/IconSidebarClose';
 import styles from './styles.scss';
 
 export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
@@ -16,7 +17,6 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
   const sidebarRef = useRef();
 
   useOutsideClick(sidebarRef, setCloseSideBar, open);
-
   return (
     <div
       ref={sidebarRef}
@@ -24,6 +24,7 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
     >
 
       <div className={styles.header_sidebar}>
+        <IconSidebarClose height="34px" width="34px" handleClick={setCloseSideBar} />
         <Switch theme={theme} />
       </div>
       <Navbar toggleCloseSidebar={setCloseSideBar} />

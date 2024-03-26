@@ -11,7 +11,7 @@ const envKeys = Object.keys(env).reduce((prev:{[prev: string]:string}, next) => 
 }, {});
 
 const config: Configuration = {
-  entry: path.resolve(rootDir, 'src', 'index.tsx'),
+  entry: path.resolve(rootDir, 'src/index.tsx'),
   output: {
     path: path.resolve(rootDir, 'dist'),
     filename: '[name].[contenthash].js',

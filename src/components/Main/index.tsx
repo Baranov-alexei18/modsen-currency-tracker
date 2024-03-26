@@ -9,23 +9,20 @@ import { THEME_DARK } from '@/constants';
 import { fetchData } from '@/store/sliceData';
 import { RootState, store } from '@/store/store';
 import { CurrencyDataState } from '@/types/type';
-import { isDateForUpdate } from '@/utils/isDateForUpdate';
+import { getTimeLastUpdate, isDateForUpdate } from '@/utils/date';
 
+import { ErrorBoundary } from '../ErrorBoundary';
 import classes from './styles.scss';
 
 export const Main = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
-  // const currencies = useSelector((state) => state.data.currencies);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const localStoreСurrencyLatest = localStorage.getItem('currencyLatest');
     const localStoreСurrencies = localStorage.getItem('currencies');
-
-    if (!localStoreСurrencies && !localStoreСurrencyLatest) {
-      setLoading(false);
-    }
 
     if (!localStoreСurrencyLatest || !localStoreСurrencies
       || (localStoreСurrencyLatest
@@ -36,33 +33,26 @@ export const Main = () => {
     }
   }, []);
 
-  const getTimeLastUpdate = () => {
-    const data = new Date(currenciesLatest.meta.last_updated_at);
-    const hours = data.getUTCHours();
-    const minutes = data.getUTCMinutes();
-    const timeUpdate = hours > 12 ? ` ${hours - 12}:${minutes}pm` : `${hours}:${minutes}am`;
-    return timeUpdate;
-  };
-
   return (
     <main className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
-      <Banner />
-      {loading ? <Loader /> : (
-        <>
-          <div className={classes.block_update}>
-            <div className={classes.circle_wrapper}>
-              <div className={classes.circle} />
+      <ErrorBoundary>
+        <Banner />
+        {loading ? <Loader /> : (
+          <>
+            <div className={classes.block_update}>
+              <div className={classes.circle_wrapper}>
+                <div className={classes.circle} />
+              </div>
+              <div>
+                Last updated at
+                {currenciesLatest ? `${getTimeLastUpdate(currenciesLatest.meta.last_updated_at)}` : '00:00'}
+              </div>
             </div>
-            <div>
-              Last updated at
-              {currenciesLatest ? `${getTimeLastUpdate()}` : '00:00'}
-            </div>
-          </div>
-          <Outlet />
-        </>
 
-      )}
-
+            <Outlet />
+          </>
+        )}
+      </ErrorBoundary>
     </main>
   );
 };

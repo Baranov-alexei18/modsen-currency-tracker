@@ -1,0 +1,37 @@
+@import "@/assets/style/variables.scss";
+
+.toast_wrapper {
+    visibility: hidden;
+    position: fixed;
+    color: $light-color;
+    top: 120px;
+    right: -300px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: right 0.3s ease-in-out;
+}
+
+.show {
+    visibility: visible;
+    animation: fadein 1s, fadeout 3s 1s;
+}
+
+@keyframes fadein {
+    from {
+        right: -300px;
+    }
+
+    to {
+        right: 30px;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        right: 30px;
+    }
+
+    to {
+        right: 30px;
+    }
+}
