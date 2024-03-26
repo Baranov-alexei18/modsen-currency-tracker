@@ -5,8 +5,12 @@ export const description = 'Since then, the company has grown organically to.Sta
 export const labelTitleCurrency = 'Modsen Currency Tracker';
 export const copyright = 'Startsup © 2023-2024, All Rights Reserved';
 export const bankCardSearchSection = 'Search currency in the bank';
+
 export const THEME_DARK = 'dark';
 export const THEME_LIGHT = 'light';
+
+export const GITHUB_LINK = 'https://github.com/Baranov-alexei18/modsen-currency-tracker/tree/alexei-baranov';
+export const MODSEN_LINK = 'https://www.modsen-software.com/';
 
 export const menu = [
   {

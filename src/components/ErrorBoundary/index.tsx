@@ -1,10 +1,13 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 
+import { Loader } from '../ui-components/Loader';
+import classes from './styles.scss';
+
 type ErrorBoundaryState = {
-    hasError: boolean;
+  hasError: boolean;
 }
 type ErrorBoundaryProps = {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -26,7 +29,12 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     const { children } = this.props;
 
     if (hasError) {
-      return <h1>Something went wrong, try again later</h1>;
+      return (
+        <div className={classes.wrapper}>
+          <Loader />
+          <h1>Something went wrong, try again later</h1>
+        </div>
+      );
     }
 
     return children;
