@@ -22,6 +22,7 @@ rules: {
   "import/no-extraneous-dependencies": "off",
   "no-shadow": "off",
   "no-param-reassign": "off",
+  "no-return-assign": "off",
   "consistent-return": "off",
   "class-methods-use-this": "off",
   "no-unused-expressions": "off",
