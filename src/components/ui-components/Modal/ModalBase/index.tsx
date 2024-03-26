@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import { useOutsideClick } from '@/components/hooks/useOutsideClick';
 import { bannerTitleCurrency } from '@/constants';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { ModalProps } from '@/types/type';
 
 import classes from './styles.scss';

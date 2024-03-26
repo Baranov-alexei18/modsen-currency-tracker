@@ -6,10 +6,6 @@ export const getFieldsForElasticSearch = (arr:unknown[], value:string) => {
     for (const key in obj) {
       if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
         getFields(obj[key]);
-      } else if (String(obj[key]).toLowerCase().includes(value.toLowerCase())) {
-        if (!Array.isArray(obj[key])) {
-          fields.add(obj[key]);
-        }
       }
     }
   }
@@ -23,6 +19,8 @@ export const getFieldsForElasticSearch = (arr:unknown[], value:string) => {
             fields.add(subVal);
           }
         });
+      } else if (String(val).toLowerCase().includes(value.toLowerCase())) {
+        fields.add(val);
       }
     });
   });
