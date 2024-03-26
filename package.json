@@ -96,6 +96,7 @@
     ]
   },
   "browser": {
-    "[module-name]": false
+    "fs": false,
+    "path": false
   }
 }
