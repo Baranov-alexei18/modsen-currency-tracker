@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CurrencyData, CurrencyLatestData, DataState } from '@/types/type';
+import { getDataFromCurrencyApi } from '@/utils/dataApi';
 import { isDateForUpdate } from '@/utils/date';
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
@@ -9,17 +10,8 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
   const urlCurrencies = `https://api.currencyapi.com/v3/currencies?apikey=${apikey}`;
 
   try {
-    const currencies = await fetch(urlCurrencies);
-    if (!currencies.ok) {
-      throw new Error(`Ошибка HTTP: ${currencies.status}`);
-    }
-    const dataCurrencies = await currencies.json();
-
-    const currenciesLatest = await fetch(urlLatest);
-    if (!currenciesLatest.ok) {
-      throw new Error(`Ошибка HTTP: ${currenciesLatest.status}`);
-    }
-    const dataLatest = await currenciesLatest.json();
+    const dataCurrencies = await getDataFromCurrencyApi(urlCurrencies);
+    const dataLatest = await getDataFromCurrencyApi(urlLatest);
 
     return { currencies: dataCurrencies, currencyLatest: dataLatest };
   } catch (error) {

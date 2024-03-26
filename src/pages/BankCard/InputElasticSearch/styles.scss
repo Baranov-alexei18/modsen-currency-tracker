@@ -26,8 +26,8 @@
     .icon_search {
         position: absolute;
         color: black;
-        top: 50%;
-        right: 10px;
+        top: 45%;
+        right: 20px;
         transform: translateY(-50%);
         width: 20px;
         height: 20px;
@@ -39,7 +39,8 @@
         left: 0;
         width: 100%;
         background-color: inherit;
-        color: white;
+        color: inherit;
+        border: 1px solid $grey-color;
         border-top: none;
         border-radius: 8px;
         list-style-type: none;

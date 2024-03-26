@@ -1,10 +1,6 @@
-export function getDateMonthAgo() {
-  const currentDate = new Date();
-  const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 30));
-  return pastDate.toISOString().slice(0, 19);
-}
+import { getDateMonthAgo } from './date';
 
-export const getDataFromCoinApi = async (currencyRanges:string, currencybase:string = 'USDT') => {
+export const getDataFromCoinApi = async (currencyRanges: string, currencybase: string = 'USDT') => {
   try {
     const dataFromCoinApi = await fetch(`https://rest.coinapi.io/v1/ohlcv/BINANCE_SPOT_${currencyRanges}_${currencybase}/history?period_id=1DAY&time_start=${getDateMonthAgo()}`, {
       headers: {
@@ -16,4 +12,13 @@ export const getDataFromCoinApi = async (currencyRanges:string, currencybase:str
   } catch (error) {
     throw new Error(error);
   }
+};
+
+export const getDataFromCurrencyApi = async (url: string) => {
+  const dataApi = await fetch(url);
+  if (!dataApi.ok) {
+    throw new Error(`Ошибка HTTP: ${dataApi.status}`);
+  }
+  const data = await dataApi.json();
+  return data;
 };

@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 
-import { SearchIcon } from '@/components/ui-components/Icons/SearchIcon';
+import { IconSearch } from '@/components/ui-components/Icons/IconSearch';
 import { BanksDataType, InputType } from '@/types/type';
+import { getFieldsForElasticSearch } from '@/utils/elasticSearch';
 
 import classes from './styles.scss';
 
@@ -29,11 +30,11 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
 
   handleChange = (e: InputType<string>) => {
     const { value } = e.target;
-    const { onChange } = this.props;
+    const { onChange, options } = this.props;
 
     onChange(value);
 
-    const resultOptions = this.getDataOptions(value);
+    const resultOptions = getFieldsForElasticSearch(options, value);
 
     this.setState({
       value,
@@ -51,24 +52,6 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
     onSelect(option);
   };
 
-  getDataOptions = (value: string) => {
-    const setOptions = new Set();
-    const { options } = this.props;
-
-    const filteredOptions = options.reduce((acc, option) => {
-      const matches = [
-        option.name.toLowerCase(),
-        ...option.currencies.map((currency) => currency.toLowerCase()),
-      ].filter((term) => term.includes(value.toLowerCase()));
-      return [...acc, ...matches];
-    }, []);
-
-    filteredOptions.forEach((item: string) => setOptions.add(item));
-    const resultOptions = Array.from(setOptions);
-
-    return resultOptions;
-  };
-
   render() {
     const { value, filteredOptions, showDropdown } = this.state;
     const { className } = this.props;
@@ -83,7 +66,7 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
           onChange={this.handleChange}
         />
         <div className={classes.icon_search}>
-          <SearchIcon height="24px" width="24px" />
+          <IconSearch height="24px" width="24px" />
         </div>
 
         {showDropdown && (

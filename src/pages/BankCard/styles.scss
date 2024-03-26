@@ -3,7 +3,13 @@
 .wrapper {
     @include container;
     padding-bottom: 50px;
+    @include type-adaptiv('font-size', $font-size-sm);
     
+    option {
+        background-color: inherit;
+        color: inherit;
+    }
+
     .section_info{
         text-align: center;
         @include type-adaptiv('font-size', $font-size-xl);
@@ -28,12 +34,4 @@
         text-align: center;
     }
 }
-.dark{
-    background-color: $dark-grey-color;
-    color: $light-color;
-    @include type-adaptiv('font-size', $font-size-sm);
-    option {
-        background-color: $dark-grey-color;
-        color: inherit;
-    }
-}
+
