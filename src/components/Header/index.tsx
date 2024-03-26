@@ -7,6 +7,7 @@ import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { Switch } from '@/components/ui-components/Switch';
+
 import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
