@@ -2,6 +2,7 @@
 
 .wrapper {
     @include container;
+    padding-bottom: 40px;
 
     @media (max-width: #{$breakpoint-sm}) {
         padding: 0 10px;

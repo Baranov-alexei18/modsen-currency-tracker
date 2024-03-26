@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 
@@ -12,8 +12,6 @@ import { CurrencyDataState } from '@/types/type';
 import { isDateForUpdate } from '@/utils/date';
 
 import classes from './styles.scss';
-
-export const ContextTheme = createContext(THEME_DARK);
 
 export const Main = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -61,13 +59,9 @@ export const Main = () => {
               {currenciesLatest ? `${getTimeLastUpdate()}` : '00:00'}
             </div>
           </div>
-          <ContextTheme.Provider value={theme}>
-            <Outlet />
-          </ContextTheme.Provider>
+          <Outlet />
         </>
-
       )}
-
     </main>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 
 import themes from '@/assets/style/theme.scss';
-import { ContextTheme } from '@/components/Main';
 import { Button } from '@/components/ui-components/Button';
 import { Toast } from '@/components/ui-components/Toast';
 import { THEME_DARK } from '@/constants';
@@ -9,8 +9,8 @@ import { CardCurrency } from '@/pages/Home/CardCurrency';
 import { ChartCurrency } from '@/pages/Timeline/ChartCurrency/index';
 import { getDataFromCoinApi } from '@/pages/Timeline/utils';
 import { observer } from '@/services/observer';
-import { store } from '@/store/store';
-import { CurrencyType, PropsNon } from '@/types/type';
+import { RootState, store } from '@/store/store';
+import { CurrencyType } from '@/types/type';
 
 import classes from './styles.scss';
 
@@ -20,8 +20,16 @@ interface TimeLinePageState {
   cryptoCurrency: CurrencyType[] | []
 }
 
-export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
-  constructor(props: PropsNon | Readonly<PropsNon>) {
+function mapStateToProps(state: RootState) {
+  return {
+    theme: state.theme.theme,
+  };
+}
+
+const connector = connect(mapStateToProps);
+type TimeLinePageProps = ConnectedProps<typeof connector>;
+class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageState> {
+  constructor(props: TimeLinePageProps | Readonly<TimeLinePageProps>) {
     super(props);
     this.state = {
       codeCurrency: 'BTC',
@@ -31,7 +39,7 @@ export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
   }
 
   componentDidMount() {
-    // this.getDataForCharts();
+    this.getDataForCharts();
     observer.subscribe(this);
 
     const currencyAll = store.getState().data.currencies.data;
@@ -68,7 +76,7 @@ export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
 
   render() {
     const { codeCurrency, cryptoCurrency, isToast } = this.state;
-    const theme = this.context;
+    const { theme } = this.props;
 
     return (
       <div className={`${classes.wrapper} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
@@ -83,12 +91,12 @@ export class TimeLinePage extends React.Component<PropsNon, TimeLinePageState> {
           <Button handleClick={this.createChart}>Create chart</Button>
         </div>
         <CardCurrency symbol="$" name="Tether" value="USDT" backgroundColorIcon="#2A4628" />
-        <ChartCurrency />
-        {isToast && <Toast text="Новый график построен" color="#28a745" />}
+        <ChartCurrency theme={theme} />
+        {isToast && <Toast text={`График ${codeCurrency}/USDT построен`} color="#28a745" />}
       </div>
 
     );
   }
 }
 
-TimeLinePage.contextType = ContextTheme;
+export const TimeLinePage = connector(TimeLineSection);

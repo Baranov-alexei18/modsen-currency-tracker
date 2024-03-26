@@ -10,7 +10,7 @@ export const getOptionsForChart = (
   colorChart: string,
   handleClick: (e: { dataPoint: { y: number[]; x: string } }) => void,
 ) => ({
-  backgroundColor: 'inherit',
+  backgroundColor: colorChart,
   axisX: {
     tickThickness: 0,
     gridThickness: 0,
@@ -24,7 +24,7 @@ export const getOptionsForChart = (
   axisY2: {
     tickThickness: 0,
     gridThickness: 0,
-    labelFontColor: colorChart,
+    labelFontColor: colorChart === '#030304' ? '#f8f9fa' : '#030304',
     labelFormatter(e: { value: unknown; }) {
       if (window.innerWidth < 768) {
         return '';

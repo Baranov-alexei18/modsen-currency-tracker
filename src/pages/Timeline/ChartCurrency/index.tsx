@@ -2,13 +2,12 @@ import CanvasJSReact from '@canvasjs/react-charts';
 import React, { Component } from 'react';
 
 import themes from '@/assets/style/theme.scss';
-import { ContextTheme } from '@/components/Main';
 import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal/ModalBase';
 import { Toast } from '@/components/ui-components/Toast';
 import { THEME_DARK } from '@/constants';
 import { observer } from '@/services/observer';
-import { PropsNon } from '@/types/type';
+import { ThemeState } from '@/types/type';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
 import { getOptionsForChart } from './options';
@@ -41,8 +40,8 @@ interface ChartCurrencyState {
   loading: boolean,
 }
 
-export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
-  constructor(props: PropsNon | Readonly<PropsNon>) {
+export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
+  constructor(props: ThemeState | Readonly<ThemeState>) {
     super(props);
     this.state = {
       dataCharts: [],
@@ -106,7 +105,7 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
     const {
       isModal, isToast, loading, dataDayCharts, dataCharts,
     } = this.state;
-    const theme = this.context;
+    const { theme } = this.props;
 
     const dataPoints = dataCharts.map(({
       price_close, price_high, price_low, price_open, time_period_start,
@@ -115,7 +114,7 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
       y: [price_open, price_high, price_low, price_close],
     }));
 
-    const colorChart = theme === THEME_DARK ? '#f8f9fa' : '#030304';
+    const colorChart = theme === THEME_DARK ? '#030304' : '#f8f9fa';
     const options = getOptionsForChart(dataPoints, colorChart, this.handleClick);
 
     return (
@@ -132,5 +131,3 @@ export class ChartCurrency extends Component<PropsNon, ChartCurrencyState> {
     );
   }
 }
-
-ChartCurrency.contextType = ContextTheme;
