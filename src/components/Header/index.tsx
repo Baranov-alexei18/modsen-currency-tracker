@@ -18,12 +18,12 @@ export const Header = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
   };
 
-  function closeSidebar() {
+  const closeSidebar = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <header className={`${classes.header} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
@@ -36,8 +36,8 @@ export const Header = () => {
           <Switch theme={theme} />
         </div>
         <div className={classes.sidebar}>
-          <BurgerMenu height="30px" width="30px" color="white" onOpen={toggleSidebar} />
-          <SideBar open={isOpen} setCloseSideBar={() => closeSidebar()} />
+          <BurgerMenu height="30px" width="30px" color="white" handleClick={toggleSidebar} />
+          <SideBar open={isOpen} setCloseSideBar={closeSidebar} />
         </div>
       </div>
     </header>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Icon } from '@/types/type';
 
-export const SearchIcon: React.FC<Icon> = ({ height, width }) => (
+export const IconSearch: React.FC<Icon> = ({ height, width }) => (
   <div>
 
     <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width}>

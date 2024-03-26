@@ -8,6 +8,7 @@ import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 import { SideBarType } from '@/types/type';
 
+import { IconSidebarClose } from '../Icons/IconSidebarClose';
 import styles from './styles.scss';
 
 export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
@@ -16,7 +17,6 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
   const sidebarRef = useRef();
 
   useOutsideClick(sidebarRef, setCloseSideBar, open);
-
   return (
     <div
       ref={sidebarRef}
@@ -24,6 +24,7 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
     >
 
       <div className={styles.header_sidebar}>
+        <IconSidebarClose height="34px" width="34px" handleClick={setCloseSideBar} />
         <Switch theme={theme} />
       </div>
       <Navbar toggleCloseSidebar={setCloseSideBar} />
