@@ -1,0 +1,10 @@
+@import "@/assets/style/variables.scss";
+
+.input {
+    @include type-adaptiv('font-size', $font-size-xs);
+    box-sizing: border-box;
+    border: 1px solid $grey-color;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
