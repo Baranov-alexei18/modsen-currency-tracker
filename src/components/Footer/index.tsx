@@ -2,8 +2,7 @@ import { useSelector } from 'react-redux';
 
 import themes from '@/assets/style/theme.scss';
 import { AccordionMenu } from '@/components/ui-components/AccordionMenu';
-import { THEME_DARK } from '@/constants';
-import { copyright, menu } from '@/constants/index';
+import { copyright, menu, THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
 import { BlockInfo } from './BlockInfo';

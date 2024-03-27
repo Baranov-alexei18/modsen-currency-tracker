@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import logo from '@/assets/img/logo.svg';
-import { THEME_DARK } from '@/constants';
-import { bannerSubtitle, bannerTitleCurrency, tracker } from '@/constants/index';
+import {
+  bannerSubtitle, bannerTitleCurrency, THEME_DARK, tracker,
+} from '@/constants';
 import { RootState } from '@/store/store';
 
 import styles from './styles.scss';

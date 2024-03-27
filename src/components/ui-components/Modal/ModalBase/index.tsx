@@ -34,6 +34,6 @@ export const ModalBase: React.FC<ModalProps> = ({ isOpen, onCloseModal, children
         </div>
       </div>
     </div>,
-    document.getElementById('modal') as HTMLElement,
+    document.getElementById('modal'),
   );
 };

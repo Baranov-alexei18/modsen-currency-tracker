@@ -12,11 +12,11 @@ let configWebpack: Configuration;
 
 switch (env) {
   case 'production':
-    configWebpack = prodConfig as Configuration;
+    configWebpack = prodConfig;
     break;
   case 'development':
   default:
-    configWebpack = devConfig as Configuration;
+    configWebpack = devConfig;
     break;
 }
 
