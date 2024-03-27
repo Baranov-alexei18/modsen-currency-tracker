@@ -12,7 +12,7 @@ interface MapProps {
   data: BanksDataType[];
 }
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_JL_API;
+mapboxgl.accessToken = null;
 
 export class Map extends PureComponent<MapProps, MapState> {
   mapContainer: RefObject<HTMLDivElement> | HTMLDivElement;
