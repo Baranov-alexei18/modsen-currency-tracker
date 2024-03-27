@@ -11,9 +11,12 @@ const prodConfig = merge<Configuration>(commonConfig, {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: [{
+        use: {
           loader: 'babel-loader',
-        }],
+          options: {
+            presets: ['@babel/preset-typescript'],
+          },
+        },
         exclude: /node_modules/,
       },
 
@@ -33,6 +36,9 @@ const prodConfig = merge<Configuration>(commonConfig, {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash:8].css' })],
 
