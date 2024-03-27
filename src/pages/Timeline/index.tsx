@@ -47,7 +47,6 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
   componentDidMount() {
     this.getDataForCharts();
     observer.subscribe(this);
-
     const currencyAll = store.getState().data.currencies.data;
     const cryptoCurrency = Object.values(currencyAll).filter((item) => item.type === 'crypto');
     this.setState({ cryptoCurrency });

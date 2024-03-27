@@ -6,10 +6,14 @@ import { Switch } from '@/components/ui-components/Switch';
 import { THEME_DARK } from '@/constants';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { RootState } from '@/store/store';
-import { SideBarType } from '@/types/type';
 
 import { IconSidebarClose } from '../ui-components/Icons/IconSidebarClose';
 import styles from './styles.scss';
+
+interface SideBarType {
+  open: boolean;
+  setCloseSideBar: () => void
+}
 
 export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);

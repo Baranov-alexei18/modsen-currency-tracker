@@ -1,11 +1,16 @@
-import React, { useRef } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import { bannerTitleCurrency } from '@/constants';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { ModalProps } from '@/types/type';
 
 import classes from './styles.scss';
+
+interface ModalProps {
+  children: ReactNode;
+  isOpen: boolean;
+  onCloseModal: () => void;
+}
 
 export const ModalBase: React.FC<ModalProps> = ({ isOpen, onCloseModal, children }) => {
   const modalRef = useRef();

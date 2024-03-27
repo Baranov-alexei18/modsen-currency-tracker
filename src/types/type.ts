@@ -1,14 +1,17 @@
-import { ReactNode } from 'react';
-
 type Menu = {
     id: number;
     menu: string;
     submenu: Array<string>;
 };
+
+type PropsMenu = {
+  menu: Menu[];
+}
+
 type ThemesType = 'dark' | 'light';
 
-interface PropsMenu {
-    menu: Menu[];
+type ThemeState = {
+  theme: ThemesType;
 }
 
 type CurrencyType = {
@@ -57,40 +60,11 @@ type InputType<T> = {
   };
 }
 
-interface ThemeState {
-    theme: ThemesType;
-}
-interface Icon {
+type Icon = {
     height: string;
     width: string;
     color?: string;
     handleClick?: () => void
-}
-
-interface SideBarType {
-  open: boolean;
-  setCloseSideBar: () => void
-}
-
-interface CardCurrencyProp{
-  code?: string;
-  symbol: string;
-  name: string;
-  value?: string;
-  backgroundColorIcon?: string;
-  onChoiceCurrency?: () => void
-}
-
-interface ModalProps {
-  children: ReactNode;
-  isOpen: boolean;
-  onCloseModal: () => void;
-}
-interface SelectProps<T extends CurrencyData> {
-  baseValue: string;
-  keyValue: string;
-  options: T[];
-  onOptionChange: (data: T|null) => void;
 }
 
 interface CurrencyDataState {
@@ -105,7 +79,6 @@ interface PropsNon{ }
 
 export {
   BanksDataType,
-  CardCurrencyProp,
   CurrencyData,
   CurrencyDataState,
   CurrencyLatestData,
@@ -113,12 +86,9 @@ export {
   DataState,
   Icon,
   InputType,
-  ModalProps,
   PropsMenu,
   PropsNon,
   SectionCardCurrenciesProps,
-  SelectProps,
-  SideBarType,
   ThemeState,
   ThemesType,
 };
