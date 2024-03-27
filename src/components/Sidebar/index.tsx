@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Navbar } from '@/components/ui-components/Navbar';
-import { Switch } from '@/components/ui-components/Switch';
+import { Switch } from '@/components/ui-components/switch';
 import { THEME_DARK } from '@/constants';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { RootState } from '@/store/store';
