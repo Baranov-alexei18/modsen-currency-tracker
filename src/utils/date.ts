@@ -25,8 +25,8 @@ export const formatDate = (data: string) => {
   return `${day} ${months[monthIndex]} ${year}`;
 };
 
-export function getDateMonthAgo() {
+export function getDateDayAgo(day: number) {
   const currentDate = new Date();
-  const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 30));
+  const pastDate = new Date(currentDate.setDate(currentDate.getDate() - day));
   return pastDate.toISOString().slice(0, 19);
 }

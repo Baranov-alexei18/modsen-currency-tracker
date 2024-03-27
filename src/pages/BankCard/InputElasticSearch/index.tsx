@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 
 import { IconSearch } from '@/components/ui-components/Icons/IconSearch';
 import { BanksDataType, InputType } from '@/types/type';
@@ -19,6 +19,8 @@ interface InputSearchState {
     showDropdown: boolean,
 }
 export class InputElasticSearch extends PureComponent<InputSearchProps, InputSearchState> {
+  searchRef: React.RefObject<HTMLDivElement>;
+
   constructor(props: InputSearchProps | Readonly<InputSearchProps>) {
     super(props);
     this.state = {
@@ -26,7 +28,23 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
       value: '',
       showDropdown: false,
     };
+
+    this.searchRef = createRef<HTMLDivElement>();
   }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  handleClickOutside = (event: MouseEvent) => {
+    if (this.searchRef.current && !this.searchRef.current.contains(event.target as Node)) {
+      this.setState({ showDropdown: false });
+    }
+  };
 
   handleChange = (e: InputType<string>) => {
     const { value } = e.target;
@@ -57,7 +75,7 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
     const { className } = this.props;
 
     return (
-      <div className={`${classes.wrapper} ${className}`}>
+      <div className={`${classes.wrapper} ${className}`} ref={this.searchRef}>
         <input
           type="text"
           value={value}
