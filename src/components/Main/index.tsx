@@ -45,7 +45,7 @@ export const Main = () => {
               </div>
               <div>
                 Last updated at
-                {currenciesLatest ? `${getTimeLastUpdate(currenciesLatest.meta.last_updated_at)}` : '00:00'}
+                {currenciesLatest ? ` ${getTimeLastUpdate(currenciesLatest.meta.last_updated_at)}` : '00:00'}
               </div>
             </div>
 
