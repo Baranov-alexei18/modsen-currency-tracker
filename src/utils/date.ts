@@ -1,4 +1,4 @@
-export const isDateForUpdate = (data: string) => {
+export const isYestardayDay = (data: string) => {
   const today = new Date();
   const someDate = new Date(data);
 

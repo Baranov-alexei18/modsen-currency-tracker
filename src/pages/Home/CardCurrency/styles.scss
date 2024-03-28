@@ -14,10 +14,8 @@
     .symbol {
         @include type-adaptiv("min-width", 80px);
         @include type-adaptiv("height", 80px);
+        @include flex-center;
         box-sizing: content-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin-right: 20px;
         border-radius: 8px;
         font-size: $font-size-xs;

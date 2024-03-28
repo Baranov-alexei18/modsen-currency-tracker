@@ -48,7 +48,6 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
       loading: true,
     };
     this.handleClick = this.handleClick.bind(this);
-    this.changeChart = this.changeChart.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -111,6 +110,7 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
     }));
 
     const colorChart = theme === THEME_DARK ? '#030304' : '#f8f9fa';
+
     const options = getOptionsForChart(dataPoints, colorChart, this.handleClick);
 
     return (
@@ -122,7 +122,6 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
         <ModalBase isOpen={isModal} onCloseModal={() => this.setState({ isModal: false })}>
           <ModalUpdateDay data={dataDayCharts} getDataForChange={this.changeChart} />
         </ModalBase>
-
       </div>
     );
   }

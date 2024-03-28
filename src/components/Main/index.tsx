@@ -9,7 +9,7 @@ import { THEME_DARK } from '@/constants';
 import { fetchData } from '@/store/sliceData';
 import { RootState, store } from '@/store/store';
 import { CurrencyDataState } from '@/types/type';
-import { getTimeLastUpdate, isDateForUpdate } from '@/utils/date';
+import { getTimeLastUpdate, isYestardayDay } from '@/utils/date';
 
 import { ErrorBoundary } from '../ErrorBoundary';
 import classes from './styles.scss';
@@ -26,7 +26,7 @@ export const Main = () => {
 
     if (!localStoreСurrencyLatest || !localStoreСurrencies
       || (localStoreСurrencyLatest
-        && !isDateForUpdate(JSON.parse(localStoreСurrencyLatest).meta.last_updated_at))) {
+        && !isYestardayDay(JSON.parse(localStoreСurrencyLatest).meta.last_updated_at))) {
       store.dispatch(fetchData()).then(() => setLoading(false));
     } else {
       setLoading(false);
@@ -48,7 +48,6 @@ export const Main = () => {
                 {currenciesLatest ? ` ${getTimeLastUpdate(currenciesLatest.meta.last_updated_at)}` : '00:00'}
               </div>
             </div>
-
             <Outlet />
           </>
         )}

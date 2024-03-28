@@ -36,6 +36,9 @@ rules: {
   "import/no-duplicates": "error",
   "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
   "camelcase": "off",
-  "no-undef": "off" 
+  "no-undef": "off",
+  "react/jsx-props-no-spreading": ["off", {
+    "html": "ignore" ,
+}],
 }
 ignorePatterns: ['node_modules/', 'dist/']

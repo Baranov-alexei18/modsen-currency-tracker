@@ -111,4 +111,4 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
   }
 }
 
-export const TimeLinePage = connector(TimeLineSection);
+export default connector(TimeLineSection);

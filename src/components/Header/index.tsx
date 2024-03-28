@@ -6,7 +6,7 @@ import themes from '@/assets/style/theme.scss';
 import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
-import { Switch } from '@/components/ui-components/Switch';
+import { Switch } from '@/components/ui-components/switch';
 import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
