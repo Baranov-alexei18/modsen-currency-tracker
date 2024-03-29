@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Loader } from '@/components/ui-components/Loader';
-import { stocks } from '@/constants';
+import { STOCKS } from '@/constants';
 import { SectionCardCurrencies } from '@/pages/Home/SectionCardCurrencies';
 import { CurrencyDataState, CurrencyType } from '@/types/type';
 
@@ -14,7 +14,7 @@ interface CurrencyTypeMapping extends CurrencyType{
   value?: string;
 }
 
-export const HomePage = () => {
+const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const currencies = useSelector((state: CurrencyDataState) => state.data.currencies);
 
@@ -32,7 +32,7 @@ export const HomePage = () => {
       {loading ? <Loader />
         : (
           <>
-            <SectionCardCurrencies name="Stocks" currencies={stocks} />
+            <SectionCardCurrencies name="Stocks" currencies={STOCKS} />
             <SectionCardCurrencies name="Quotes" currencies={currenciesAll} />
           </>
         )}
@@ -40,3 +40,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;

@@ -14,9 +14,9 @@ export const PageNotFound = () => {
 
   return (
     <div className={classes.wrapper}>
-      <h1>Страница не найдена</h1>
+      <h1>Page not found</h1>
       <Button handleClick={handleReturnHome}>
-        Вернуться на главную
+        Return to Home
       </Button>
     </div>
   );

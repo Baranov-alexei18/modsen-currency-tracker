@@ -3,9 +3,17 @@ import { useSelector } from 'react-redux';
 
 import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
-import { CardCurrencyProp } from '@/types/type';
 
 import classes from './styles.scss';
+
+type CardCurrencyProp = {
+  code?: string;
+  symbol: string;
+  name: string;
+  value?: string;
+  backgroundColorIcon?: string;
+  onChoiceCurrency?: () => void
+}
 
 const generateRandomColor = (): string => {
   const letters = '0123456789ABCDEF';
@@ -16,7 +24,7 @@ const generateRandomColor = (): string => {
   return color;
 };
 
-export const CardCurrency: React.FC<CardCurrencyProp> = ({
+export const CardCurrency: React.FC<Partial<CardCurrencyProp>> = ({
   symbol, name, value, backgroundColorIcon, onChoiceCurrency,
 }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);

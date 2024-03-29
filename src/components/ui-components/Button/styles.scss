@@ -8,4 +8,10 @@
     background-color: $success-color;
     color: inherit;
     border-radius: 16px;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+    
 }
+

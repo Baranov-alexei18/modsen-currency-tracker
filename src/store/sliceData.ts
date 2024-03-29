@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CurrencyData, CurrencyLatestData, DataState } from '@/types/type';
 import { getDataFromCurrencyApi } from '@/utils/dataApi';
-import { isDateForUpdate } from '@/utils/date';
+import { isYestardayDay } from '@/utils/date';
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
   const apikey = process.env.REACT_APP_API_KEY_CURRENCIES;
@@ -15,7 +15,7 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
 
     return { currencies: dataCurrencies, currencyLatest: dataLatest };
   } catch (error) {
-    throw new Error('Ошибка при получении данных:', error);
+    throw new Error(error);
   }
 });
 
@@ -25,7 +25,7 @@ const currencyLatest = localStorage.getItem('currencyLatest');
 const initialState:DataState = {
   currencies: currencies ? JSON.parse(currencies) : null,
   currencyLatest: currencyLatest
-    && isDateForUpdate(JSON.parse(currencyLatest).meta.last_updated_at)
+    && isYestardayDay(JSON.parse(currencyLatest).meta.last_updated_at)
     ? JSON.parse(currencyLatest) : null,
 };
 

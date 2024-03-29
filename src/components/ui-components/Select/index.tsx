@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import classes from './styles.scss';
 
 export const Select: React.FC<any> = ({
-  baseValue, keyValue, options, onOptionChange,
+  className, baseValue, keyValue, options, onOptionChange,
 }) => {
   const [currency, setCurrency] = useState<string>(baseValue);
 
@@ -17,7 +17,7 @@ export const Select: React.FC<any> = ({
 
   return (
 
-    <select className={classes.select} value={currency} onChange={handleOptionChange}>
+    <select className={`${classes.select} ${className}`} value={currency} onChange={handleOptionChange}>
       {options.map((option:any) => (
         <option key={option[keyValue]} value={option[keyValue]}>
           {option[keyValue]}

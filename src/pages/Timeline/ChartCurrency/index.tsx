@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import themes from '@/assets/style/theme.scss';
 import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal/ModalBase';
-import { Toast } from '@/components/ui-components/Toast';
 import { THEME_DARK } from '@/constants';
 import { observer } from '@/services/observer';
 import { ThemeState } from '@/types/type';
@@ -36,7 +35,6 @@ interface ChartCurrencyState {
     meta?: string;
   },
   isModal: boolean,
-  isToast: boolean,
   loading: boolean,
 }
 
@@ -47,11 +45,9 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
       dataCharts: [],
       dataDayCharts: {},
       isModal: false,
-      isToast: false,
       loading: true,
     };
     this.handleClick = this.handleClick.bind(this);
-    this.changeChart = this.changeChart.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -65,7 +61,7 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
 
   handleClick(e: { dataPoint: { y: number[]; x: string; }; }) {
     const dataAll = { data: e.dataPoint.y, meta: e.dataPoint.x };
-    this.setState({ dataDayCharts: dataAll, isModal: true, isToast: false });
+    this.setState({ dataDayCharts: dataAll, isModal: true });
   }
 
   changeChart = (dataChange: { meta: string; data: number[]; }) => {
@@ -92,7 +88,6 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
       return {
         dataCharts: newData,
         isModal: false,
-        isToast: true,
       };
     });
   };
@@ -103,7 +98,7 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
 
   render() {
     const {
-      isModal, isToast, loading, dataDayCharts, dataCharts,
+      isModal, loading, dataDayCharts, dataCharts,
     } = this.state;
     const { theme } = this.props;
 
@@ -115,18 +110,18 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
     }));
 
     const colorChart = theme === THEME_DARK ? '#030304' : '#f8f9fa';
+
     const options = getOptionsForChart(dataPoints, colorChart, this.handleClick);
 
     return (
       <div className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
         {loading
           ? <Loader />
-          : <CanvasJSChart options={options} />}
+          : <CanvasJSChart data-testid="chart" options={options} />}
 
         <ModalBase isOpen={isModal} onCloseModal={() => this.setState({ isModal: false })}>
           <ModalUpdateDay data={dataDayCharts} getDataForChange={this.changeChart} />
         </ModalBase>
-        {isToast && <Toast text="График изменен" color="orange" />}
       </div>
     );
   }

@@ -26,9 +26,6 @@ export const getOptionsForChart = (
     gridThickness: 0,
     labelFontColor: colorChart === '#030304' ? '#f8f9fa' : '#030304',
     labelFormatter(e: { value: unknown; }) {
-      if (window.innerWidth < 768) {
-        return '';
-      }
       return e.value;
     },
     labelTextAlign: 'left',

@@ -1,13 +1,14 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { App } from '@/components/App/App';
 import { Loader } from '@/components/ui-components/Loader';
-import { BankCardPage } from '@/pages/BankCard';
-import { ContactPage } from '@/pages/Contact';
-import { HomePage } from '@/pages/Home';
 import { PageNotFound } from '@/pages/PageNotFound';
-import { TimeLinePage } from '@/pages/Timeline';
+
+const HomePage = lazy(() => import('@/pages/Home'));
+const BankCardPage = lazy(() => import('@/pages/BankCard'));
+const ContactPage = lazy(() => import('@/pages/Contact'));
+const TimeLinePage = lazy(() => import('@/pages/Timeline'));
 
 export const router = createBrowserRouter([
   {

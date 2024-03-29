@@ -7,8 +7,7 @@
     padding-bottom: 50px;
 
     .social_icons {
-        display: flex;
-        justify-content: center;
+        @include flex-center;
         gap: 20px;
 
         a:hover {
@@ -27,6 +26,5 @@
                 border-bottom: 1px solid;
             }
         }
-
     }
 }

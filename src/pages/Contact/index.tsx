@@ -8,7 +8,7 @@ import { RootState } from '@/store/store';
 import { CONTACTS } from './options';
 import classes from './styles.scss';
 
-export const ContactPage = () => {
+const ContactPage = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const colorIcon = theme === THEME_DARK ? '#f8f9fa' : '#030304';
 
@@ -44,3 +44,5 @@ export const ContactPage = () => {
     </div>
   );
 };
+
+export default ContactPage;
