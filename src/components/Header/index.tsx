@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 
 import logo from '@/assets/img/logo.svg';
 import themes from '@/assets/style/theme.scss';
-import { Switch } from '@/components/components/ui-components/Switch';
 import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
+import { Switch } from '../ui-components/Switch';
 import classes from './styles.scss';
 
 export const Header = () => {
