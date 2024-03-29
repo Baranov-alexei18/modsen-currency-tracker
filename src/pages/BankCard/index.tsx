@@ -73,4 +73,4 @@ class BankCardSection extends React.Component<BankCardPageProps, BankCardPageSta
   }
 }
 
-export const BankCardPage = connector(BankCardSection);
+export default connector(BankCardSection);

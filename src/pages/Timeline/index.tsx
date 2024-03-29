@@ -47,7 +47,6 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
   componentDidMount() {
     this.getDataForCharts();
     observer.subscribe(this);
-
     const currencyAll = store.getState().data.currencies.data;
     const cryptoCurrency = Object.values(currencyAll).filter((item) => item.type === 'crypto');
     this.setState({ cryptoCurrency });
@@ -98,18 +97,18 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
 
     return (
       <div className={`${classes.wrapper} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
-        <div className={classes.block_currency}>
+        <div data-testid="block-info-chart" className={classes.block_currency}>
           <Select className={`${theme === THEME_DARK ? classes.dark : ' '}`} baseValue={codeCurrency} keyValue="code" options={cryptoCurrency} onOptionChange={this.handleSelectChange} />
-          <Input value={dayAgo} onChange={this.changeDayForChart} />
+          <Input data-testid="input-days" value={dayAgo} onChange={this.changeDayForChart} />
           <Button handleClick={this.createChart} disabled={errorInputDay}>Create chart</Button>
         </div>
         <CardCurrency symbol="$" name="Tether" value="USDT" backgroundColorIcon="#2A4628" />
         <ChartCurrency theme={theme} />
-        {isToast && <Toast text={`График ${codeCurrency}/USDT построен`} color="#28a745" />}
+        {isToast && <Toast dataTestId="toast" text={`График ${codeCurrency}/USDT построен`} color="#28a745" />}
       </div>
 
     );
   }
 }
 
-export const TimeLinePage = connector(TimeLineSection);
+export default connector(TimeLineSection);

@@ -1,14 +1,14 @@
-/* eslint-disable no-restricted-syntax */
-export const getFieldsForElasticSearch = (arr:unknown[], value:string) => {
-  const fields = new Set();
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export const getFieldsForElasticSearch = (arr:unknown[], value:string):unknown[] => {
+  const fields: Set<unknown> = new Set();
 
-  function getFields(obj:any) {
-    for (const key in obj) {
-      if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
-        getFields(obj[key]);
+  const getFields = (obj: any): void => {
+    Object.values(obj).forEach((value) => {
+      if (typeof value === 'object' && !Array.isArray(value)) {
+        getFields(value);
       }
-    }
-  }
+    });
+  };
 
   arr.forEach((item) => {
     getFields(item);
@@ -24,6 +24,8 @@ export const getFieldsForElasticSearch = (arr:unknown[], value:string) => {
       }
     });
   });
+
+  if (!fields.size) return ['Not found'];
 
   return Array.from(fields);
 };

@@ -10,7 +10,7 @@
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "types": [
-        "node"
+        "node", "jest", "cypress"
       ],
       "baseUrl": "./",
       "paths": {
@@ -27,10 +27,15 @@
       ],
       },
     },
+    "exclude": [
+      "./cypress.config.ts",
+      "node_modules",
+      "cypress",
+      "**/*.cy.tsx"
+    ], 
     "ts-node": {
         "compilerOptions": {
-          "module": "CommonJS",
-          "moduleResolution": "bundler",
+          "module": "CommonJS"
         }
       }
   }
