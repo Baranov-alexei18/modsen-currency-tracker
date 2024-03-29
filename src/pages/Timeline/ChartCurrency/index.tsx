@@ -117,7 +117,7 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
       <div className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
         {loading
           ? <Loader />
-          : <CanvasJSChart options={options} />}
+          : <CanvasJSChart data-testid="chart" options={options} />}
 
         <ModalBase isOpen={isModal} onCloseModal={() => this.setState({ isModal: false })}>
           <ModalUpdateDay data={dataDayCharts} getDataForChange={this.changeChart} />

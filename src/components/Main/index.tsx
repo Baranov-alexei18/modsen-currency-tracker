@@ -34,7 +34,10 @@ export const Main = () => {
   }, []);
 
   return (
-    <main className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
+    <main
+      data-testid="main-layout"
+      className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}
+    >
       <ErrorBoundary>
         <Banner />
         {loading ? <Loader /> : (

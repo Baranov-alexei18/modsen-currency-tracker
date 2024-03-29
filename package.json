@@ -1,5 +1,5 @@
 {
-  "name": "first-app-webpack",
+  "name": "currency_tracker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,11 @@
     "build:prod": "webpack --env mode=production",
     "lint": "eslint . --fix",
     "commit": "cz",
-    "test": "jest"
+    "test": "jest",
+    "cypress": "cypress open"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["currency", "converter"],
+  "author": "Alexei Baranov <alexei-baranov18@mail.ru>",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-typescript": "^7.24.1",
@@ -33,6 +34,7 @@
     "babel-jest": "^29.7.0",
     "commitizen": "^4.3.0",
     "css-loader": "^6.10.0",
+    "cypress": "^13.7.1",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
