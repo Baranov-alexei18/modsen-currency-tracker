@@ -1,44 +1,44 @@
-import React, { ReactNode, useRef } from 'react';
+import React, { memo, ReactNode, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import { bannerTitleCurrency } from '@/constants';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 import classes from './styles.scss';
 
-interface ModalProps {
+type ModalProps = {
   children: ReactNode;
   isOpen: boolean;
   onCloseModal: () => void;
 }
 
-export const ModalBase: React.FC<ModalProps> = ({ isOpen, onCloseModal, children }) => {
-  const modalRef = useRef();
+export const ModalBase: React.FC<ModalProps> = memo(
+  ({ isOpen, onCloseModal, children }: ModalProps) => {
+    const modalRef = useRef();
 
-  useOutsideClick(modalRef, onCloseModal, isOpen);
+    useOutsideClick(modalRef, onCloseModal, isOpen);
 
-  if (!isOpen) return null;
-  return createPortal(
-    <div
-      ref={modalRef}
-      className={classes.modal_wrapper}
-      onClick={onCloseModal}
-      aria-hidden
-    >
+    if (!isOpen) return null;
+    return createPortal(
       <div
-        className={classes.modal_content}
-        onClick={(e) => e.stopPropagation()}
+        ref={modalRef}
+        className={classes.modal_wrapper}
+        onClick={onCloseModal}
         aria-hidden
       >
-        <div className={classes.modal_header}>
-          <h2>{bannerTitleCurrency}</h2>
-          <button type="button" className={classes.close_button} onClick={onCloseModal}>X</button>
+        <div
+          className={classes.modal_content}
+          onClick={(e) => e.stopPropagation()}
+          aria-hidden
+        >
+          <div className={classes.modal_header}>
+            <button type="button" className={classes.close_button} onClick={onCloseModal}>X</button>
+          </div>
+          <div className={classes.modal_body}>
+            {children}
+          </div>
         </div>
-        <div className={classes.modal_body}>
-          {children}
-        </div>
-      </div>
-    </div>,
+      </div>,
     document.getElementById('modal') as HTMLElement,
-  );
-};
+    );
+  },
+);

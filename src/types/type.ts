@@ -32,15 +32,17 @@ type CurrencyData = {
     [currencyCode: string]: CurrencyType;
   }
 }
+type CurrencyLatestForValue = {
+  code: string;
+  value: number
+}
+
 type CurrencyLatestData = {
   meta: {
     last_updated_at: string;
   }
   data: {
-    [currencyCode: string]: {
-      code: string;
-      value: number
-    }
+    [currencyCode: string]: CurrencyLatestForValue;
   }
 }
 type DataState = {
@@ -82,6 +84,7 @@ export {
   CurrencyData,
   CurrencyDataState,
   CurrencyLatestData,
+  CurrencyLatestForValue,
   CurrencyType,
   DataState,
   Icon,

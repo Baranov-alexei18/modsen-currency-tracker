@@ -5,8 +5,8 @@ import { description, labelTitleCurrency } from '@/constants/index';
 
 import classes from './styles.scss';
 
-export const BlockInfo = () => (
-  <div className={classes.block_info}>
+export const BlockDescription = () => (
+  <div className={classes.wrapper}>
     <div className={classes.logo}>
       <img src={logo} alt="Company Logo" className={classes.logo} />
       <span>{labelTitleCurrency}</span>

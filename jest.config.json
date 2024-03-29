@@ -1,0 +1,17 @@
+{
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "testMatch": [
+    "**/__tests__/**/*.+(ts|tsx|js|jsx)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js|jsx)"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node"
+  ]
+}

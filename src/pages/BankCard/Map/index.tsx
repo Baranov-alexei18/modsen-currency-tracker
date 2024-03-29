@@ -33,7 +33,7 @@ export class Map extends PureComponent<MapProps, MapState> {
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/light-v11',
       center: [27.559891, 53.896962],
-      zoom: 11,
+      zoom: 10,
     });
 
     this.addMarkers();

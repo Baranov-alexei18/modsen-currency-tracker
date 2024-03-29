@@ -4,14 +4,10 @@
     @include type-adaptiv("font-size", $font-size-md);
     @include type-adaptiv("margin-bottom", 40px);
     @include type-adaptiv("margin-top", 40px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
 
     .circle_wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
         width: 30px;
         height: 30px;
         background-color: $green-color ;

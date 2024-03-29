@@ -3,8 +3,9 @@ import React from 'react';
 
 import classes from './styles.scss';
 
-export const Input: React.FC<any> = ({
-  className, value, onChange,
-}) => (
-  <input className={`${classes.input} ${className}`} value={value} onChange={(e) => onChange(e)} />
-);
+export const Input: React.FC<any> = (props) => {
+  const { value } = props;
+  return (
+    <input {...props} value={value} className={classes.input} />
+  );
+};

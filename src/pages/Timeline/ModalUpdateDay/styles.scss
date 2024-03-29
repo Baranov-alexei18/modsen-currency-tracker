@@ -6,27 +6,27 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  .change_day{
+
+  .block_day {
     text-align: center;
     font-weight: bold;
     margin-bottom: 12px;
   }
-  .input {
-    width: 95%;
+
+  input {
+    width: 100%;
     font-size: inherit;
     margin-bottom: 16px;
     padding: 8px;
-    border: 1px solid $grey-color;
-    background-color: $light-color;
     border-radius: 5px;
   }
-  
-  .error_input{
+
+  .error_input {
     border: 1px solid $error-color;
     color: $error-color;
     margin-bottom: 4px;
   }
-  
+
   .result {
     font-size: inherit;
     font-weight: bold;
@@ -48,10 +48,11 @@
     font-size: $font-size-xs;
     margin: 16px auto 0px auto;
 
-    &:hover{
+    &:hover {
       transform: scale(1.02);
     }
-    &:disabled{
+
+    &:disabled {
       opacity: 0.6;
     }
   }

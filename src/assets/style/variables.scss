@@ -9,7 +9,6 @@ $error-color: #be1818;
 $green-color: #1b521f;
 $linear-green-to-yellow-color: linear-gradient(to right, #00CE2C, #AEDF23, #A3DC00);
 
-// Шрифт
 $font-family-main: 'Poppins', sans-serif;
 $font-size-xxxs: 16px;
 $font-size-xxs: 20px;
@@ -21,20 +20,11 @@ $font-size-xxl: 60px;
 $font-size-xxxl: 76px;
 $font-size-xxxxl: 90px;
 
-
-// Адаптация под разные устройства
 $breakpoint-min-width: 300px;
 $breakpoint-xs: 576px;
 $breakpoint-sm: 768px;
 $breakpoint-md: 992px;
 $breakpoint-lg: 1200px;
-
-// Медиа запросы
-@mixin respond-to($breakpoint) {
-    @media screen and (min-width: $breakpoint) {
-        @content;
-    }
-}
 
 @mixin container {
     margin-right: auto;
@@ -55,6 +45,12 @@ $breakpoint-lg: 1200px;
     @media (min-width: #{$breakpoint-lg}) {
         max-width: 1140px;
     }
+}
+
+@mixin flex-center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin type-adaptiv($type, $initial-size) {

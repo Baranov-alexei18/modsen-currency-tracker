@@ -33,7 +33,7 @@ export const Header = () => {
           <Navbar />
         </div>
         <div className={classes.switch_theme}>
-          <Switch theme={theme} />
+          <Switch dataTestId="switch-theme" theme={theme} />
         </div>
         <div className={classes.sidebar}>
           <BurgerMenu height="30px" width="30px" color="white" handleClick={toggleSidebar} />

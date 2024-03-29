@@ -6,9 +6,10 @@ import classes from './styles.scss';
 interface ToastProps {
     text: string;
     color: string;
+    dataTestId: string;
 }
 
-export const Toast: React.FC<ToastProps> = ({ text, color }) => {
+export const Toast: React.FC<ToastProps> = ({ text, color, dataTestId }) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -19,7 +20,11 @@ export const Toast: React.FC<ToastProps> = ({ text, color }) => {
   }, []);
 
   return visible ? createPortal(
-    <div className={`${classes.toast_wrapper} ${visible && classes.show} `} style={{ backgroundColor: color }}>
+    <div
+      data-testid={dataTestId}
+      className={`${classes.toast_wrapper} ${visible && classes.show} `}
+      style={{ backgroundColor: color }}
+    >
       <p className="toast-text">{text}</p>
     </div>,
     document.getElementById('modal'),

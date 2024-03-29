@@ -3,3 +3,4 @@ dist
 netlify.toml
 .env
 .netlify
+coverage

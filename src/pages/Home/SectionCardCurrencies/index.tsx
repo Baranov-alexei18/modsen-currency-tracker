@@ -19,13 +19,14 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
   const currenciesLatestAll = Object.values(currenciesLatest.data);
 
+  useEffect(() => {
+    currenciesLatest ? setLoading(false) : setLoading(true);
+  }, [currenciesLatest]);
+
   const openModal = (code: string) => {
     setIsModal(true);
     setConvertValue(code);
   };
-  useEffect(() => {
-    currenciesLatest ? setLoading(false) : setLoading(true);
-  }, [currenciesLatest]);
 
   const getValueToDollars = (symbol: string, _code: string): string => {
     const currency = currenciesLatestAll.find(({ code }) => code === _code);
