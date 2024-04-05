@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 import classes from './styles.scss';
 
-interface ToastProps {
+type ToastProps = {
     text: string;
     color: string;
     dataTestId: string;

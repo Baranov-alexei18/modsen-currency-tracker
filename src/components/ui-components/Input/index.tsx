@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
 import classes from './styles.scss';
 
-export const Input: React.FC<any> = (props) => {
-  const { value } = props;
-  return (
-    <input {...props} value={value} className={classes.input} />
-  );
-};
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  value: string | number;
+}
+
+export const Input: React.FC<InputProps> = ({ value, ...rest }) => (
+  <input {...rest} value={value} className={classes.input} />
+);

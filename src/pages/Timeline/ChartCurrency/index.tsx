@@ -10,11 +10,11 @@ import { ThemeState } from '@/types/type';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
 
-import { getOptionsForChart } from './options';
+import { getOptionsForChart } from './config';
 
 const { CanvasJSChart } = CanvasJSReact;
 
-export interface DataForCreateCharts {
+export type DataForCreateCharts ={
   price_close: number,
   price_high: number,
   price_low: number,
@@ -29,7 +29,7 @@ export interface DataForCreateCharts {
 
 type UpdateDataForChart = { data: DataForCreateCharts[] }
 
-interface ChartCurrencyState {
+type ChartCurrencyState = {
   dataCharts: Array<DataForCreateCharts>,
   dataDayCharts: {
     data?: number[];

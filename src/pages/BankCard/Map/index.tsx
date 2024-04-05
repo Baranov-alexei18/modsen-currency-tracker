@@ -5,10 +5,10 @@ import { BanksDataType } from '@/types/type';
 
 import classes from './styles.scss';
 
-interface MapState {
+type MapState = {
   markers: unknown[];
 }
-interface MapProps {
+type MapProps = {
   data: BanksDataType[];
 }
 

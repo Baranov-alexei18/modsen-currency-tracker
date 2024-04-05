@@ -16,7 +16,7 @@ import { getDataFromCoinApi } from '@/utils/dataApi';
 
 import classes from './styles.scss';
 
-interface TimeLinePageState {
+type TimeLinePageState = {
   codeCurrency: string;
   isToast: boolean;
   cryptoCurrency: CurrencyType[] | [];
@@ -65,7 +65,6 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
     });
   }
 
-  // eslint-disable-next-line react/no-unused-class-component-methods
   update = () => { };
 
   handleSelectChange = (option: CurrencyType) => {
@@ -80,7 +79,7 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
     this.setState({ isToast: (dayAgo === 30) });
   };
 
-  changeDayForChart = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  changeDayForChart = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     this.setState((prev) => ({
       ...prev,
@@ -99,7 +98,7 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
       <div className={`${classes.wrapper} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
         <div data-testid="block-info-chart" className={classes.block_currency}>
           <Select className={`${theme === THEME_DARK ? classes.dark : ' '}`} baseValue={codeCurrency} keyValue="code" options={cryptoCurrency} onOptionChange={this.handleSelectChange} />
-          <Input data-testid="input-days" value={dayAgo} onChange={this.changeDayForChart} />
+          <Input data-testid="input-days" value={dayAgo} onChange={(e) => this.changeDayForChart(e)} />
           <Button handleClick={this.createChart} disabled={errorInputDay}>Create chart</Button>
         </div>
         <CardCurrency symbol="$" name="Tether" value="USDT" backgroundColorIcon="#2A4628" />

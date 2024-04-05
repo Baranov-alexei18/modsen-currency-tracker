@@ -8,7 +8,7 @@ import styles from './styles.scss';
 
 export const AccordionMenu: React.FC<PropsMenu> = ({ menu }) => {
   const [openIndex, setOpenIndex] = useState(null);
-  const toggleMenu = (index: number) => {
+  const toggleMenu = (index: number) => () => {
     setOpenIndex((prevIndex: number) => (prevIndex === index ? null : index));
   };
 
@@ -20,7 +20,7 @@ export const AccordionMenu: React.FC<PropsMenu> = ({ menu }) => {
             role="menuitem"
             key={id}
             className={`${styles.menuItem} ${openIndex === id ? styles.open : ''}`}
-            onClick={() => toggleMenu(id)}
+            onClick={toggleMenu(id)}
             aria-hidden="true"
           >
             <div>

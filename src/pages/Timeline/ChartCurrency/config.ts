@@ -1,4 +1,4 @@
-interface DayCharts{
+type DayCharts = {
   x: Date;
   y: number[];
 }

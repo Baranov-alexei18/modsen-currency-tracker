@@ -1,17 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export const getFieldsForElasticSearch = (arr:unknown[], value:string):unknown[] => {
+import { getFieldsForSearch } from "@/helpers/getFieldsForSearch";
+
+export const getFieldsForElasticSearch = (arr: unknown[], value: string): unknown[] => {
   const fields: Set<unknown> = new Set();
-
-  const getFields = (obj: any): void => {
-    Object.values(obj).forEach((value) => {
-      if (typeof value === 'object' && !Array.isArray(value)) {
-        getFields(value);
-      }
-    });
-  };
-
+  
   arr.forEach((item) => {
-    getFields(item);
+    getFieldsForSearch(item);
     Object.values(item).forEach((val) => {
       if (Array.isArray(val)) {
         val.forEach((subVal) => {

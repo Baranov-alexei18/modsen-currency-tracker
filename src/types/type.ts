@@ -69,15 +69,15 @@ type Icon = {
     handleClick?: () => void
 }
 
-interface CurrencyDataState {
+type CurrencyDataState = {
   data: DataState;
 }
-interface SectionCardCurrenciesProps {
+type SectionCardCurrenciesProps = {
   name: string,
   currencies: Array<CurrencyType>
 }
 
-interface PropsNon{ }
+type PropsNon = object;
 
 export {
   BanksDataType,

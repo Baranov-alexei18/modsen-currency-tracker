@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -8,33 +7,20 @@ import { CurrencyConverter } from '@/pages/Home/CurrencyConverter';
 import { CurrencyDataState, SectionCardCurrenciesProps } from '@/types/type';
 
 import classes from './styles.scss';
+import { getCurrencyToDollars } from '@/helpers/getCurrencyToDollars';
 
 export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
   { name, currencies },
 ) => {
   const [isModal, setIsModal] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [convertValue, setConvertValue] = useState('');
 
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
   const currenciesLatestAll = Object.values(currenciesLatest.data);
 
-  useEffect(() => {
-    currenciesLatest ? setLoading(false) : setLoading(true);
-  }, [currenciesLatest]);
-
   const openModal = (code: string) => {
     setIsModal(true);
     setConvertValue(code);
-  };
-
-  const getValueToDollars = (symbol: string, _code: string): string => {
-    const currency = currenciesLatestAll.find(({ code }) => code === _code);
-    const valueCurrency = `${symbol} ${currency.value.toFixed(2)}`;
-
-    const res = loading ? '' : valueCurrency;
-
-    return res;
   };
 
   return (
@@ -52,7 +38,7 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
                 key={code}
                 symbol={symbol_native}
                 name={name}
-                value={getValueToDollars(symbol, code)}
+                value={getCurrencyToDollars(symbol, code, currenciesLatestAll)}
                 onChoiceCurrency={() => openModal(code)}
               />
             )

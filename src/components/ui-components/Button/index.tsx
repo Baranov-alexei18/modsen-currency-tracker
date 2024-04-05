@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import classes from './styles.scss';
 
-interface ButtonProps{
+type ButtonProps = {
   handleClick: () => void;
   children: ReactNode,
   disabled?: boolean

@@ -6,14 +6,14 @@ import { getFieldsForElasticSearch } from '@/utils/elasticSearch';
 
 import classes from './styles.scss';
 
-interface InputSearchProps {
+type InputSearchProps = {
     className: string;
     value: string;
     options: BanksDataType[];
     onChange: (value: string) => void;
     onSelect: (value: string) => void;
 }
-interface InputSearchState {
+type InputSearchState = {
     filteredOptions: unknown[] | string[] | [],
     value: string | undefined,
     showDropdown: boolean,
@@ -61,7 +61,7 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
     });
   };
 
-  handleSelect = (option: string) => {
+  handleSelect = (option: string) => () => {
     const { onSelect } = this.props;
     this.setState({
       value: option,
@@ -90,7 +90,7 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
         {showDropdown && (
         <ul className={classes.dropdown}>
           {filteredOptions.map((option: string) => (
-            <li key={option} onClick={() => this.handleSelect(option)} aria-hidden="true">
+            <li key={option} onClick={this.handleSelect(option)} aria-hidden="true">
               {option}
             </li>
           ))}

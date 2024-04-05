@@ -21,10 +21,12 @@
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/no-unused-class-component-methods": "off",
     "no-unused-vars": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/no-mutable-exports ": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
     "no-return-assign": "off",

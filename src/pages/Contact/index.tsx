@@ -11,7 +11,6 @@ import classes from './styles.scss';
 
 const ContactPage = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
-  const colorIcon = theme === THEME_DARK ? '#f8f9fa' : '#030304';
 
   return (
     <div className={`${classes.wrapper} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
@@ -25,7 +24,7 @@ const ContactPage = () => {
             className={classes.info__item}
             aria-hidden
           >
-            <Icon height="40px" width="40px" color={colorIcon} />
+            <Icon height="40px" width="40px" />
           </a>
         ))}
       </div>

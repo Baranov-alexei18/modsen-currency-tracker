@@ -7,7 +7,6 @@ import prodConfig from './config/build/webpack.config.prod';
 
 const env = process.env.NODE_ENV || 'development';
 
-// eslint-disable-next-line import/no-mutable-exports
 let configWebpack: Configuration;
 
 switch (env) {

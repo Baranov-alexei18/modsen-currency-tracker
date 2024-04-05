@@ -11,7 +11,7 @@ import { Map } from './Map';
 
 import classes from './styles.scss';
 
-interface BankCardPageState {
+type BankCardPageState = {
   searchValue: string;
   searchData: BanksDataType[];
 }
