@@ -7,8 +7,9 @@ import { copyright, MENU_FOOTER } from '@/constants/index';
 import { RootState } from '@/store/store';
 
 import { BlockDescription } from './BlockInfo';
-import classes from './styles.scss';
 import { TableFooter } from './TableFooter';
+
+import classes from './styles.scss';
 
 export const Footer = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);

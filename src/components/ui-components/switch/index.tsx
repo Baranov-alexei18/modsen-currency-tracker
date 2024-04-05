@@ -13,7 +13,7 @@ type SwitchProps = {
   dataTestId: string;
 }
 
-export const Switch: React.FC<SwitchProps> = ({ theme, dataTestId }) => {
+export const SwitchApp: React.FC<SwitchProps> = ({ theme, dataTestId }) => {
   const themeStore = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch<AppDispatch>();
 

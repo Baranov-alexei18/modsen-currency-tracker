@@ -12,6 +12,7 @@ import { CurrencyDataState } from '@/types/type';
 import { getTimeLastUpdate, isYestardayDay } from '@/utils/date';
 
 import { ErrorBoundary } from '../ErrorBoundary';
+
 import classes from './styles.scss';
 
 export const Main = () => {

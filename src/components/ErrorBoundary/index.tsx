@@ -1,6 +1,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 
 import { Loader } from '../ui-components/Loader';
+
 import classes from './styles.scss';
 
 type ErrorBoundaryState = {

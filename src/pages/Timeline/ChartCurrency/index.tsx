@@ -1,14 +1,15 @@
-import CanvasJSReact from '@canvasjs/react-charts';
 import React, { Component } from 'react';
+import CanvasJSReact from '@canvasjs/react-charts';
 
 import themes from '@/assets/style/theme.scss';
 import { Loader } from '@/components/ui-components/Loader';
-import { ModalBase } from '@/components/ui-components/Modal/ModalBase';
+import { ModalBase } from '@/components/ui-components/Modal';
 import { THEME_DARK } from '@/constants';
 import { observer } from '@/services/observer';
 import { ThemeState } from '@/types/type';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
+
 import { getOptionsForChart } from './options';
 
 const { CanvasJSChart } = CanvasJSReact;

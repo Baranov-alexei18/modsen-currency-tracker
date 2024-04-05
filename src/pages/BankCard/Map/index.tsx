@@ -1,5 +1,5 @@
-import mapboxgl from 'mapbox-gl';
 import React, { createRef, PureComponent, RefObject } from 'react';
+import mapboxgl from 'mapbox-gl';
 
 import { BanksDataType } from '@/types/type';
 

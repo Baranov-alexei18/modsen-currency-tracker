@@ -8,6 +8,7 @@ import { BanksDataType } from '@/types/type';
 
 import { InputElasticSearch } from './InputElasticSearch';
 import { Map } from './Map';
+
 import classes from './styles.scss';
 
 interface BankCardPageState {

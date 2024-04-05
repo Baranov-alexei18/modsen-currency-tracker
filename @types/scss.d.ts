@@ -9,6 +9,3 @@ declare module '*.scss' {
     const content: string;
     export = content;
   }
-
-  declare module '@canvasjs/react-charts'
-  declare module 'mapbox-gl'

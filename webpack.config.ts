@@ -1,6 +1,6 @@
-import 'webpack-dev-server';
-
 import { Configuration } from 'webpack';
+
+import 'webpack-dev-server';
 
 import devConfig from './config/build/webpack.config.dev';
 import prodConfig from './config/build/webpack.config.prod';

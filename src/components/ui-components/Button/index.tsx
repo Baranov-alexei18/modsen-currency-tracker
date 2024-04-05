@@ -8,12 +8,15 @@ interface ButtonProps{
   disabled?: boolean
 }
 
-export const Button:React.FC<ButtonProps> = ({ handleClick, children, disabled }) => (
-  <button type="button" className={classes.button} onClick={handleClick} disabled={disabled}>
+export const Button: React.FC<Partial<ButtonProps>> = (
+  { handleClick, children, disabled = false },
+) => (
+  <button
+    type="button"
+    className={classes.button}
+    onClick={handleClick}
+    disabled={disabled}
+  >
     {children}
   </button>
 );
-
-Button.defaultProps = {
-  disabled: false,
-};

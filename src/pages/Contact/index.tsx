@@ -6,6 +6,7 @@ import { GITHUB_LINK, MODSEN_LINK, THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
 import { CONTACTS } from './options';
+
 import classes from './styles.scss';
 
 const ContactPage = () => {

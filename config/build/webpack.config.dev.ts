@@ -1,5 +1,5 @@
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
 

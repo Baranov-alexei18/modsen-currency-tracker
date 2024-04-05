@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ModalBase } from '@/components/ui-components/Modal/ModalBase';
+import { ModalBase } from '@/components/ui-components/Modal';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
 import { CurrencyConverter } from '@/pages/Home/CurrencyConverter';
 import { CurrencyDataState, SectionCardCurrenciesProps } from '@/types/type';

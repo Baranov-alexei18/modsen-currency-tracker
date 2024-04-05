@@ -6,7 +6,7 @@ import themes from '@/assets/style/theme.scss';
 import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
-import { Switch } from '@/components/ui-components/Switch';
+import { SwitchApp } from '@/components/ui-components/Switch';
 import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
@@ -33,7 +33,7 @@ export const Header = () => {
           <Navbar />
         </div>
         <div className={classes.switch_theme}>
-          <Switch dataTestId="switch-theme" theme={theme} />
+          <SwitchApp dataTestId="switch-theme" theme={theme} />
         </div>
         <div className={classes.sidebar}>
           <BurgerMenu height="30px" width="30px" color="white" handleClick={toggleSidebar} />
