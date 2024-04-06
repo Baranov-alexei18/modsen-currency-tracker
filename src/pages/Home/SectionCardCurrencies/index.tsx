@@ -7,7 +7,8 @@ import { CardCurrency } from '@/pages/Home/CardCurrency';
 import { CurrencyConverter } from '@/pages/Home/CurrencyConverter';
 import { modalClose, modalOpen } from '@/store/sliceModal';
 import { RootState } from '@/store/store';
-import { CurrencyDataState, SectionCardCurrenciesProps } from '@/types/type';
+import { SectionCardCurrenciesProps } from '@/types/components/cardCurrency';
+import { CurrencyDataState } from '@/types/currencyType';
 
 import classes from './styles.scss';
 

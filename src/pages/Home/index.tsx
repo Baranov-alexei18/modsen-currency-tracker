@@ -4,15 +4,10 @@ import { useSelector } from 'react-redux';
 import { Loader } from '@/components/ui-components/Loader';
 import { STOCKS } from '@/constants/mokData';
 import { SectionCardCurrencies } from '@/pages/Home/SectionCardCurrencies';
-import { CurrencyDataState, CurrencyType } from '@/types/type';
+import { CurrencyTypeMapping } from '@/types/components/cardCurrency';
+import { CurrencyDataState } from '@/types/currencyType';
 
 import classes from './styles.scss';
-
-interface CurrencyTypeMapping extends CurrencyType{
-  name: string;
-  symbol: string;
-  value?: string;
-}
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icon } from '@/types/type';
+import { Icon } from '@/types/components/iconType';
 
 export const IconArrowUp: React.FC<Icon> = ({ height, width }) => (
   <div>

@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import logo from '@/assets/img/logo.svg';
 import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { SwitchApp } from '@/components/ui-components/SwitchApp';
-import { RootState } from '@/store/store';
 
 import classes from './styles.scss';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const theme = useSelector((state: RootState) => state.theme.theme);
 
   const toggleSidebar = () => {
     setIsOpen(true);
@@ -31,7 +27,7 @@ export const Header = () => {
           <Navbar />
         </div>
         <div className={classes.switch_theme}>
-          <SwitchApp dataTestId="switch-theme" theme={theme} />
+          <SwitchApp dataTestId="switch-theme" />
         </div>
         <div className={classes.sidebar}>
           <BurgerMenu height="30px" width="30px" color="white" handleClick={toggleSidebar} />

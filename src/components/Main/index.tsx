@@ -6,7 +6,7 @@ import { Banner } from '@/components/ui-components/Banner/index';
 import { Loader } from '@/components/ui-components/Loader';
 import { fetchData } from '@/store/sliceData';
 import { store } from '@/store/store';
-import { CurrencyDataState } from '@/types/type';
+import { CurrencyDataState } from '@/types/currencyType';
 import { getTimeLastUpdate, isYestardayDay } from '@/utils/date';
 
 import { ErrorBoundary } from '../ErrorBoundary';
@@ -32,9 +32,7 @@ export const Main = () => {
   }, []);
 
   return (
-    <main
-      data-testid="main-layout"
-    >
+    <main data-testid="main-layout">
       <ErrorBoundary>
         <Banner />
         {loading ? <Loader /> : (

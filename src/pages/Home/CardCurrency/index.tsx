@@ -4,17 +4,9 @@ import { useSelector } from 'react-redux';
 import { THEME } from '@/constants/theme';
 import { generateRandomColor } from '@/helpers/generateRandomColor';
 import { RootState } from '@/store/store';
+import { CardCurrencyProp } from '@/types/components/cardCurrency';
 
 import classes from './styles.scss';
-
-type CardCurrencyProp = {
-  code?: string;
-  symbol: string;
-  name: string;
-  value?: string;
-  backgroundColorIcon?: string;
-  onChoiceCurrency?: () => void
-}
 
 export const CardCurrency: React.FC<Partial<CardCurrencyProp>> = ({
   symbol, name, value, backgroundColorIcon, onChoiceCurrency,

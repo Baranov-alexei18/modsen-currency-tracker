@@ -7,13 +7,9 @@ import { SwitchApp } from '@/components/ui-components/SwitchApp';
 import { THEME } from '@/constants/theme';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { RootState } from '@/store/store';
+import { SideBarType } from '@/types/components/sidebarType';
 
 import styles from './styles.scss';
-
-type SideBarType = {
-  open: boolean;
-  setCloseSideBar: () => void
-}
 
 export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -29,7 +25,7 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
     >
       <div className={styles.header_sidebar}>
         <IconSidebarClose height="34px" width="34px" handleClick={setCloseSideBar} />
-        <SwitchApp dataTestId="switch-theme-mobile" theme={theme} />
+        <SwitchApp dataTestId="switch-theme-mobile" />
       </div>
       <Navbar toggleCloseSidebar={setCloseSideBar} />
     </div>

@@ -1,23 +1,12 @@
 import React, { createRef, PureComponent } from 'react';
 
 import { IconSearch } from '@/components/ui-components/Icons/IconSearch';
-import { BanksDataType, InputType } from '@/types/type';
+import { InputSearchProps, InputSearchState } from '@/types/components/elasticSearchType';
+import { InputType } from '@/types/components/inputType';
 import { getFieldsForElasticSearch } from '@/utils/elasticSearch';
 
 import classes from './styles.scss';
 
-type InputSearchProps = {
-    className: string;
-    value: string;
-    options: BanksDataType[];
-    onChange: (value: string) => void;
-    onSelect: (value: string) => void;
-}
-type InputSearchState = {
-    filteredOptions: unknown[] | string[] | [],
-    value: string | undefined,
-    showDropdown: boolean,
-}
 export class InputElasticSearch extends PureComponent<InputSearchProps, InputSearchState> {
   searchRef: React.RefObject<HTMLDivElement>;
 

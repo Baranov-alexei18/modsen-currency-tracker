@@ -1,16 +1,9 @@
 import React, { createRef, PureComponent, RefObject } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-import { BanksDataType } from '@/types/type';
+import { MapProps, MapState } from '@/types/pages/bankCardType';
 
 import classes from './styles.scss';
-
-type MapState = {
-  markers: unknown[];
-}
-type MapProps = {
-  data: BanksDataType[];
-}
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_JL_API;
 

@@ -1,4 +1,4 @@
-import { CurrencyLatestForValue } from '@/types/type';
+import { CurrencyLatestForValue } from '@/types/currencyType';
 
 export const getCurrencyToDollars = (
   symbol: string,

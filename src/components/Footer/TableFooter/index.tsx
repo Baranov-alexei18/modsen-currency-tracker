@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PropsMenu } from '@/types/type';
+import { PropsMenu } from '@/types/components/footerType';
 
 import classes from './styles.scss';
 

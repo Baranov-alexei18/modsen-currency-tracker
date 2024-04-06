@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CurrencyData, CurrencyLatestData, DataState } from '@/types/type';
+import { CurrencyData, CurrencyLatestData, DataState } from '@/types/currencyType';
 import { getDataFromCurrencyApi } from '@/utils/dataApi';
 import { isYestardayDay } from '@/utils/date';
 

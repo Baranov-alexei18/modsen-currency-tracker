@@ -1,11 +1,5 @@
 import { COLOR_CHART } from '@/constants/theme';
-
-type DayCharts = {
-  x: Date;
-  y: number[];
-}
-
-type AllDaysCharts = DayCharts[];
+import { AllDaysCharts, DayCharts } from '@/types/components/chartType';
 
 export const getOptionsForChart = (
   dataPoints: AllDaysCharts,

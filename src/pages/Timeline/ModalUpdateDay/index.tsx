@@ -2,32 +2,10 @@ import React from 'react';
 
 import { Button } from '@/components/ui-components/Button';
 import { Input } from '@/components/ui-components/Input';
+import { ModalUpdateDayProps, ModalUpdateDayState, UpdateDayProps } from '@/types/components/chartType';
 import { formatDate } from '@/utils/date';
 
 import classes from './styles.scss';
-
-type DataUpdateDate = {
-  meta?: string;
-  data?: number[];
-}
-
-type ModalUpdateDayProps = {
-  data: DataUpdateDate,
-  getDataForChange: (data: DataUpdateDate) => void,
-}
-
-type UpdateDayProps = Readonly<ModalUpdateDayProps>;
-
-type ModalUpdateDayState = {
-  price_open: number,
-  price_high: number,
-  price_low: number,
-  price_close: number,
-  errorOpen: string,
-  errorHigh: string,
-  errorLow: string,
-  errorClose: string,
-}
 
 export class ModalUpdateDay extends React.PureComponent<UpdateDayProps, ModalUpdateDayState> {
   constructor(props: ModalUpdateDayProps) {

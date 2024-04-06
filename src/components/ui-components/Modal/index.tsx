@@ -1,17 +1,12 @@
-import React, { memo, ReactNode, useRef } from 'react';
+import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { ModalProps } from '@/types/components/modalType';
 
 import classes from './styles.scss';
 
-type ModalProps = {
-  children: ReactNode;
-  isOpen: boolean;
-  onCloseModal: () => void;
-}
-
-export const ModalBase: React.FC<ModalProps> = memo(
+export const ModalBase: React.FC<ModalProps> = React.memo(
   ({ isOpen, onCloseModal, children }: ModalProps) => {
     const modalRef = useRef();
 

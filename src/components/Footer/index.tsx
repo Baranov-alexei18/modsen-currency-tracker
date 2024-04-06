@@ -1,6 +1,6 @@
 import { AccordionMenu } from '@/components/ui-components/AccordionMenu';
 import { LABELS } from '@/constants';
-import { MENU_FOOTER } from '@/constants/mokData';
+import { MENU_FOOTER } from '@/constants/index';
 
 import { BlockDescription } from './BlockInfo';
 import { TableFooter } from './TableFooter';

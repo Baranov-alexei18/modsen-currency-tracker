@@ -1,20 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
 
-import { CurrencyType } from '@/types/type';
+import { SelectProps } from '@/types/components/selectType';
 
 import classes from './styles.scss';
-
-type Option = {
-  [key: string]: string;
-}
-
-type SelectProps = {
-  className?: string;
-  baseValue: string;
-  keyValue: keyof CurrencyType;
-  options: CurrencyType[];
-  onOptionChange: (selectedOption: CurrencyType | Option | null) => void;
-}
 
 export const Select: React.FC<Partial<SelectProps>> = ({
   className = '',

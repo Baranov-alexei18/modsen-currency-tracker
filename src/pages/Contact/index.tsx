@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { CONTACT_LINKS } from '@/constants';
-
-import { CONTACTS } from './options';
+import { CONTACT_LINKS, CONTACTS } from '@/constants';
 
 import classes from './styles.scss';
 

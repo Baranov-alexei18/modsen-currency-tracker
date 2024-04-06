@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Input } from '@/components/ui-components/Input';
 import { Select } from '@/components/ui-components/Select';
-import { CurrencyDataState, CurrencyType } from '@/types/type';
+import { CurrencyDataState, CurrencyType } from '@/types/currencyType';
 import { getResultConverter } from '@/utils/converter';
 
 import classes from './styles.scss';

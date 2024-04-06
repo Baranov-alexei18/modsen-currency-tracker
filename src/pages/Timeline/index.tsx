@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect, ConnectedProps } from 'react-redux';
 
 import { Button } from '@/components/ui-components/Button';
 import { Input } from '@/components/ui-components/Input';
@@ -9,28 +8,13 @@ import { THEME } from '@/constants/theme';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
 import ChartCurrency from '@/pages/Timeline/ChartCurrency/index';
 import { observer } from '@/services/observer';
-import { RootState, store } from '@/store/store';
-import { CurrencyType } from '@/types/type';
+import { store } from '@/store/store';
+import { CurrencyType } from '@/types/currencyType';
+import { connector, TimeLinePageProps, TimeLinePageState } from '@/types/pages/timelineType';
 import { getDataFromCoinApi } from '@/utils/dataApi';
 
 import classes from './styles.scss';
 
-type TimeLinePageState = {
-  codeCurrency: string;
-  isToast: boolean;
-  cryptoCurrency: CurrencyType[] | [];
-  dayAgo: number;
-  errorInputDay: boolean;
-}
-
-function mapStateToProps(state: RootState) {
-  return {
-    theme: state.theme.theme,
-  };
-}
-
-const connector = connect(mapStateToProps);
-type TimeLinePageProps = ConnectedProps<typeof connector>;
 class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageState> {
   constructor(props: TimeLinePageProps | Readonly<TimeLinePageProps>) {
     super(props);

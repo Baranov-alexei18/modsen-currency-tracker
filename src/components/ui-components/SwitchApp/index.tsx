@@ -7,12 +7,7 @@ import { AppDispatch, RootState } from '@/store/store';
 
 import styles from './styles.scss';
 
-type SwitchProps = {
-  theme: string;
-  dataTestId: string;
-}
-
-export const SwitchApp: React.FC<SwitchProps> = ({ theme, dataTestId }) => {
+export const SwitchApp: React.FC<{dataTestId: string;}> = ({ dataTestId }) => {
   const themes = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -28,7 +23,7 @@ export const SwitchApp: React.FC<SwitchProps> = ({ theme, dataTestId }) => {
         data-testid={dataTestId}
         type="button"
         aria-label="Switch-theme"
-        className={`${styles.toogle_button} ${theme === THEME.DARK ? styles.dark : styles.toogled}`}
+        className={`${styles.toogle_button} ${themes === THEME.DARK ? styles.dark : styles.toogled}`}
         onClick={changeTheme}
       >
         <div className={styles.thumb} />

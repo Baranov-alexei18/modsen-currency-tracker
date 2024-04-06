@@ -1,4 +1,4 @@
-import { ThemeState } from '@/types/type';
+import { ThemeState } from '@/types/themeType';
 
 import themeReducer, { setTheme } from './sliceTheme';
 

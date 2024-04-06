@@ -1,21 +1,3 @@
-export const MENU_FOOTER = [
-  {
-    id: 1,
-    menu: 'General',
-    submenu: ['Market', 'Service'],
-  },
-  {
-    id: 2,
-    menu: 'Product',
-    submenu: ['Sparks', 'Snaps'],
-  },
-  {
-    id: 3,
-    menu: 'Community',
-    submenu: ['Ideas', 'Streams'],
-  },
-];
-
 export const STOCKS = [
   {
     name: 'Bovespa Index',

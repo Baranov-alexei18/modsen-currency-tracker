@@ -9,7 +9,7 @@ import { COLOR_CHART, THEME } from '@/constants/theme';
 import { observer } from '@/services/observer';
 import { modalClose, modalOpen } from '@/store/sliceModal';
 import { RootState } from '@/store/store';
-import { ThemeState } from '@/types/type';
+import { ThemeState } from '@/types/themeType';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
 

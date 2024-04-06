@@ -1,12 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+
+import { ButtonProps } from '@/types/components/buttonType';
 
 import classes from './styles.scss';
-
-type ButtonProps = {
-  handleClick: () => void;
-  children: ReactNode,
-  disabled?: boolean
-}
 
 export const Button: React.FC<Partial<ButtonProps>> = (
   { handleClick, children, disabled = false },

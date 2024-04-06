@@ -1,4 +1,4 @@
-import { CurrencyLatestForValue } from '../types/type';
+import { CurrencyLatestForValue } from '../types/currencyType';
 
 const getCurrencyValue = (currencyData: CurrencyLatestForValue[], currency: string) => {
   const value = currencyData.find(({ code }) => code === currency)?.value;

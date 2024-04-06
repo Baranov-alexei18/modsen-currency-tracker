@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { IconArrowDown } from '@/components/ui-components/Icons/IconArrowDown';
 import { IconArrowUp } from '@/components/ui-components/Icons/IconArrowUp';
-import { PropsMenu } from '@/types/type';
+import { PropsMenu } from '@/types/components/footerType';
 
 import styles from './styles.scss';
 

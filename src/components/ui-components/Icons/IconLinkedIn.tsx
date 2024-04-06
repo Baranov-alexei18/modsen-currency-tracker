@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icon } from '@/types/type';
+import { Icon } from '@/types/components/iconType';
 
 export const IconLinkedIn: React.FC<Icon> = ({ height, width, color }) => (
   <div>

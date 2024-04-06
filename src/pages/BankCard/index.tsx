@@ -1,33 +1,17 @@
 import React from 'react';
-import { connect, ConnectedProps } from 'react-redux';
 
 import themes from '@/assets/style/theme.scss';
 import { LABELS } from '@/constants';
 import { BANKS_DATA } from '@/constants/mokData';
 import { THEME } from '@/constants/theme';
-import { RootState } from '@/store/store';
-import { BanksDataType } from '@/types/type';
+import { BankCardPageProps, BankCardPageState, connector } from '@/types/pages/bankCardType';
 
 import { InputElasticSearch } from './InputElasticSearch';
 import { Map } from './Map';
 
 import classes from './styles.scss';
 
-type BankCardPageState = {
-  searchValue: string;
-  searchData: BanksDataType[];
-}
-
-function mapStateToProps(state: RootState) {
-  return {
-    theme: state.theme.theme,
-  };
-}
-
-const connector = connect(mapStateToProps);
-type BankCardPageProps = ConnectedProps<typeof connector>;
-
-class BankCardSection extends React.Component<BankCardPageProps, BankCardPageState> {
+class BankCardSection extends React.PureComponent<BankCardPageProps, BankCardPageState> {
   constructor(props: BankCardPageProps | Readonly<BankCardPageProps>) {
     super(props);
     this.state = {
