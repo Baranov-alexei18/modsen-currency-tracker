@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import logo from '@/assets/img/logo.svg';
-import themes from '@/assets/style/theme.scss';
 import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { SwitchApp } from '@/components/ui-components/SwitchApp';
-import { THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
 import classes from './styles.scss';
@@ -26,7 +24,7 @@ export const Header = () => {
   };
 
   return (
-    <header className={`${classes.header} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
+    <header className={`${classes.header}`}>
       <div className={classes.container}>
         <img src={logo} alt="Logo" className={classes.logo} />
         <div className={classes.route_list}>

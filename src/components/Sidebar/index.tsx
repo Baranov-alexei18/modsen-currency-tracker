@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { IconSidebarClose } from '@/components/ui-components/Icons/IconSidebarClose';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { SwitchApp } from '@/components/ui-components/SwitchApp';
-import { THEME_DARK } from '@/constants';
+import { THEME } from '@/constants/theme';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { RootState } from '@/store/store';
 
@@ -25,7 +25,7 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`${styles.sidebar} ${open ? styles.open : ''} ${theme === THEME_DARK ? styles.dark : styles.light}`}
+      className={`${styles.sidebar} ${open ? styles.open : ''} ${theme === THEME.DARK ? styles.dark : styles.light}`}
     >
       <div className={styles.header_sidebar}>
         <IconSidebarClose height="34px" width="34px" handleClick={setCloseSideBar} />

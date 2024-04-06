@@ -1,3 +1,5 @@
+import { COLOR_CHART } from '@/constants/theme';
+
 type DayCharts = {
   x: Date;
   y: number[];
@@ -24,7 +26,7 @@ export const getOptionsForChart = (
   axisY2: {
     tickThickness: 0,
     gridThickness: 0,
-    labelFontColor: colorChart === '#030304' ? '#f8f9fa' : '#030304',
+    labelFontColor: colorChart === COLOR_CHART.DARK ? COLOR_CHART.LIGHT : COLOR_CHART.DARK,
     labelFormatter(e: { value: unknown; }) {
       return e.value;
     },

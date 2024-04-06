@@ -8,7 +8,7 @@ type PropsMenu = {
   menu: Menu[];
 }
 
-type ThemesType = 'dark' | 'light';
+type ThemesType = 'dark' | 'light'| string;
 
 type ThemeState = {
   theme: ThemesType;

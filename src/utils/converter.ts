@@ -1,5 +1,10 @@
 import { CurrencyLatestForValue } from '../types/type';
 
+const getCurrencyValue = (currencyData: CurrencyLatestForValue[], currency: string) => {
+  const value = currencyData.find(({ code }) => code === currency)?.value;
+  return value || 0;
+};
+
 export const getResultConverter = (
   baseCurrency: string,
   convertCurrency: string,
@@ -10,8 +15,8 @@ export const getResultConverter = (
     return convertValue.toString();
   }
 
-  const valueFrom = currencyData.find(({ code }) => code === baseCurrency).value;
-  const valueTo = currencyData.find(({ code }) => code === convertCurrency).value;
+  const valueFrom = getCurrencyValue(currencyData, baseCurrency);
+  const valueTo = getCurrencyValue(currencyData, convertCurrency);
 
   const result = parseFloat(convertValue) * (valueTo / valueFrom);
 

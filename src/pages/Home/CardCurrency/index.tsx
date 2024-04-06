@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { THEME_DARK } from '@/constants';
+import { THEME } from '@/constants/theme';
 import { generateRandomColor } from '@/helpers/generateRandomColor';
 import { RootState } from '@/store/store';
 
@@ -24,7 +24,7 @@ export const CardCurrency: React.FC<Partial<CardCurrencyProp>> = ({
 
   return (
     <div
-      className={`${classes.card} ${theme === THEME_DARK ? classes.dark : classes.light}`}
+      className={`${classes.card} ${theme === THEME.DARK ? classes.dark : classes.light}`}
       onClick={onChoiceCurrency}
       aria-hidden
     >

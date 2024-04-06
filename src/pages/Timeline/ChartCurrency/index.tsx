@@ -5,7 +5,7 @@ import CanvasJSReact from '@canvasjs/react-charts';
 import themes from '@/assets/style/theme.scss';
 import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal';
-import { THEME_DARK } from '@/constants';
+import { COLOR_CHART, THEME } from '@/constants/theme';
 import { observer } from '@/services/observer';
 import { modalClose, modalOpen } from '@/store/sliceModal';
 import { RootState } from '@/store/store';
@@ -129,12 +129,12 @@ class ChartCurrency extends Component<ThemeState & ChartCurrencyProps, ChartCurr
       y: [price_open, price_high, price_low, price_close],
     }));
 
-    const colorChart = theme === THEME_DARK ? '#030304' : '#f8f9fa';
+    const colorChart = theme === THEME.DARK ? COLOR_CHART.DARK : COLOR_CHART.LIGHT;
 
     const options = getOptionsForChart(dataPoints, colorChart, this.handleClick);
 
     return (
-      <div className={`${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
+      <div className={`${theme === THEME.DARK ? themes.theme_dark : themes.theme_light}`}>
         {loading
           ? <Loader />
           : <CanvasJSChart data-testid="chart" options={options} />}

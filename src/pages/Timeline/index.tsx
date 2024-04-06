@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
-import themes from '@/assets/style/theme.scss';
 import { Button } from '@/components/ui-components/Button';
 import { Input } from '@/components/ui-components/Input';
 import { Select } from '@/components/ui-components/Select';
 import { Toast } from '@/components/ui-components/Toast';
-import { THEME_DARK } from '@/constants';
+import { THEME } from '@/constants/theme';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
 import ChartCurrency from '@/pages/Timeline/ChartCurrency/index';
 import { observer } from '@/services/observer';
@@ -95,9 +94,9 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
     const { theme } = this.props;
 
     return (
-      <div className={`${classes.wrapper} ${theme === THEME_DARK ? themes.theme_dark : themes.theme_light}`}>
+      <div className={`${classes.wrapper}`}>
         <div data-testid="block-info-chart" className={classes.block_currency}>
-          <Select className={`${theme === THEME_DARK ? classes.dark : ' '}`} baseValue={codeCurrency} keyValue="code" options={cryptoCurrency} onOptionChange={this.handleSelectChange} />
+          <Select className={`${theme === THEME.DARK ? classes.dark : ' '}`} baseValue={codeCurrency} keyValue="code" options={cryptoCurrency} onOptionChange={this.handleSelectChange} />
           <Input data-testid="input-days" value={dayAgo} onChange={(e) => this.changeDayForChart(e)} />
           <Button handleClick={this.createChart} disabled={errorInputDay}>Create chart</Button>
         </div>
