@@ -6,3 +6,8 @@ body {
     font-family: $font-family-main;
     font-weight: 300;
 }
+
+.modal_open {
+    height: 100vh;
+    overflow: hidden;
+}
