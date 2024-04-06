@@ -1,27 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ModalBase } from '@/components/ui-components/Modal';
+import { getCurrencyToDollars } from '@/helpers/getCurrencyToDollars';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
 import { CurrencyConverter } from '@/pages/Home/CurrencyConverter';
+import { modalClose, modalOpen } from '@/store/sliceModal';
+import { RootState } from '@/store/store';
 import { CurrencyDataState, SectionCardCurrenciesProps } from '@/types/type';
 
 import classes from './styles.scss';
-import { getCurrencyToDollars } from '@/helpers/getCurrencyToDollars';
 
 export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
   { name, currencies },
 ) => {
-  const [isModal, setIsModal] = useState(false);
   const [convertValue, setConvertValue] = useState('');
+
+  const isModalOpen = useSelector((state: RootState) => state.modal.isOpen);
+  const dispatch = useDispatch();
 
   const currenciesLatest = useSelector((state: CurrencyDataState) => state.data.currencyLatest);
   const currenciesLatestAll = Object.values(currenciesLatest.data);
 
   const openModal = (code: string) => {
-    setIsModal(true);
     setConvertValue(code);
+    dispatch(modalOpen());
   };
+  const closeModal = () => dispatch(modalClose());
 
   return (
     <div className={classes.section_wrapper}>
@@ -45,8 +50,8 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
             : <CardCurrency key={name} symbol={symbol} name={name} value={value} />
         ))}
       </div>
-      <ModalBase isOpen={isModal} onCloseModal={() => setIsModal(false)}>
-        <CurrencyConverter baseCurrency={convertValue} />
+      <ModalBase isOpen={isModalOpen} onCloseModal={closeModal}>
+        {convertValue.length ? <CurrencyConverter baseCurrency={convertValue} /> : null}
       </ModalBase>
     </div>
 

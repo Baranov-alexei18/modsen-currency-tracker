@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react';
 
-import classes from './styles.scss';
+import classes from '@/assets/style/index.scss';
 
 export function useOutsideClick(
   elementRef: RefObject<HTMLElement>,

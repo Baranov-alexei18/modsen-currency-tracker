@@ -2,7 +2,8 @@ import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import themes from '@/assets/style/theme.scss';
-import { bankCardSearchSection, BANKS_DATA, THEME_DARK } from '@/constants';
+import { bankCardSearchSection, THEME_DARK } from '@/constants';
+import { BANKS_DATA } from '@/constants/mokData';
 import { RootState } from '@/store/store';
 import { BanksDataType } from '@/types/type';
 

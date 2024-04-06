@@ -1,8 +1,8 @@
-import { getFieldsForSearch } from "@/helpers/getFieldsForSearch";
+import { getFieldsForSearch } from '@/helpers/getFieldsForSearch';
 
 export const getFieldsForElasticSearch = (arr: unknown[], value: string): unknown[] => {
   const fields: Set<unknown> = new Set();
-  
+
   arr.forEach((item) => {
     getFieldsForSearch(item);
     Object.values(item).forEach((val) => {

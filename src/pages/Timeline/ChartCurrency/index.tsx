@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import CanvasJSReact from '@canvasjs/react-charts';
 
 import themes from '@/assets/style/theme.scss';
@@ -6,6 +7,8 @@ import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal';
 import { THEME_DARK } from '@/constants';
 import { observer } from '@/services/observer';
+import { modalClose, modalOpen } from '@/store/sliceModal';
+import { RootState } from '@/store/store';
 import { ThemeState } from '@/types/type';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
@@ -35,17 +38,26 @@ type ChartCurrencyState = {
     data?: number[];
     meta?: string;
   },
-  isModal: boolean,
   loading: boolean,
 }
 
-export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
-  constructor(props: ThemeState | Readonly<ThemeState>) {
+const mapStateToProps = (state: RootState) => ({
+  isModalOpen: state.modal.isOpen,
+});
+
+const mapDispatchToProps = {
+  modalOpen,
+  modalClose,
+};
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type ChartCurrencyProps = ConnectedProps<typeof connector>;
+
+class ChartCurrency extends Component<ThemeState & ChartCurrencyProps, ChartCurrencyState> {
+  constructor(props: ThemeState & ChartCurrencyProps| Readonly<ThemeState& ChartCurrencyProps>) {
     super(props);
     this.state = {
       dataCharts: [],
       dataDayCharts: {},
-      isModal: false,
       loading: true,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -61,16 +73,18 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
   }
 
   handleClick(e: { dataPoint: { y: number[]; x: string; }; }) {
+    const { modalOpen } = this.props;
     const dataAll = { data: e.dataPoint.y, meta: e.dataPoint.x };
-    this.setState({ dataDayCharts: dataAll, isModal: true });
+    this.setState({ dataDayCharts: dataAll });
+    modalOpen();
   }
 
   changeChart = (dataChange: { meta: string; data: number[]; }) => {
+    const { modalClose } = this.props;
     const { meta, data } = dataChange;
     const [price_open, price_high, price_low, price_close] = data;
 
     const date = new Date(meta);
-
     const isoDateString = `${date.toISOString().split('T')[0]}T00:00:00.0000000Z`;
 
     this.setState((prevState) => {
@@ -88,9 +102,14 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
       });
       return {
         dataCharts: newData,
-        isModal: false,
       };
     });
+    modalClose();
+  };
+
+  closeModal = () => {
+    const { modalClose } = this.props;
+    modalClose();
   };
 
   update(data: UpdateDataForChart) {
@@ -99,9 +118,9 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
 
   render() {
     const {
-      isModal, loading, dataDayCharts, dataCharts,
+      loading, dataDayCharts, dataCharts,
     } = this.state;
-    const { theme } = this.props;
+    const { theme, isModalOpen } = this.props;
 
     const dataPoints = dataCharts.map(({
       price_close, price_high, price_low, price_open, time_period_start,
@@ -120,10 +139,12 @@ export class ChartCurrency extends Component<ThemeState, ChartCurrencyState> {
           ? <Loader />
           : <CanvasJSChart data-testid="chart" options={options} />}
 
-        <ModalBase isOpen={isModal} onCloseModal={() => this.setState({ isModal: false })}>
+        <ModalBase isOpen={isModalOpen} onCloseModal={this.closeModal}>
           <ModalUpdateDay data={dataDayCharts} getDataForChange={this.changeChart} />
         </ModalBase>
       </div>
     );
   }
 }
+
+export default connector(ChartCurrency);

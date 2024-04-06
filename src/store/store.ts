@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import dataReducer from './sliceData';
+import modalReducer from './sliceModal';
 import themeReducer from './sliceTheme';
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     data: dataReducer,
+    modal: modalReducer,
   },
 });
 

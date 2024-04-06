@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Loader } from '@/components/ui-components/Loader';
-import { STOCKS } from '@/constants';
+import { STOCKS } from '@/constants/mokData';
 import { SectionCardCurrencies } from '@/pages/Home/SectionCardCurrencies';
 import { CurrencyDataState, CurrencyType } from '@/types/type';
 

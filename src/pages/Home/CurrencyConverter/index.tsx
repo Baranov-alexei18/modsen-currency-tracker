@@ -8,7 +8,7 @@ import { getResultConverter } from '@/utils/converter';
 
 import classes from './styles.scss';
 
-export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurrency }) => {
+export const CurrencyConverter: React.FC<{baseCurrency: string}> = ({ baseCurrency }) => {
   const [convertCurrency, setConvertCurrency] = useState('USD');
   const [convertValue, setConvertValue] = useState('');
   const [error, setError] = useState(false);
@@ -27,7 +27,7 @@ export const CurrencyConverter: React.FC<{ baseCurrency: string }> = ({ baseCurr
 
   const resultConverter = useMemo(
     () => getResultConverter(baseCurrency, convertCurrency, convertValue, currenciesLatestAll),
-    [baseCurrency, convertCurrency, convertValue, currencyData],
+    [baseCurrency, convertCurrency, convertValue, currenciesLatestAll],
   );
 
   const handleAmountChange = (e: { target: { value: string; }; }) => {

@@ -8,7 +8,7 @@ import { Select } from '@/components/ui-components/Select';
 import { Toast } from '@/components/ui-components/Toast';
 import { THEME_DARK } from '@/constants';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
-import { ChartCurrency } from '@/pages/Timeline/ChartCurrency/index';
+import ChartCurrency from '@/pages/Timeline/ChartCurrency/index';
 import { observer } from '@/services/observer';
 import { RootState, store } from '@/store/store';
 import { CurrencyType } from '@/types/type';

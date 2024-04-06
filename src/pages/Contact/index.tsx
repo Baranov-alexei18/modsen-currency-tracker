@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import themes from '@/assets/style/theme.scss';
-import { GITHUB_LINK, MODSEN_LINK, THEME_DARK } from '@/constants';
+import { CONTACT_LINKS, THEME_DARK } from '@/constants';
 import { RootState } from '@/store/store';
 
 import { CONTACTS } from './options';
@@ -31,13 +31,13 @@ const ContactPage = () => {
 
       <p className={classes.copyright}>
         Link by project:
-        <a href={GITHUB_LINK}>
+        <a href={CONTACT_LINKS.GITHUB_LINK}>
           Github - Alexei Baranov
         </a>
       </p>
       <p className={classes.copyright}>
         Provided a layout for project:
-        <a href={MODSEN_LINK}>
+        <a href={CONTACT_LINKS.MODSEN_LINK}>
           Modsen
         </a>
       </p>
