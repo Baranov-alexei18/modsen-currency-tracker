@@ -1,6 +1,6 @@
-import { IconInstagramm } from '@/components/ui-components/Icons/IconInstagramm';
-import { IconLinkedIn } from '@/components/ui-components/Icons/IconLinkedIn';
-import { IconVK } from '@/components/ui-components/Icons/IconVK';
+import IconInstagramm from '@/assets/img/svg/IconInstagramm.svg';
+import IconLinkedin from '@/assets/img/svg/IconLinkedin.svg';
+import IconVK from '@/assets/img/svg/IconVK.svg';
 
 export const LABELS = {
   bannerTitleCurrency: 'Modsen Currency',
@@ -38,17 +38,17 @@ export const CONTACT_LINKS = {
 export const CONTACTS = [
   {
     description: 'VK',
-    Icon: IconVK,
+    iconSvg: IconVK,
     link: 'https://vk.com/alexxxey18',
   },
   {
     description: 'Instagramm',
-    Icon: IconInstagramm,
+    iconSvg: IconInstagramm,
     link: 'https://www.instagram.com/alexei_baranov18',
   },
   {
     description: 'LinkedIn',
-    Icon: IconLinkedIn,
+    iconSvg: IconLinkedin,
     link: 'https://www.linkedin.com/in/alexei-baranov',
   },
 ];

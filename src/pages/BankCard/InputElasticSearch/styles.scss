@@ -20,12 +20,12 @@
 
     .icon_search {
         position: absolute;
-        color: $dark-color;
+        filter: invert(1);
         top: 45%;
         right: 20px;
         transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
     }
 
     .dropdown {

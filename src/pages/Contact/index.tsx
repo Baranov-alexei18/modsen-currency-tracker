@@ -9,14 +9,14 @@ const ContactPage = () => (
     <h1>Contact Us</h1>
     <h2>Social network:</h2>
     <div className={classes.social_icons}>
-      {CONTACTS.map(({ Icon, description, link }) => (
+      {CONTACTS.map(({ iconSvg, description, link }) => (
         <a
           key={description}
           href={link}
           className={classes.info__item}
           aria-hidden
         >
-          <Icon height="40px" width="40px" />
+          <img height="40px" width="40px" src={iconSvg} alt={description} title={link} />
         </a>
       ))}
     </div>

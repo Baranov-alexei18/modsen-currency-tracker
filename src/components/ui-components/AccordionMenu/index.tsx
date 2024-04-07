@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { IconArrowDown } from '@/components/ui-components/Icons/IconArrowDown';
-import { IconArrowUp } from '@/components/ui-components/Icons/IconArrowUp';
 import { PropsMenu } from '@/types/components/footerType';
+
+import { DropDownIcons } from '../Icons/DropDownIcons';
 
 import styles from './styles.scss';
 
@@ -23,15 +23,15 @@ export const AccordionMenu: React.FC<PropsMenu> = ({ menu }) => {
             onClick={toggleMenu(id)}
             aria-hidden="true"
           >
-            <div>
+            {/* <div>
               <span>{menu}</span>
               <span className={styles.arrow}>
                 {openIndex === id
-                  ? <IconArrowUp color="white" width="24px" height="24px" />
-                  : <IconArrowDown color="white" width="24px" height="24px" />}
+                  ? <img src={IconArrowUp} width="24px" height="24px" />
+                  : <img src={IconArrowDown} width="24px" height="24px" />}
               </span>
-            </div>
-
+            </div> */}
+            <DropDownIcons className={styles.arrow} menu={menu} openIndex={openIndex} id={id} />
             <ul className={styles.submenu}>
               {submenu.map((subitem: string) => (
                 <li key={subitem}>{subitem}</li>

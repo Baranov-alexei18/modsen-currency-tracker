@@ -45,6 +45,7 @@
 
         .logo {
             @include type-adaptiv('width', 300px);
+            filter: invert(0);
         }
     }
 

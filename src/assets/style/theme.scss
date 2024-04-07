@@ -12,6 +12,10 @@
 .theme_dark {
     @include themes($dark-color, $light-color);
     transition: background-color 0.5s ease;
+
+    img {
+        filter: invert(1);
+    }
 }
 
 .theme_light {

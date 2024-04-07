@@ -1,6 +1,6 @@
 import React, { createRef, PureComponent } from 'react';
 
-import { IconSearch } from '@/components/ui-components/Icons/IconSearch';
+import IconSearch from '@/assets/img/svg/IconSearch.svg';
 import { InputSearchProps, InputSearchState } from '@/types/components/elasticSearchType';
 import { InputType } from '@/types/components/inputType';
 import { getFieldsForElasticSearch } from '@/utils/elasticSearch';
@@ -73,7 +73,7 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
           onChange={this.handleChange}
         />
         <div className={classes.icon_search}>
-          <IconSearch height="24px" width="24px" />
+          <img src={IconSearch} alt="search-icon" title="search-icon" />
         </div>
 
         {showDropdown && (

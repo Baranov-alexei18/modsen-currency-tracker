@@ -26,7 +26,7 @@
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
-    "import/no-mutable-exports ": "off",
+    "import/no-mutable-exports": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
     "no-return-assign": "off",
