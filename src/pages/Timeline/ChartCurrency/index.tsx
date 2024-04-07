@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
+import React, { PureComponent } from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
 
 import themes from '@/assets/style/theme.scss';
@@ -7,8 +6,9 @@ import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal';
 import { COLOR_CHART, THEME } from '@/constants/theme';
 import { observer } from '@/services/observer';
-import { modalClose, modalOpen } from '@/store/sliceModal';
-import { RootState } from '@/store/store';
+import {
+  ChartCurrencyProps, ChartCurrencyState, connector, DataForCreateCharts, UpdateDataForChart,
+} from '@/types/components/chartType';
 import { ThemeState } from '@/types/themeType';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
@@ -17,42 +17,7 @@ import { getOptionsForChart } from './config';
 
 const { CanvasJSChart } = CanvasJSReact;
 
-export type DataForCreateCharts ={
-  price_close: number,
-  price_high: number,
-  price_low: number,
-  price_open: number,
-  time_close: string,
-  time_open: string,
-  time_period_end: string,
-  time_period_start: string,
-  trades_count: number,
-  volume_traded: number,
-}
-
-type UpdateDataForChart = { data: DataForCreateCharts[] }
-
-type ChartCurrencyState = {
-  dataCharts: Array<DataForCreateCharts>,
-  dataDayCharts: {
-    data?: number[];
-    meta?: string;
-  },
-  loading: boolean,
-}
-
-const mapStateToProps = (state: RootState) => ({
-  isModalOpen: state.modal.isOpen,
-});
-
-const mapDispatchToProps = {
-  modalOpen,
-  modalClose,
-};
-const connector = connect(mapStateToProps, mapDispatchToProps);
-type ChartCurrencyProps = ConnectedProps<typeof connector>;
-
-class ChartCurrency extends Component<ThemeState & ChartCurrencyProps, ChartCurrencyState> {
+class ChartCurrency extends PureComponent<ThemeState & ChartCurrencyProps, ChartCurrencyState> {
   constructor(props: ThemeState & ChartCurrencyProps| Readonly<ThemeState& ChartCurrencyProps>) {
     super(props);
     this.state = {

@@ -8,7 +8,7 @@ import classes from './styles.scss';
 export const BlockDescription = () => (
   <div className={classes.wrapper}>
     <div className={classes.logo}>
-      <img src={logo} alt="Company Logo" className={classes.logo} />
+      <img width="40px" src={logo} alt="Company Logo" className={classes.logo} />
       <span>{LABELS.labelTitleCurrency}</span>
     </div>
     <div className={classes.description}>

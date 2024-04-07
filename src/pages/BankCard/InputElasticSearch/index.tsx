@@ -73,7 +73,7 @@ export class InputElasticSearch extends PureComponent<InputSearchProps, InputSea
           onChange={this.handleChange}
         />
         <div className={classes.icon_search}>
-          <img src={IconSearch} alt="search-icon" title="search-icon" />
+          <img height="24px" width="24px" src={IconSearch} alt="search-icon" title="search-icon" />
         </div>
 
         {showDropdown && (

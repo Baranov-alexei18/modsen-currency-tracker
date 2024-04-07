@@ -11,8 +11,8 @@ export const DropDownIcons: React.FC<DropDownType> = ({
     <span>{menu}</span>
     <span className={className}>
       {openIndex === id
-        ? <img src={IconArrowUp} alt="arrow-up" title="icon-up" />
-        : <img src={IconArrowDown} alt="arrow-down" title="icon-down" />}
+        ? <img width="24px" src={IconArrowUp} alt="arrow-up" title="icon-up" />
+        : <img width="24px" src={IconArrowDown} alt="arrow-down" title="icon-down" />}
     </span>
   </div>
 );

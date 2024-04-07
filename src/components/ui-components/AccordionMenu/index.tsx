@@ -23,14 +23,6 @@ export const AccordionMenu: React.FC<PropsMenu> = ({ menu }) => {
             onClick={toggleMenu(id)}
             aria-hidden="true"
           >
-            {/* <div>
-              <span>{menu}</span>
-              <span className={styles.arrow}>
-                {openIndex === id
-                  ? <img src={IconArrowUp} width="24px" height="24px" />
-                  : <img src={IconArrowDown} width="24px" height="24px" />}
-              </span>
-            </div> */}
             <DropDownIcons className={styles.arrow} menu={menu} openIndex={openIndex} id={id} />
             <ul className={styles.submenu}>
               {submenu.map((subitem: string) => (

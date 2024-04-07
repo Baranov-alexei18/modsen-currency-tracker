@@ -16,9 +16,7 @@ export const SwitchApp: React.FC<{dataTestId: string;}> = ({ dataTestId }) => {
   };
 
   return (
-    <div
-      className={styles.switch}
-    >
+    <div className={styles.switch}>
       <button
         data-testid={dataTestId}
         type="button"

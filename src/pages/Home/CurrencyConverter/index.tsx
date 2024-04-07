@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Input } from '@/components/ui-components/Input';
@@ -40,9 +40,9 @@ export const CurrencyConverter: React.FC<{baseCurrency: string}> = ({ baseCurren
     }
   };
 
-  const handleCurrencyChange = (currencyToConvert: CurrencyType) => {
+  const handleCurrencyChange = useCallback((currencyToConvert: CurrencyType) => {
     setConvertCurrency(currencyToConvert.code);
-  };
+  }, [setConvertCurrency]);
 
   return (
     <div className={classes.converter_wrapper}>

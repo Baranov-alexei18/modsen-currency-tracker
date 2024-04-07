@@ -4,7 +4,7 @@ import { Button } from '@/components/ui-components/Button';
 import { Input } from '@/components/ui-components/Input';
 import { Select } from '@/components/ui-components/Select';
 import { Toast } from '@/components/ui-components/Toast';
-import { THEME } from '@/constants/theme';
+import { COLOR_CHART, THEME } from '@/constants/theme';
 import { CardCurrency } from '@/pages/Home/CardCurrency';
 import ChartCurrency from '@/pages/Timeline/ChartCurrency/index';
 import { observer } from '@/services/observer';
@@ -84,9 +84,9 @@ class TimeLineSection extends React.Component<TimeLinePageProps, TimeLinePageSta
           <Input data-testid="input-days" value={dayAgo} onChange={(e) => this.changeDayForChart(e)} />
           <Button handleClick={this.createChart} disabled={errorInputDay}>Create chart</Button>
         </div>
-        <CardCurrency symbol="$" name="Tether" value="USDT" backgroundColorIcon="#2A4628" />
+        <CardCurrency symbol="$" name="Tether" value="USDT" />
         <ChartCurrency theme={theme} />
-        {isToast && <Toast dataTestId="toast" text={`График ${codeCurrency}/USDT построен`} color="#28a745" />}
+        {isToast && <Toast dataTestId="toast" text={`График ${codeCurrency}/USDT построен`} color={COLOR_CHART.GREEN} />}
       </div>
 
     );

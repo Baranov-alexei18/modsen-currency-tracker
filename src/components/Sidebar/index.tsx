@@ -11,7 +11,7 @@ import { SideBarType } from '@/types/components/sidebarType';
 
 import styles from './styles.scss';
 
-export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
+export const SideBar = React.memo(({ open, setCloseSideBar }: SideBarType) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
   const sidebarRef = useRef();
@@ -30,4 +30,4 @@ export const SideBar: React.FC<SideBarType> = ({ open, setCloseSideBar }) => {
       <Navbar toggleCloseSidebar={setCloseSideBar} />
     </div>
   );
-};
+});

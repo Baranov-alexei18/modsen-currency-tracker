@@ -9,7 +9,7 @@ import { CardCurrencyProp } from '@/types/components/cardCurrency';
 import classes from './styles.scss';
 
 export const CardCurrency: React.FC<Partial<CardCurrencyProp>> = ({
-  symbol, name, value, backgroundColorIcon, onChoiceCurrency,
+  symbol, name, value, onChoiceCurrency,
 }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const backgroundColor = generateRandomColor();
@@ -22,7 +22,7 @@ export const CardCurrency: React.FC<Partial<CardCurrencyProp>> = ({
     >
       <div
         className={classes.symbol}
-        style={{ background: backgroundColorIcon ? `${backgroundColorIcon}` : `${backgroundColor}` }}
+        style={{ background: `${backgroundColor}` }}
       >
         {symbol}
       </div>

@@ -12,8 +12,8 @@ import { CurrencyDataState } from '@/types/currencyType';
 
 import classes from './styles.scss';
 
-export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
-  { name, currencies },
+export const SectionCardCurrencies = React.memo((
+  { name, currencies }: SectionCardCurrenciesProps,
 ) => {
   const [convertValue, setConvertValue] = useState('');
 
@@ -57,4 +57,4 @@ export const SectionCardCurrencies: React.FC<SectionCardCurrenciesProps> = (
     </div>
 
   );
-};
+});

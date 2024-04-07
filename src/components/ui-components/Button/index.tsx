@@ -4,8 +4,8 @@ import { ButtonProps } from '@/types/components/buttonType';
 
 import classes from './styles.scss';
 
-export const Button: React.FC<Partial<ButtonProps>> = (
-  { handleClick, children, disabled = false },
+export const Button = React.memo((
+  { handleClick, children, disabled = false }: ButtonProps,
 ) => (
   <button
     type="button"
@@ -15,4 +15,4 @@ export const Button: React.FC<Partial<ButtonProps>> = (
   >
     {children}
   </button>
-);
+));

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import logo from '@/assets/img/logo.svg';
 import { SideBar } from '@/components/Sidebar';
@@ -11,18 +11,18 @@ import classes from './styles.scss';
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => {
+  const toggleSidebar = useCallback(() => {
     setIsOpen(true);
-  };
+  }, [setIsOpen]);
 
-  const closeSidebar = () => {
+  const closeSidebar = useCallback(() => {
     setIsOpen(false);
-  };
+  }, [setIsOpen]);
 
   return (
     <header className={`${classes.header}`}>
       <div className={classes.container}>
-        <img src={logo} alt="Logo" className={classes.logo} />
+        <img width="40px" src={logo} alt="Logo" className={classes.logo} />
         <div className={classes.route_list}>
           <Navbar />
         </div>
