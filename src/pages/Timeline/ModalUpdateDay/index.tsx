@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '@/components/ui-components/Button';
 import { Input } from '@/components/ui-components/Input';
-import { ModalUpdateDayProps, ModalUpdateDayState, UpdateDayProps } from '@/types/components/chartType';
+import { ModalUpdateDayProps, ModalUpdateDayState, UpdateDayProps } from '@/pages/Timeline/ChartCurrency/type';
 import { formatDate } from '@/utils/date';
 
 import classes from './styles.scss';

@@ -3,9 +3,9 @@ import { CurrencyLatestForValue } from '@/types/currencyType';
 export const getCurrencyToDollars = (
   symbol: string,
   _code: string,
-  currenciesLatestAll: CurrencyLatestForValue[],
+  data: CurrencyLatestForValue[],
 ): string => {
-  const currency = currenciesLatestAll.find(({ code }) => code === _code);
+  const currency = data.find(({ code }) => code === _code);
   const valueCurrency = `${symbol} ${currency.value.toFixed(2)}`;
 
   if (!currency) {

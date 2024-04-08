@@ -11,7 +11,7 @@ import { Main } from '../Main/index';
 
 import '@/assets/style/index.scss';
 
-export const App = () => { 
+export const App = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   return (
     <div className={`${theme === THEME.DARK ? themes.theme_dark : themes.theme_light}`}>

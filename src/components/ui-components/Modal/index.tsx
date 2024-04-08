@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { ModalProps } from '@/types/components/modalType';
+import { ModalProps } from '@/components/ui-components/Modal/type';
 
 import classes from './styles.scss';
 

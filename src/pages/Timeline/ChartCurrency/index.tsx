@@ -8,7 +8,7 @@ import { COLOR_CHART, THEME } from '@/constants/theme';
 import { observer } from '@/services/observer';
 import {
   ChartCurrencyProps, ChartCurrencyState, connector, DataForCreateCharts, UpdateDataForChart,
-} from '@/types/components/chartType';
+} from '@/pages/Timeline/ChartCurrency/type';
 import { ThemeState } from '@/types/themeType';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';

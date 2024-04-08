@@ -1,4 +1,4 @@
-import { CurrencyType } from '../currencyType';
+import { CurrencyType } from '../../../types/currencyType';
 
 export type SectionCardCurrenciesProps = {
     name: string,

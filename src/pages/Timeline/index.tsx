@@ -10,7 +10,7 @@ import ChartCurrency from '@/pages/Timeline/ChartCurrency/index';
 import { observer } from '@/services/observer';
 import { store } from '@/store/store';
 import { CurrencyType } from '@/types/currencyType';
-import { connector, TimeLinePageProps, TimeLinePageState } from '@/types/pages/timelineType';
+import { connector, TimeLinePageProps, TimeLinePageState } from '@/pages/Timeline/type';
 import { getDataFromCoinApi } from '@/utils/dataApi';
 
 import classes from './styles.scss';

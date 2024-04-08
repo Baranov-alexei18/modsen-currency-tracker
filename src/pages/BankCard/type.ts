@@ -2,7 +2,7 @@ import { connect, ConnectedProps } from 'react-redux';
 
 import { RootState } from '@/store/store';
 
-type BanksDataType = {
+export type BanksDataType = {
   name: string;
   coordinates: number[];
   currencies: string[];

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Loader } from '@/components/ui-components/Loader';
 import { STOCKS } from '@/constants/mokData';
 import { SectionCardCurrencies } from '@/pages/Home/SectionCardCurrencies';
-import { CurrencyTypeMapping } from '@/types/components/cardCurrency';
+import { CurrencyTypeMapping } from '@/pages/Home/CardCurrency/type';
 import { CurrencyDataState } from '@/types/currencyType';
 
 import classes from './styles.scss';

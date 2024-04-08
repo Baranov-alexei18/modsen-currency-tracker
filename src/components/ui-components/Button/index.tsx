@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ButtonProps } from '@/types/components/buttonType';
+import { ButtonProps } from '@/components/ui-components/Button/type';
 
 import classes from './styles.scss';
 

@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react';
 
 import logo from '@/assets/img/logo.svg';
+import BurgerMenu from '@/assets/img/svg/BurgerMenu.svg';
 import { SideBar } from '@/components/Sidebar';
-import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
+import { Icon } from '@/components/ui-components/Icon';
 import { Navbar } from '@/components/ui-components/Navbar';
 import { SwitchApp } from '@/components/ui-components/Switcher';
 
@@ -30,7 +31,14 @@ export const Header = () => {
           <SwitchApp dataTestId="switch-theme" />
         </div>
         <div className={classes.sidebar}>
-          <BurgerMenu height="30px" width="30px" color="white" handleClick={toggleSidebar} />
+          <Icon
+            src={BurgerMenu}
+            height="30px"
+            width="30px"
+            alt="burger-menu"
+            title="open-sidebar"
+            toggleClick={toggleSidebar}
+          />
           <SideBar open={isOpen} setCloseSideBar={closeSidebar} />
         </div>
       </div>

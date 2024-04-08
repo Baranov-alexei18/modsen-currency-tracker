@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputProps } from '@/types/components/inputType';
+import { InputProps } from '@/components/ui-components/Input/type';
 
 import classes from './styles.scss';
 

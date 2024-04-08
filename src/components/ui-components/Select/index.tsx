@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 
-import { SelectProps } from '@/types/components/selectType';
+import { SelectProps } from '@/components/ui-components/Select/type';
 
 import classes from './styles.scss';
 

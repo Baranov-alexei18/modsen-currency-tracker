@@ -1,6 +1,6 @@
 import React, { Component, ErrorInfo } from 'react';
 
-import { ErrorBoundaryProps, ErrorBoundaryState } from '@/types/components/errorBoundaryType';
+import { ErrorBoundaryProps, ErrorBoundaryState } from '@/components/ErrorBoundary/type';
 
 import { Loader } from '../ui-components/Loader';
 

@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { THEME } from '@/constants/theme';
 import { generateRandomColor } from '@/helpers/generateRandomColor';
+import { CardCurrencyProp } from '@/pages/Home/CardCurrency/type';
 import { RootState } from '@/store/store';
-import { CardCurrencyProp } from '@/types/components/cardCurrency';
 
 import classes from './styles.scss';
 

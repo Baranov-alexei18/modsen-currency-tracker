@@ -1,5 +1,5 @@
 import { COLOR_CHART } from '@/constants/theme';
-import { AllDaysCharts, DayCharts } from '@/types/components/chartType';
+import { AllDaysCharts, DayCharts } from '@/pages/Timeline/ChartCurrency/type';
 
 export const getOptionsForChart = (
   dataPoints: AllDaysCharts,

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { ROUTER_LINKS } from '@/constants/routerLinks';
-import { NavbarProps } from '@/types/components/navbarType';
+import { NavbarProps } from '@/components/ui-components/Navbar/type';
 
 import classes from './styles.scss';
 

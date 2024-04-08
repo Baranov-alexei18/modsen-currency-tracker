@@ -1,7 +1,7 @@
 import React, { createRef, PureComponent, RefObject } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-import { MapProps, MapState } from '@/types/pages/bankCardType';
+import { MapProps, MapState } from '@/pages/BankCard/type';
 
 import classes from './styles.scss';
 

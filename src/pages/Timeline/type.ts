@@ -2,7 +2,7 @@ import { connect, ConnectedProps } from 'react-redux';
 
 import { RootState } from '@/store/store';
 
-import { CurrencyType } from '../currencyType';
+import { CurrencyType } from '../../types/currencyType';
 
 export type TimeLinePageState = {
     codeCurrency: string;

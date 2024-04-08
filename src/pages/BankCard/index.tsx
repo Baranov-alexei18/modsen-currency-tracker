@@ -4,7 +4,7 @@ import themes from '@/assets/style/theme.scss';
 import { LABELS } from '@/constants';
 import { BANKS_DATA } from '@/constants/mokData';
 import { THEME } from '@/constants/theme';
-import { BankCardPageProps, BankCardPageState, connector } from '@/types/pages/bankCardType';
+import { BankCardPageProps, BankCardPageState, connector } from '@/pages/BankCard/type';
 
 import { InputElasticSearch } from './InputElasticSearch';
 import { Map } from './Map';

@@ -1,4 +1,4 @@
-import { BanksDataType } from '../currencyType';
+import { BanksDataType } from '@/pages/BankCard/type';
 
 export type InputSearchProps = {
     className: string;
