@@ -4,7 +4,7 @@ import logo from '@/assets/img/logo.svg';
 import { SideBar } from '@/components/Sidebar';
 import { BurgerMenu } from '@/components/ui-components/Icons/BurgerMenu';
 import { Navbar } from '@/components/ui-components/Navbar';
-import { SwitchApp } from '@/components/ui-components/SwitchApp';
+import { SwitchApp } from '@/components/ui-components/Switcher';
 
 import classes from './styles.scss';
 

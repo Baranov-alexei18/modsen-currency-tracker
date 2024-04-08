@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { IconSidebarClose } from '@/components/ui-components/Icons/IconSidebarClose';
 import { Navbar } from '@/components/ui-components/Navbar';
-import { SwitchApp } from '@/components/ui-components/SwitchApp';
+import { SwitchApp } from '@/components/ui-components/Switcher';
 import { THEME } from '@/constants/theme';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { RootState } from '@/store/store';
