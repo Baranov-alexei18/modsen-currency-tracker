@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { currencies, currencyLatest } from '@/constants/mokData';
 import { CurrencyData, CurrencyLatestData, DataState } from '@/types/currencyType';
 import { getDataFromCurrencyApi } from '@/utils/dataApi';
 import { isYestardayDay } from '@/utils/date';
@@ -19,14 +20,14 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
   }
 });
 
-const currencies = localStorage.getItem('currencies');
-const currencyLatest = localStorage.getItem('currencyLatest');
+const currenciesData = currencies;
+const currencyLatestDate = currencyLatest;
 
 const initialState:DataState = {
-  currencies: currencies ? JSON.parse(currencies) : null,
+  currencies: currenciesData as CurrencyData || null,
   currencyLatest: currencyLatest
-    && isYestardayDay(JSON.parse(currencyLatest).meta.last_updated_at)
-    ? JSON.parse(currencyLatest) : null,
+    && isYestardayDay((currencyLatestDate as CurrencyLatestData).meta.last_updated_at)
+    ? currencyLatestDate as CurrencyLatestData : null,
 };
 
 const dataSlice = createSlice({

@@ -8,7 +8,7 @@ import classes from './styles.scss';
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_JL_API;
 
 export class Map extends PureComponent<MapProps, MapState> {
-  mapContainer: RefObject<HTMLDivElement> | HTMLDivElement;
+  mapContainer: RefObject<HTMLDivElement>;
 
   map: unknown;
 
@@ -22,14 +22,16 @@ export class Map extends PureComponent<MapProps, MapState> {
   }
 
   componentDidMount() {
-    this.map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/light-v11',
-      center: [27.559891, 53.896962],
-      zoom: 10,
-    });
+    if (!this.mapContainer.current) {
+      this.map = new mapboxgl.Map({
+        container: this.mapContainer,
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [27.559891, 53.896962],
+        zoom: 10,
+      });
 
-    this.addMarkers();
+      this.addMarkers();
+    }
   }
 
   componentDidUpdate(prevProps: MapProps) {
