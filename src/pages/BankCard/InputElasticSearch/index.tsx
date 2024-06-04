@@ -1,8 +1,8 @@
 import React, { createRef, PureComponent } from 'react';
 
 import IconSearch from '@/assets/img/svg/IconSearch.svg';
-import { InputSearchProps, InputSearchState } from '@/pages/BankCard/InputElasticSearch/type';
 import { InputType } from '@/components/ui-components/Input/type';
+import { InputSearchProps, InputSearchState } from '@/pages/BankCard/InputElasticSearch/type';
 import { getFieldsForElasticSearch } from '@/utils/elasticSearch';
 
 import classes from './styles.scss';

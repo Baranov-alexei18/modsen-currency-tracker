@@ -8,11 +8,11 @@ export const getFieldsForElasticSearch = (arr: unknown[], value: string): unknow
     Object.values(item).forEach((val) => {
       if (Array.isArray(val)) {
         val.forEach((subVal) => {
-          if (String(subVal).toLowerCase().includes(value.toLowerCase())) {
+          if (typeof subVal !== 'number' && String(subVal).toLowerCase().includes(value.toLowerCase())) {
             fields.add(subVal);
           }
         });
-      } else if (String(val).toLowerCase().includes(value.toLowerCase())) {
+      } else if (typeof val !== 'number' && String(val).toLowerCase().includes(value.toLowerCase())) {
         fields.add(val);
       }
     });
