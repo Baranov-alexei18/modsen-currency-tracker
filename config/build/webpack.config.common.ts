@@ -1,14 +1,9 @@
-import dotenv from 'dotenv';
+import Dotenv from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
-import { type Configuration, DefinePlugin } from 'webpack';
+import { type Configuration } from 'webpack';
 
 const rootDir = path.resolve(__dirname, '..', '..');
-const env = dotenv.config().parsed;
-const envKeys = Object.keys(env).reduce((prev:{[prev: string]:string}, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
 
 const config: Configuration = {
   entry: path.resolve(rootDir, 'src/index.tsx'),
@@ -39,7 +34,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: path.resolve(rootDir, 'public', 'index.html') }),
-    new DefinePlugin(envKeys),
+    new Dotenv(),
   ],
   devServer: {
     hot: true,
