@@ -34,7 +34,9 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: path.resolve(rootDir, 'public', 'index.html') }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+    }),
   ],
   devServer: {
     hot: true,

@@ -5,10 +5,10 @@ import themes from '@/assets/style/theme.scss';
 import { Loader } from '@/components/ui-components/Loader';
 import { ModalBase } from '@/components/ui-components/Modal';
 import { COLOR_CHART, THEME } from '@/constants/theme';
-import { observer } from '@/services/observer';
 import {
   ChartCurrencyProps, ChartCurrencyState, connector, DataForCreateCharts, UpdateDataForChart,
 } from '@/pages/Timeline/ChartCurrency/type';
+import { observer } from '@/services/observer';
 import { ThemeState } from '@/types/themeType';
 
 import { ModalUpdateDay } from '../ModalUpdateDay';
@@ -87,7 +87,7 @@ class ChartCurrency extends PureComponent<ThemeState & ChartCurrencyProps, Chart
     } = this.state;
     const { theme, isModalOpen } = this.props;
 
-    const dataPoints = dataCharts.map(({
+    const dataPoints = dataCharts.length && dataCharts.map(({
       price_close, price_high, price_low, price_open, time_period_start,
     }) => ({
       x: new Date(time_period_start),

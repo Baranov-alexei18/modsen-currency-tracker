@@ -40,7 +40,7 @@ export const getOptionsForChart = (
     risingColor: 'green',
     color: 'red',
     indexLabelTextAlign: 'right',
-    dataPoints: dataPoints.map((dataPoint: DayCharts) => ({
+    dataPoints: dataPoints.length && dataPoints.map((dataPoint: DayCharts) => ({
       x: dataPoint.x,
       y: dataPoint.y,
       color: dataPoint.y[0] < dataPoint.y[3] ? 'green' : 'red',
